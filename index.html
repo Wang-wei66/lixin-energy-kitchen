@@ -247,7 +247,55 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .edit-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:8px}
 .edit-badge.on{background:rgba(151,196,89,.15);color:var(--c3l);border:1px solid rgba(151,196,89,.3)}
 .edit-badge.off{background:rgba(160,160,176,.1);color:var(--text3);border:1px solid var(--border)}
+/* ===== Menu Module ===== */
+.menu-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 8px}
+.menu-cat-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.menu-cat-tab{padding:6px 14px;border:1px solid var(--border);background:var(--surface);color:var(--text2);border-radius:20px;cursor:pointer;font-size:13px;transition:all .15s}
+.menu-cat-tab:hover{color:var(--text)}
+.menu-cat-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.menu-search{flex:1;min-width:150px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 14px;border-radius:20px;font-size:13px}
+.menu-search:focus{outline:none;border-color:var(--accent)}
+.menu-add-btn{padding:8px 16px;background:var(--success);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:13px;transition:transform .15s}
+.menu-add-btn:active{transform:scale(.95)}
+.menu-count{font-size:12px;color:var(--text3);width:100%}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:10px}
+.dish-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.dish-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.dish-card-head{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(255,255,255,.02)}
+.dish-card-title{font-size:16px;font-weight:600;color:var(--text);line-height:1.35;outline:none}
+.dish-card-title[contenteditable=true]{box-shadow:0 0 0 1px var(--accent) inset;border-radius:6px;padding:4px 6px;background:var(--bg)}
+.dish-cat-badge{font-size:11px;padding:3px 10px;border-radius:10px;color:#fff;white-space:nowrap;flex-shrink:0;font-weight:500}
+.dish-card-body{padding:4px 16px 14px;flex:1}
+.dish-field{margin-bottom:12px}
+.dish-field-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-weight:600}
+.dish-field-value{font-size:13px;color:var(--text2);white-space:pre-wrap;line-height:1.65;word-break:break-word;outline:none}
+.dish-field-value[contenteditable=true]{color:var(--text);box-shadow:0 0 0 1px var(--accent) inset;border-radius:6px;padding:6px 8px;background:var(--bg)}
+.dish-card-foot{padding:10px 16px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
+.dish-card-foot button{padding:6px 12px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);border-radius:8px;cursor:pointer;font-size:12px;transition:all .15s}
+.dish-card-foot button:active{transform:scale(.95)}
+.dish-card-foot .export-btn{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.dish-card-foot .del-btn{background:transparent;color:var(--accent);border-color:var(--accent)}
+.menu-empty{grid-column:1/-1;text-align:center;color:var(--text3);padding:50px 20px;font-size:14px}
+@media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+.dish-form-row{margin-bottom:12px}
+.dish-form-row label{display:block;font-size:12px;color:var(--text2);margin-bottom:4px}
+.dish-form-row input,.dish-form-row textarea,.dish-form-row select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;font-size:14px;box-sizing:border-box;font-family:inherit}
+.dish-form-row textarea{min-height:80px;resize:vertical}
 </style>
+<script>
+(function(){
+  var cdns=['https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js','https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js','https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'];
+  function load(i){
+    if(i>=cdns.length){window.__canvasReady=false;return;}
+    var s=document.createElement('script');
+    s.src=cdns[i];
+    s.onload=function(){window.__canvasReady=true;};
+    s.onerror=function(){load(i+1);};
+    document.head.appendChild(s);
+  }
+  load(0);
+})();
+</script>
 </head>
 <body>
 
@@ -291,6 +339,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="nav-section">
       <div class="nav-section-title">规划</div>
       <div class="nav-item" data-target="roadmap"><span class="num">9</span> 落地路线图</div>
+      <div class="nav-item" data-target="menu"><span class="dot" style="background:var(--success)"></span><span class="num">10</span> 菜单管理</div>
     </div>
   </nav>
   <div class="sidebar-footer">
@@ -1026,6 +1075,17 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </ul>
 </div>
 
+<div class="section" id="menu">
+  <h2 class="editable-h2" contenteditable="true">菜单管理</h2>
+  <p class="page-sub" contenteditable="true">理信能量厨房 · 纯净素菜品库 — 按分类管理，支持在线编辑、新增菜品与卡片图片导出。</p>
+  <div class="menu-toolbar">
+    <div class="menu-cat-tabs" id="menuCatTabs"></div>
+    <input class="menu-search" id="menuSearch" placeholder="搜索菜名 / 食材..." oninput="renderMenu()">
+    <button class="menu-add-btn" onclick="openDishModal()">+ 添加菜品</button>
+  </div>
+  <div class="menu-count" id="menuCount"></div>
+  <div class="menu-grid" id="menuGrid"></div>
+</div>
 </div><!-- /main-inner -->
 </main>
 </div><!-- /app -->
@@ -1099,6 +1159,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <div class="nav-section">
       <div class="nav-section-title">规划</div>
       <div class="nav-item drawer-item" data-target="roadmap"><span class="num">9</span> 落地路线图</div>
+      <div class="nav-item drawer-item" data-target="menu"><span class="dot" style="background:var(--success)"></span><span class="num">10</span> 菜单管理</div>
     </div>
   </nav>
 </div>
@@ -1264,6 +1325,37 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </div>
 </div>
 
+<!-- ========== Dish Add Modal ========== -->
+<div class="modal-overlay" id="dishModal">
+  <div class="modal" style="max-width:480px;width:92%">
+    <h3>添加菜品</h3>
+    <div class="dish-form-row">
+      <label>分类</label>
+      <select id="dishCat"></select>
+    </div>
+    <div class="dish-form-row">
+      <label>菜名 *</label>
+      <input id="dishName" placeholder="例如：香菇烧豆腐">
+    </div>
+    <div class="dish-form-row">
+      <label>食材</label>
+      <textarea id="dishIngredients" placeholder="例如：香菇，老豆腐，青红椒"></textarea>
+    </div>
+    <div class="dish-form-row">
+      <label>制作步骤关键点</label>
+      <textarea id="dishSteps" placeholder="一步步写下关键步骤..."></textarea>
+    </div>
+    <div class="dish-form-row">
+      <label>备注 / 建议 / 改善</label>
+      <textarea id="dishNotes" placeholder="例如：改善：加裙带菜更鲜"></textarea>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeDishModal()">取消</button>
+      <button class="btn-confirm" onclick="submitDish()">保存</button>
+    </div>
+  </div>
+</div>
+
 <!-- ========== Toast ========== -->
 <div class="toast" id="toast"></div>
 
@@ -1292,6 +1384,749 @@ let settings = {
 
 let saveTimer = null;
 let isMobile = window.innerWidth <= 768;
+
+const DEFAULT_MENU = {
+  "categories": [
+    {
+      "name": "主菜",
+      "dishes": [
+        {
+          "name": "酸甜猴头菇",
+          "ingredients": "猴头菇，菠萝，红椒",
+          "steps": "1. 猴头菇提前半天取出泡发\n2. 泡好后反复清洗5-6遍，去除苦味\n3. 洗净后下锅煮一遍，捞出再次清洗干净，挤干水分\n\n4. 猴头菇加盐简单腌制入味，撒上生粉抓匀裹粉\n5. 锅中热油，下入猴头菇炸至筋道，捞出控油备用\n\n6. 菠萝、青红椒全部切好块，备用\n\n7. 碗内调勾芡汁：番茄酱+白醋+冰糖+淀粉+清水，搅拌均匀\n\n8. 锅中留底油，先将菠萝、青红椒下锅翻炒一遍\n9. 倒入调好的酸甜芡汁，煮至浓稠\n10. 下入炸好的猴头菇，大火快速翻炒，让食材均匀裹满酱汁即可出锅",
+          "notes": "主菜\n\n改善：猴头菇提前半天泡，换2-3次水\n菠萝小块",
+          "id": "d0_0"
+        },
+        {
+          "name": "照烧豆腐",
+          "ingredients": "老豆腐，海苔，照烧汁",
+          "steps": "1，处理食材：将豆腐切成大小均匀的小块，备用；准备好适量海苔，把每块豆腐的中间位置用海苔紧紧裹住，固定成型。\n2，煎制豆腐：锅中倒入适量食用油，油热后放入裹好海苔的豆腐块，开小火慢慢煎制，煎至豆腐表面微黄、微微定型后，盛出备用。\n3，调制照烧汁：取一个小碗，加入糖、番茄酱、松茸鲜、酱油、适量清水和少许淀粉，充分搅拌均匀，调成质地偏稀的照烧酱汁。\n4，熬煮酱汁：将调好的照烧酱汁倒入锅中，开小火慢慢搅拌熬煮，直至酱汁变得浓稠、顺滑。\n5，翻炒入味：把煎好的海苔豆腐块放入锅中，轻轻翻炒，让每块豆腐都均匀裹满照烧酱汁，翻炒均匀后即可关火出锅。",
+          "notes": "主菜",
+          "id": "d0_1"
+        },
+        {
+          "name": "芦笋炒口蘑",
+          "ingredients": "芦笋，胡萝卜，口蘑",
+          "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+          "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+          "id": "d0_2"
+        },
+        {
+          "name": "梅菜焖豆腐",
+          "ingredients": "梅干菜\n嫩豆腐\n干辣椒",
+          "steps": "1. 梅菜提前泡软，挤干水分后切碎，放入锅中加少量水焖熟，加生抽、盐、糖调味拌匀\n\n2. 豆腐切成小块，加在梅菜中，小火焖3-5分钟入味，勾薄芡收汁即可。",
+          "notes": "主菜\n\n改善：换成白色碟，加裙带菜，香菜",
+          "id": "d0_3"
+        },
+        {
+          "name": "冬瓜焖素丸子",
+          "ingredients": "冬瓜\n素丸子\n香菜",
+          "steps": "1，冬瓜切成块状，丸子提前一晚解冻备用\n\n2. 热锅下油，放入冬瓜块翻炒，加盐、松茸鲜调味，加适量水焖软。\n\n3. 倒入素丸子，继续焖 2-3 分钟。\n\n4. 最后撒上香菜即可出锅。",
+          "notes": "主菜",
+          "id": "d0_4"
+        },
+        {
+          "name": "咖喱千叶豆腐",
+          "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+          "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+          "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+          "id": "d0_5"
+        },
+        {
+          "name": "虫草花腐竹炒粉丝",
+          "ingredients": "腐竹\n虫草花\n腐竹\n粉丝\n荷兰豆",
+          "steps": "1. 粉丝和腐竹分别用温水泡软，粉丝剪短，腐竹切段；虫草花洗净，荷兰豆去筋\n\n2. 热锅冷油，放姜片炒香，加入腐竹和虫草花翻炒焖6-7分钟。\n\n3. 倒入荷兰豆和粉丝，加少许水，再焖2-3分钟至粉丝熟透。\n\n4. 加生抽、盐、松茸鲜调味，翻炒均匀即可出锅。",
+          "notes": "主菜\n\n改善：粉丝多一点，加黑木耳\n\n用平碟",
+          "id": "d0_6"
+        },
+        {
+          "name": "紫苏焖花菇",
+          "ingredients": "紫苏\n花菇\n 青红椒",
+          "steps": "1. 花菇泡发清洗：干花菇提前用清水泡软，泡发后反复清洗4-5遍，彻底去除花菇的苦味，沥干水分备用。\n\n2. 高压焖煮花菇：将处理好的花菇放入高压锅，加入十三香、蚝油、酱油、盐、松茸鲜调味，加适量清水没过花菇，盖上锅盖高压锅焖煮至花菇熟透软烂。\n\n3. 准备配菜：紫苏洗净切段，青红椒洗净切小块/条备用。\n\n4. 翻炒拌匀出锅：焖好的花菇连汤汁一同倒入锅中，加入紫苏、青红椒，开大火快速清炒至配菜断生、所有食材拌匀，即可出锅。",
+          "notes": "主菜\n\n改善：紫苏切碎，花菇切花刀",
+          "id": "d0_7"
+        },
+        {
+          "name": "素酸菜鱼",
+          "ingredients": "",
+          "steps": "1.  食材预处理：素鱼提前一晚取出，自然解冻后切片备用；酸菜洗净切好，生姜备好；豆芽洗净，沥干水分备用。\n\n2.  煎素鱼：热锅倒油，放入切好的素鱼片，煎至两面微黄，盛出备用。\n\n3.  炒香底料：锅中留少许底油，放入花椒，小米辣，姜片爆香，再加入切好的酸菜，翻炒至香味充分析出\n。\n4.  加入豆芽与清水：往锅中加入洗净的豆芽，翻炒1分钟，再倒入适量清水，大火烧开。\n\n5.  焖煮素鱼：将煎好的素鱼放回锅中，转小火焖煮7-8分钟，让素鱼和豆芽充分吸收汤汁入味。\n\n\n6.  基础调味：加入适量盐、松茸鲜，翻炒均匀调味。加香菜芝麻点缀。",
+          "notes": "主菜\n\n改善：少油，多酸菜",
+          "id": "d0_8"
+        },
+        {
+          "name": "金针菇焖豆腐",
+          "ingredients": "金针菇\n豆腐\n芝麻\n香菜",
+          "steps": "1. 金针菇洗净切段备用\n\n2. 豆腐单独下锅翻炒片刻，盛出备用\n\n3. 另起锅，先将金针菇炒至断生\n\n4. 倒入豆腐，和金针菇混合焖煮入味\n\n5. 加入老抽、盐、蚝油、松茸鲜、白胡椒、十三香调味翻匀\n\n6. 出锅前撒香菜，最后撒上芝麻即可",
+          "notes": "主菜\n\n改善：加胡萝卜丝点缀\n\n用草帽碟",
+          "id": "d0_9"
+        },
+        {
+          "name": "苦瓜炒素扒",
+          "ingredients": "苦瓜\n素扒",
+          "steps": "、\n1. 素扒提前一晚取出解冻\n\n2. 热锅少油，放入素扒煎至两面金黄，盛出切条备用\n\n3. 苦瓜切条，下入锅中翻炒至变软\n\n4. 放入切好的素扒，加入盐、松茸鲜调味\n\n5. 翻炒拌匀后即可出锅",
+          "notes": "主菜\n\n改善：给点红色点缀",
+          "id": "d0_10"
+        },
+        {
+          "name": "云南小瓜炒素丸子",
+          "ingredients": "小南瓜\n素丸子",
+          "steps": "1. 小南瓜洗净切好备用\n2. 素丸子切成四瓣小粒\n3. 热锅少油，将素丸子下锅轻轻煎至微黄盛出\n4. 放入切好的小南瓜一同翻炒，炒至断生、口感清脆\n5. 加入盐、油、松茸鲜等调料调味，翻炒均匀即可出锅",
+          "notes": "主菜\n改善：用草帽碟",
+          "id": "d0_11"
+        },
+        {
+          "name": "香蒸老豆腐",
+          "ingredients": "老豆腐\n香菜",
+          "steps": "：\n香蒸老豆腐\n1. 选用老豆腐，彻底吸干表面多余水分。\n2. 锅中热油，放入老豆腐炸制，无需炸透，仅炸至表面金黄即可，炸好后捞出放凉。\n\n3. 放凉后的炸豆腐切成片状，整齐码放在盘中备用。\n4. 调制蒸制底汤：准备清水，加入花椒、八角、酱油、素蚝油，搅拌调和均匀。\n5. 淋汁上锅蒸制：将调好的汤汁均匀淋在码好的豆腐上，蒸锅水开上汽后，大火蒸15分钟。\n6. 析出原汁备用：蒸够15分钟后关火，将盘中蒸出来的汤汁全部倒出留存备用。\n7. 爆香勾芡收汁：起锅放少许油，下入姜片香菜爆香，倒入刚刚留存的原汁，加水淀粉勾芡，熬至汤汁微微浓稠。\n8. 淋汁出锅：将熬好的浓稠酱汁均匀淋在蒸好的豆腐上，最后撒上香菜即可完成。",
+          "notes": "主菜\n搬到新厂，买了新蒸炉可以做",
+          "id": "d0_12"
+        },
+        {
+          "name": "素辣子鸡（杏鲍菇版）",
+          "ingredients": "杏鲍菇，芹菜，豆芽，干辣椒",
+          "steps": "素辣子鸡（杏鲍菇版）\n1. 杏鲍菇切好备用，裹上炸粉，入锅炸至定型，捞出控油备用\n2. 锅中下油，放入芹菜、豆芽等配菜翻炒，加盐、松茸鲜调味\n3. 倒入炸好的杏鲍菇，大火翻炒均匀入味\n4. 将炒好的所有食材盛入盘中\n5. 碗中放入辣椒粉、干辣椒，浇上滚烫热油激香\n6. 把激好的香辣油淋在菜品上，完成出品",
+          "notes": "主菜",
+          "id": "d0_13"
+        },
+        {
+          "name": "咖喱素丸子",
+          "ingredients": "素丸子，胡萝卜、土豆，咖喱酱",
+          "steps": "1. 素丸子一开四，胡萝卜、土豆切滚刀块备用\n2. 热锅下油，放入素丸子、胡萝卜、土豆一同翻炒炒香\n3. 咖喱酱加水调成糊状倒入锅中\n4. 盖上锅盖焖煮5–7分钟\n5. 加入盐、油及其他调料调味拌匀，即可出锅",
+          "notes": "主菜",
+          "id": "d0_14"
+        },
+        {
+          "name": "甜豆炒干豆腐",
+          "ingredients": "甜豆，干豆腐，青红椒",
+          "steps": "1. 干豆腐切成小块备用\n2. 热锅下油，放入甜豆清炒至断生\n3. 加入青红椒翻炒片刻\n4. 下入干豆腐块拌匀\n5. 加盐等调料调味，翻炒均匀即可出锅",
+          "notes": "主菜，少油",
+          "id": "d0_15"
+        },
+        {
+          "name": "素丸子焖土豆",
+          "ingredients": "土豆、胡萝卜，素丸子，香菜",
+          "steps": "1. 土豆、胡萝卜切滚刀块，素丸子对半切，素肠切粒备用\n2. 所有食材一同下锅翻炒炒香\n3. 加入清水、酱油、素蚝油、盐、松茸鲜调味\n4. 盖盖焖煮5–10分钟至土豆变软\n5. 放入香菜翻匀，即可出锅",
+          "notes": "主菜\n建议：香菜切碎",
+          "id": "d0_16"
+        },
+        {
+          "name": "素炒牛肝菌辣椒",
+          "ingredients": "牛肝菌、青红辣椒、生姜、昆布粉、盐、生抽、素蚝油、淀粉水",
+          "steps": "1. 牛肝菌放入盐水中浸泡，充分洗净泥沙\n\n2. 洗净后切成薄片\n\n3. 锅中烧水，水开加少许盐，放入牛肝菌焯水，捞出沥干备用\n\n4. 辣椒洗净，切菱形块备好\n\n炒制步骤\n\n1. 热锅倒油，油热下入姜片爆香\n\n2. 倒入焯好水的牛肝菌大火爆炒\n\n3. 放入菱形辣椒块一同翻炒至断生\n\n4. 调味：放适量盐、昆布粉、生抽、素蚝油\n\n5. 淋入少许淀粉水薄芡\n\n6. 大火收浓汤汁，翻炒均匀即可出锅",
+          "notes": "主菜",
+          "id": "d0_17"
+        },
+        {
+          "name": "丝瓜燜炒豆耳",
+          "ingredients": "丝瓜，豆耳，胡萝卜",
+          "steps": "豆耳买回来是有点咸的要先泡洗几次再备用\n\n先把瓜去皮切片\n放姜油炒香再放丝瓜一起炒再加适量的盐调味\n豆耳另用油炒香加盐加少许酱油调味\n后两种吃材混一起加调汁炒收汁",
+          "notes": "主菜",
+          "id": "d0_18"
+        },
+        {
+          "name": "土豆拼口蘑",
+          "ingredients": "口蘑，土豆，青红椒，烧烤料",
+          "steps": "1. 口蘑清洗，土豆去皮切块，青红椒切块备用\n\n2. 热锅倒油，分别将土豆块煎至表面金黄，口蘑煎至出水变软，盛出备用。\n\n3. 锅中留少许油，放入青红椒块炒至半熟，加烧烤料和少许盐调味。\n\n4. 倒入口蘑和煎好的土豆块，翻炒均匀即可出锅。",
+          "notes": "主菜",
+          "id": "d0_19"
+        },
+        {
+          "name": "上海青菌菇烧豆腐",
+          "ingredients": "豆腐，上青菜",
+          "steps": "一、食材处理\n\n1. 老豆腐切四方小块；上海青切段；平菇、杏鲍菇洗净，全部切成细丝备用。\n\n二、炸制菌菇\n\n锅中倒油，放入平菇丝、杏鲍菇丝炸至酥脆，逼出浓郁菌香，连菌菇油一同盛出备用。\n\n三、煎豆腐\n\n平底锅少油，下入豆腐块，煎至两面微黄，盛出待用。\n\n四、焖煮入味\n\n1. 原锅留底油，放入姜片爆香，倒入煎好的豆腐翻炒几下。\n\n2. 加入素蚝油、酱油、适量清水、少许盐，再放入炸好的菌菇丝，盖上锅盖焖煮15分钟。\n\n五、收尾提鲜\n\n1. 开盖放入上海青，煮至软脆口感。\n\n2. 出锅前淋入适量菌菇油，盖锅再焖1分钟。\n\n3. 最后补盐、加昆布粉调味，拌匀即可出锅。",
+          "notes": "",
+          "id": "d0_20"
+        },
+        {
+          "name": "苦瓜炒豆干",
+          "ingredients": "苦瓜，豆干",
+          "steps": "苦瓜炒豆干：这款菜要分开做\n.先将豆干煎香后倒入调适量汁煮到收汁，用盆装备用，\n.苦瓜洗干净切薄片，热锅凉油放几片姜炒香倒入苦瓜炒一两分钟后放适量盐和松茸鲜炒七分钟后将备好的豆腐捞一起上盆出餐",
+          "notes": "",
+          "id": "d0_21"
+        },
+        {
+          "name": "九层塔炒菌菇",
+          "ingredients": "九层塔、杏鲍菇、香菇\n适量盐、松茸鲜、酱油，糖，素蚝油",
+          "steps": "杏鲍菇、香菇切丁，加少许盐焯水，备用。\n先香煎杏鲍菇、香菇丁，再加入调料、九层塔翻炒，入味即可",
+          "notes": "",
+          "id": "d0_22"
+        },
+        {
+          "name": "麻婆豆腐",
+          "ingredients": "嫩豆腐\n适量玉米淀粉、盐、松茸鲜、酱油、白糖、素蚝油",
+          "steps": "嫩豆腐切小块，备用\n放油加入适量豆瓣酱、辣椒面、花椒炒香\n再放入豆腐加水，焖熟之后加入调酱汁，收汁放芝麻油、花椒油即可。",
+          "notes": "",
+          "id": "d0_23"
+        },
+        {
+          "name": "梅菜青豆豆干小炒（纯素）",
+          "ingredients": "梅干菜、青黄豆（嫩青豆）、豆干、青红椒、姜片\n调味：酱油、素蚝油、盐、昆布粉",
+          "steps": "预处理步骤\n\n1. 梅干菜提前清水泡软，反复淘洗干净，沥干备用\n\n2. 豆干洗净，切厚薄适中薄片；青黄豆冲洗干净沥干\n\n3. 青红椒洗净，切菱形片备用\n\n分步烹饪\n\n1. 煎豆干：切好的豆干先简单腌一下入味，热锅少油，下入豆干煎至两面微黄，盛出放一旁\n\n2. 焖青豆：锅中不放多余油，下青豆干炒片刻，加少量清水盖盖焖至熟透，盛出备用\n\n3. 爆香炒梅菜：热锅倒油，下姜片爆香，倒入沥干的梅干菜翻炒，再加入青红椒片一同翻炒至八分熟\n\n4. 混合合炒：倒入煎好的豆干、焖熟的青黄豆，加酱油、素蚝油、少许盐、昆布粉，大火快速翻炒均匀\n\n5. 调味出锅：尝味微调咸淡，翻炒入味后直接装盘上桌",
+          "notes": "",
+          "id": "d0_24"
+        }
+      ]
+    },
+    {
+      "name": "配菜",
+      "dishes": [
+        {
+          "name": "芦笋炒口蘑",
+          "ingredients": "芦笋，胡萝卜，口蘑",
+          "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+          "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+          "id": "d1_0"
+        },
+        {
+          "name": "蕃茄嫩豆腐毛豆",
+          "ingredients": "豆泡，番茄，毛豆",
+          "steps": "1，番茄清洗干净切块，备用\n嫩豆腐切小块，备用\n\n2，毛豆剥粒，清洗干净后放入高压锅，水位末过毛豆，加入十三香、少许盐，松茸鲜。（功能选择：煮饭）\n\n3，放油姜，倒入番茄翻炒，加入嫩豆腐，放适量酱油，焖入味即可，最后倒入毛豆，搅拌入味即可。",
+          "notes": "配菜\n\n改善：豆泡可以换成其他可做主菜",
+          "id": "d1_1"
+        },
+        {
+          "name": "口蘑炒苦瓜",
+          "ingredients": "口磨，苦瓜，枸杞",
+          "steps": "1. 口蘑切片，苦瓜切片，枸杞备好备用\n\n2. 热锅少油，下口蘑煎至两面金黄，撒少许黑胡椒调味，盛出备用\n\n3. 锅中留底油，放入苦瓜清炒，加少许水焖至变软\n\n4. 倒入煎好的口蘑，翻炒拌匀，加盐、松茸鲜调味至适口\n\n5. 出锅前撒上枸杞装饰即可",
+          "notes": "配菜\n\n改善：提前用盐腌减少苦味，切薄片用水冲",
+          "id": "d1_2"
+        },
+        {
+          "name": "素肠炒青瓜",
+          "ingredients": "素肠\n青瓜",
+          "steps": "1. 素肠提前一晚取出自然解冻\n\n2. 素肠斜刀切片，青瓜斜刀切片或用狼牙刀切成条\n\n3. 锅中热油，下入素肠翻炒至香味\n\n4. 放入青瓜，大火翻炒3–5分钟，保留青瓜脆感\n\n5. 加入盐、松茸鲜，黑胡椒调味，翻炒均匀后即可出锅",
+          "notes": "配菜",
+          "id": "d1_3"
+        },
+        {
+          "name": "白灵菇炒芦笋",
+          "ingredients": "芦笋，白灵菇，胡萝卜",
+          "steps": "1. 芦笋斜刀切段，白灵菇切花刀后切条，胡萝卜切薄片备用\n\n2. 芦笋放入沸水中焯水10秒，捞出沥干\n\n3. 锅中少油，放入白灵菇煎至两面金黄\n\n4. 下入焯好的芦笋、胡萝卜片一同清炒\n\n5. 加入黑胡椒、松茸鲜、盐调味，翻炒均匀即可出锅",
+          "notes": "配菜",
+          "id": "d1_4"
+        },
+        {
+          "name": "杏鲍菇丝炒芹菜",
+          "ingredients": "杏鲍菇\n芹菜",
+          "steps": "1. 杏鲍菇洗净切条再切丝，西芹处理好备用\n2. 热锅放入杏鲍菇丝，下锅煎至微黄\n3. 加入盐、松茸鲜翻炒入味\n4. 倒入西芹一同翻炒至断生\n5. 再次调味至适口，翻炒均匀即可出锅",
+          "notes": "配菜\n\n改善：加薄荷叶",
+          "id": "d1_5"
+        },
+        {
+          "name": "糖醋面筋",
+          "ingredients": "面筋，菠萝，青红椒",
+          "steps": "面筋的做法；\n1，使用专用面筋粉，加水搅拌均匀\n2，反复清洗面团，洗至没有白色面水为止\n3，把洗净的面筋揉成团\n4，放入冰箱冷藏醒面一晚上\n5，醒好后取出，先切成长条，再改刀切成小块\n6，锅中热油，下入面筋块炸至金黄蓬松即可",
+          "notes": "改善：菠萝不打碎，切小粒",
+          "id": "d1_6"
+        },
+        {
+          "name": "丝瓜煮口蘑",
+          "ingredients": "口蘑，丝瓜",
+          "steps": "1. 口蘑洗净对半切开，丝瓜切好备用\n2. 热锅放入口蘑，小火轻轻煎至出水\n3. 下入丝瓜一同清炒，炒至丝瓜出汁\n4. 加少量清水，盖上锅盖焖2-3分钟\n5. 加入盐、松茸鲜等调料调味拌匀\n6. 出锅前撒上枸杞点缀，即可装盘",
+          "notes": "",
+          "id": "d1_7"
+        },
+        {
+          "name": "腰果炒玉米粒",
+          "ingredients": "腰果，玉米粒，胡萝卜粒，毛豆",
+          "steps": "1. 腰果提前炸好备用\n2. 毛豆提前煮熟备用\n3. 玉米、胡萝卜粒准备好\n4. 热锅下油，放入玉米、胡萝卜粒、毛豆一同翻炒拌匀\n5. 加入盐、油及其他调料，翻炒均匀\n6. 出锅装盘，撒上腰果和芝麻点缀即可",
+          "notes": "",
+          "id": "d1_8"
+        },
+        {
+          "name": "丝瓜炒海鲜菇",
+          "ingredients": "丝瓜，海鲜菇，虫草花，姜",
+          "steps": "食材预处理\n开水灼海鲜菇\n1.丝瓜斜刀切块；海鲜菇洗净切段；虫草花洗净备用。\n\n烹饪步骤\n1.热锅下入海鲜菇、姜片小火煎制，加少许盐翻炒。\n2.放入虫草花一同翻炒出香味。\n3.倒入丝瓜持续翻炒，炒至食材析出水分。\n4.添加适量盐、松茸鲜、少许黑胡椒调味，翻炒均匀即可出锅",
+          "notes": "",
+          "id": "d1_9"
+        },
+        {
+          "name": "素肠杏鲍菇炒芦笋",
+          "ingredients": "素肠，杏鲍菇，芦笋，姜",
+          "steps": "",
+          "notes": "",
+          "id": "d1_10"
+        },
+        {
+          "name": "小米辣香菜汁伴嫩豆腐",
+          "ingredients": "嫩豆腐，小米辣，香菜",
+          "steps": "一、食材预处理\n\n1. 小米辣切圈，香菜切末，混合放入碗中，加酱油拌匀腌制备用。\n\n2. 另起锅烧热油，趁热淋入辣椒香菜碗中激出香味，料汁静置待用。\n\n二、煮制豆腐\n\n1. 锅中加水烧开，放入整块嫩豆腐，加少许盐。\n\n2. 大火煮沸，将豆腐煮透入味后捞出。\n\n三、成品装盘\n\n把煮好的豆腐切成小块摆入盘中，淋上调好的香辣料汁，即可上桌。",
+          "notes": "",
+          "id": "d1_11"
+        },
+        {
+          "name": "红烧土豆红萝卜草菇配香菜",
+          "ingredients": "草菇，土豆，红萝卜",
+          "steps": "1. 土豆、红萝卜去皮切滚刀块；草菇洗净，大个切两半，开水下锅焯1分钟捞出控水（去腥味）；姜切好备用。\n\n2.把草菇煎金黄备用\n\n 3.热锅倒油，下八角3个，干辣椒5个，香叶，红花椒，桂皮，姜各100g爆香，再用布袋装好备用\n4.先放入土豆、红萝卜翻炒2分钟，放一少块冰糖50g把备好的香料包放入锅中加少许十三香\n\n5. 倒入没过食材一半的清水，大火烧开后转中小火，盖盖焖煮。\n\n6. 开盖土豆红萝卜煮熟后转大火调汁加素蚝油，酱油，竹盐，茸鲜鲜，再加入草菇倒入锅中收浓汤汁，翻炒至汤汁裹满食材即可出锅。\n \n小技巧\n \n- 土豆别切太小，避免炖煮时软烂不成形。\n\n- 草菇焯水能去除土腥味，口感爽。。",
+          "notes": "",
+          "id": "d1_12"
+        },
+        {
+          "name": "云南瓜炒香菇",
+          "ingredients": "云南瓜，香菇，青红椒",
+          "steps": "云南瓜炒香菇\n \n1. 云南瓜去皮去瓤，切薄片；香菇洗净，鲜菇切片，姜，青红椒切片备用。\n\n2. 锅中烧水，水开下香菇焯水捞出，去涩备用。\n\n3. 热锅倒油，下姜爆香，放入香菇翻炒出香味。\n\n4. 倒入云南瓜片，大火快速翻炒至瓜片微微变软。\n\n5. 加少许酱油，素蚝油、竹盐、茸鲜鲜，一点点白糖提鲜，加少许玉米粉水调汁，加入青红椒翻炒均匀收汁即可出锅",
+          "notes": "",
+          "id": "d1_13"
+        },
+        {
+          "name": "沙姜腐竹",
+          "ingredients": "沙姜，鲜腐竹",
+          "steps": "沙姜腐竹：先把沙姜洗干净后用搅拌机打碎，再用油炒香备用\n腐竹是买新鲜的，先把腐竹灼水后捞出凉干水后和沙姜一起拌好上盆出餐",
+          "notes": "",
+          "id": "d1_14"
+        },
+        {
+          "name": "酸辣土豆丝（素版）",
+          "ingredients": "土豆、胡萝卜、青椒、姜片\n调料：醋、盐、昆布粉",
+          "steps": "1. 土豆、胡萝卜削皮，全部擦成细丝；土豆丝放入清水浸泡，洗去淀粉防发黑，胡萝卜丝沥干不用泡水。\n\n2. 青椒洗净切细丝，全部食材分开放置备用。\n\n烹饪步骤\n\n1. 热锅倒油，下姜片爆香，放入土豆丝翻炒至断生炒熟，盛出备用。\n\n2. 同一锅下入胡萝卜丝翻炒熟透，盛出和土豆丝放一起。\n\n3. 锅中再下青椒丝炒至断生，把炒好的土豆丝、胡萝卜丝倒回锅里混合翻炒。\n\n4. 沿锅边淋入香醋，加适量盐、昆布粉，大火快速翻拌均匀入味。\n\n5. 尝味调整咸淡，翻炒几秒即可装盘上桌。",
+          "notes": "",
+          "id": "d1_15"
+        },
+        {
+          "name": "西芹马蹄胡萝卜炒腰果",
+          "ingredients": "主料：西芹、马蹄（荸荠）、胡萝卜、熟腰果\n\n调味：盐、少许白糖、松茸鲜、昆布粉、食用油",
+          "steps": "步骤1：食材处理\n\n1. 西芹去筋切小丁；马蹄去皮切方丁；胡萝卜去皮切同等大小小丁，全部切均匀，成熟速度一致。\n\n2. 腰果如果是生的：冷油下锅小火慢炸至浅金黄捞出放凉；现成熟腰果最后放。\n\n3. 全部蔬菜丁冲洗沥干水分。\n\n步骤2：焯水（脆嫩关键）\n\n锅中烧水，加少许盐+几滴油，水沸下入胡萝卜先煮30秒，再加西芹、马蹄烫40秒，全部捞出过凉水沥干，保持脆爽、颜色鲜亮。\n\n步骤3：炒制过程\n\n1. 热锅少油，先倒入红萝卜，再倒入马蹄，西芹，大火快速翻炒1分钟。\n\n2. 调味：放一小勺盐、松茸鲜，适量昆布粉，半勺白糖提鲜。\n\n3. 关火后再放腰果，利用余温翻拌均匀即可装盘。",
+          "notes": "",
+          "id": "d1_16"
+        }
+      ]
+    },
+    {
+      "name": "小菜",
+      "dishes": [
+        {
+          "name": "虎皮尖椒",
+          "ingredients": "尖椒，酱油",
+          "steps": "1.尖椒切段，去除内部辣椒籽。\n 2.热锅下入尖椒，干煎至变软起虎皮，淋少许食用油。\n 3.倒入酱油翻炒入味，即可出锅。",
+          "notes": "",
+          "id": "d2_0"
+        },
+        {
+          "name": "芥末金耳",
+          "ingredients": "芥末，金耳",
+          "steps": "1.金耳切薄片备用。\n2.锅中烧水煮沸，下入金耳焯水10秒后捞出。\n3.放入冰箱冷藏1-2小时，使其口感爽脆。\n4.搭配芥末、酱油拌匀，即可装盘食用。",
+          "notes": "",
+          "id": "d2_1"
+        },
+        {
+          "name": "凉拌海带",
+          "ingredients": "海带丝、小米辣、香菜、食盐、酱油、香油、昆布粉、藤椒油、亚麻籽油、食醋",
+          "steps": "凉拌海带丝制作步骤\n\n\n1. 泡发处理：干海带丝放入水中充分泡发，反复冲洗干净杂质\n\n2. 焯水断生：锅中烧开水，下入海带丝焯水，煮好后捞出沥干，放凉待用\n\n3. 配菜改刀：香菜洗净切成小段；小米辣切碎备用\n\n4. 腌制辣椒：切好的小米辣放入碗中，加少许盐、酱油，搅拌后静置浸泡半小时\n\n5. 混合调味：放凉的海带丝中，倒入腌好的小米辣，加入香菜段\n\n6. 调配拌匀：依次添加食盐、酱油、食醋、香油、昆布粉、藤椒油、亚麻籽油，充分搅拌均匀\n\n7. 装盘即可：拌匀后盛入盘中，完成备餐",
+          "notes": "",
+          "id": "d2_2"
+        },
+        {
+          "name": "凉拌青瓜木耳",
+          "ingredients": "青瓜，干木耳，小米辣",
+          "steps": "食材准备\n\n备好黄瓜、干木耳、小米辣，全部冲洗干净，沥干备用\n处理配料\n\n小米辣切成辣椒圈，放入碗中，加少许盐、醋拌匀，腌制入味，放置一旁待用。\n\n处理木耳\n\n1. 干木耳提前充分泡发，仔细洗净杂质与泥沙。\n\n2. 锅中烧水，水开后放入木耳，煮5分钟，捞出放凉。\n\n处理黄瓜\n\n黄瓜对半切开，用刀拍碎，再切成适口小段（不宜切大块），装入盘中。\n\n混合凉拌\n\n1. 将放凉的木耳倒入黄瓜盘中。\n\n2. 加入腌好的辣椒圈，依次放入香油、盐、藤椒油、亚麻籽油。\n\n3. 充分翻拌均匀，最后装盘即可上桌。",
+          "notes": "加花生米",
+          "id": "d2_3"
+        },
+        {
+          "name": "凉拌海茸丝",
+          "ingredients": "海茸丝，香菜，小米辣",
+          "steps": "凉拌海茸丝\n\n食材处理\n\n1. 海茸丝放入水中浸泡，期间观察软硬度，泡至合适口感后捞出。\n\n2. 锅中烧水，水沸后加少许盐，放入海茸丝焯水2分钟，捞出放凉备用，再将放凉的海茸丝切短。\n\n3. 小米辣洗净切细圈，香菜洗净切成小段。\n\n调拌入味\n\n1. 切好的小米辣加适量醋、盐腌制，激出辣味。\n\n2. 往海茸丝中放入腌好的小米辣、香菜段，依次加入香油、亚麻籽油、藤椒油、醋、盐，根据个人口味调整用量，充分拌匀。\n\n收尾\n\n拌匀后装盘即可上桌。",
+          "notes": "",
+          "id": "d2_4"
+        },
+        {
+          "name": "小米辣凉拌莴笋",
+          "ingredients": "莴笋1根、胡萝卜1根、小米辣适量、苹果醋/白醋、食盐、香油、亚麻籽油、昆布粉",
+          "steps": "二、处理食材\n\n1. 莴笋削去外皮，胡萝卜削皮，全部食材清水洗净沥干\n\n2. 莴笋、胡萝卜用擦丝器擦成细丝；小米辣洗净切圈\n\n三、焯水\n\n锅中烧水，水开后放入少许盐、食用油，下入莴笋丝、胡萝卜丝，焯水3～5分钟，捞出放凉备用\n\n四、腌辣椒底汁\n\n小米辣圈装入碗中，倒入苹果醋或白醋，放少许盐拌匀，腌制入味\n\n五、拌匀调味\n\n晾凉的双丝放入大碗，倒入腌好的小米辣连同料汁，依次添加食盐、昆布粉、香油、亚麻籽油，充分翻拌均匀，尝味微调咸淡\n\n六、收尾\n\n调好味道后装盘，即可上桌食用",
+          "notes": "",
+          "id": "d2_5"
+        },
+        {
+          "name": "凉拌豆皮豆芽胡萝卜",
+          "ingredients": "豆皮，豆芽，胡萝卜",
+          "steps": "一、备菜处理\n\n1. 干豆腐皮切成细丝，备用\n\n2. 黄豆芽摘洗干净，沥干备用\n\n3. 胡萝卜去皮切细丝\n\n4. 香菜洗净切小段；小米辣洗净切碎\n\n二、焯水步骤\n\n1. 锅中烧水煮沸，下入豆皮丝焯水，熟透后捞出摊开晾凉\n\n2. 另起沸水，水里加少许盐、食用油，放入黄豆芽焯水至断生，捞出沥干放凉\n\n三、混合调味\n\n1. 晾凉的豆皮、豆芽放入大碗，加胡萝卜丝、香菜段、小米辣碎\n\n2. 依次调入：盐、昆布粉、生抽酱油、陈醋、香油、藤椒油、亚麻籽油，所有调料按个人口味适量添加\n\n3. 充分翻拌均匀，静置入味后装盘即可上桌",
+          "notes": "",
+          "id": "d2_6"
+        },
+        {
+          "name": "炒萝卜干",
+          "ingredients": "萝卜干、干辣椒粉、干辣椒面、食用油、盐、酱油、素蚝油、昆布粉",
+          "steps": "做法\n\n1. 萝卜干加水泡软，切成小丁，充分沥干水分。\n\n2. 锅中多放些食用油，油热后下入萝卜干丁，中火慢慢煸炒至水分收干。\n\n3. 放入干辣椒粉、干辣椒面，继续翻炒出香辣味。\n\n4. 依次加入盐、酱油、素蚝油，翻炒至调料融合入味。\n\n5. 最后撒入昆布粉拌匀，即可出锅备用。",
+          "notes": "",
+          "id": "d2_7"
+        }
+      ]
+    },
+    {
+      "name": "10-15分钟快手菜",
+      "dishes": [
+        {
+          "name": "梅菜焖豆腐",
+          "ingredients": "梅干菜\n嫩豆腐\n干辣椒",
+          "steps": "1. 梅菜提前泡软，挤干水分后切碎，放入锅中加少量水焖熟，加生抽、盐、糖调味拌匀\n\n2. 豆腐切成小块，加在梅菜中，小火焖3-5分钟入味，勾薄芡收汁即可。",
+          "notes": "主菜\n\n改善：换成白色碟，加裙带菜，香菜",
+          "id": "d3_0"
+        },
+        {
+          "name": "咖喱千叶豆腐",
+          "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+          "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+          "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+          "id": "d3_1"
+        },
+        {
+          "name": "金针菇焖豆腐",
+          "ingredients": "金针菇\n豆腐\n芝麻\n香菜",
+          "steps": "1. 金针菇洗净切段备用\n\n2. 豆腐单独下锅翻炒片刻，盛出备用\n\n3. 另起锅，先将金针菇炒至断生\n\n4. 倒入豆腐，和金针菇混合焖煮入味\n\n5. 加入老抽、盐、蚝油、松茸鲜、白胡椒、十三香调味翻匀\n\n6. 出锅前撒香菜，最后撒上芝麻即可",
+          "notes": "主菜\n\n改善：加胡萝卜丝点缀\n\n用草帽碟",
+          "id": "d3_2"
+        },
+        {
+          "name": "甜豆炒干豆腐",
+          "ingredients": "甜豆，干豆腐，青红椒",
+          "steps": "1. 干豆腐切成小块备用\n2. 热锅下油，放入甜豆清炒至断生\n3. 加入青红椒翻炒片刻\n4. 下入干豆腐块拌匀\n5. 加盐等调料调味，翻炒均匀即可出锅",
+          "notes": "主菜，少油",
+          "id": "d3_3"
+        },
+        {
+          "name": "芥末金耳",
+          "ingredients": "芥末，金耳",
+          "steps": "1.金耳切薄片备用。\n2.锅中烧水煮沸，下入金耳焯水10秒后捞出。\n3.放入冰箱冷藏1-2小时，使其口感爽脆。\n4.搭配芥末、酱油拌匀，即可装盘食用。",
+          "notes": "",
+          "id": "d3_4"
+        },
+        {
+          "name": "凉拌海带",
+          "ingredients": "海带丝、小米辣、香菜、食盐、酱油、香油、昆布粉、藤椒油、亚麻籽油、食醋",
+          "steps": "凉拌海带丝制作步骤\n\n\n1. 泡发处理：干海带丝放入水中充分泡发，反复冲洗干净杂质\n\n2. 焯水断生：锅中烧开水，下入海带丝焯水，煮好后捞出沥干，放凉待用\n\n3. 配菜改刀：香菜洗净切成小段；小米辣切碎备用\n\n4. 腌制辣椒：切好的小米辣放入碗中，加少许盐、酱油，搅拌后静置浸泡半小时\n\n5. 混合调味：放凉的海带丝中，倒入腌好的小米辣，加入香菜段\n\n6. 调配拌匀：依次添加食盐、酱油、食醋、香油、昆布粉、藤椒油、亚麻籽油，充分搅拌均匀\n\n7. 装盘即可：拌匀后盛入盘中，完成备餐",
+          "notes": "",
+          "id": "d3_5"
+        },
+        {
+          "name": "凉拌青瓜木耳",
+          "ingredients": "青瓜，干木耳，小米辣",
+          "steps": "食材准备\n\n备好黄瓜、干木耳、小米辣，全部冲洗干净，沥干备用\n处理配料\n\n小米辣切成辣椒圈，放入碗中，加少许盐、醋拌匀，腌制入味，放置一旁待用。\n\n处理木耳\n\n1. 干木耳提前充分泡发，仔细洗净杂质与泥沙。\n\n2. 锅中烧水，水开后放入木耳，煮5分钟，捞出放凉。\n\n处理黄瓜\n\n黄瓜对半切开，用刀拍碎，再切成适口小段（不宜切大块），装入盘中。\n\n混合凉拌\n\n1. 将放凉的木耳倒入黄瓜盘中。\n\n2. 加入腌好的辣椒圈，依次放入香油、盐、藤椒油、亚麻籽油。\n\n3. 充分翻拌均匀，最后装盘即可上桌。",
+          "notes": "",
+          "id": "d3_6"
+        },
+        {
+          "name": "小米辣凉拌莴笋",
+          "ingredients": "莴笋1根、胡萝卜1根、小米辣适量、苹果醋/白醋、食盐、香油、亚麻籽油、昆布粉",
+          "steps": "二、处理食材\n\n1. 莴笋削去外皮，胡萝卜削皮，全部食材清水洗净沥干\n\n2. 莴笋、胡萝卜用擦丝器擦成细丝；小米辣洗净切圈\n\n三、焯水\n\n锅中烧水，水开后放入少许盐、食用油，下入莴笋丝、胡萝卜丝，焯水3～5分钟，捞出放凉备用\n\n四、腌辣椒底汁\n\n小米辣圈装入碗中，倒入苹果醋或白醋，放少许盐拌匀，腌制入味\n\n五、拌匀调味\n\n晾凉的双丝放入大碗，倒入腌好的小米辣连同料汁，依次添加食盐、昆布粉、香油、亚麻籽油，充分翻拌均匀，尝味微调咸淡\n\n六、收尾\n\n调好味道后装盘，即可上桌食用",
+          "notes": "",
+          "id": "d3_7"
+        },
+        {
+          "name": "炒萝卜干",
+          "ingredients": "萝卜干、干辣椒粉、干辣椒面、食用油、盐、酱油、素蚝油、昆布粉",
+          "steps": "做法\n\n1. 萝卜干加水泡软，切成小丁，充分沥干水分。\n\n2. 锅中多放些食用油，油热后下入萝卜干丁，中火慢慢煸炒至水分收干。\n\n3. 放入干辣椒粉、干辣椒面，继续翻炒出香辣味。\n\n4. 依次加入盐、酱油、素蚝油，翻炒至调料融合入味。\n\n5. 最后撒入昆布粉拌匀，即可出锅备用。",
+          "notes": "",
+          "id": "d3_8"
+        },
+        {
+          "name": "青椒炒萝卜干",
+          "ingredients": "青椒，萝卜干",
+          "steps": "青椒炒萝卜干 完整备菜+炒制流程\n\n一、食材预处理\n\n1. 青椒冲洗干净，切粒备用\n\n2. 萝卜干清水洗净，加水浸泡至发软，捞出沥干后切成小丁，放一旁待用\n\n二、炒制步骤\n\n1. 热锅倒油，下入萝卜干，中小火翻炒，把萝卜干水分彻底炒干\n\n2. 倒入青椒粒，和萝卜干一同翻炒均匀\n\n3. 调味：依次加入酱油、素蚝油、少许盐、昆布粉翻炒入味\n\n4. 出锅前撒入芝麻拌匀，也可装盘后表面撒芝麻点缀",
+          "notes": "",
+          "id": "d3_9"
+        }
+      ]
+    },
+    {
+      "name": "接待菜单",
+      "dishes": [
+        {
+          "name": "酸甜猴头菇",
+          "ingredients": "猴头菇，菠萝，红椒",
+          "steps": "1. 猴头菇提前半天取出泡发\n2. 泡好后反复清洗5-6遍，去除苦味\n3. 洗净后下锅煮一遍，捞出再次清洗干净，挤干水分\n\n4. 猴头菇加盐简单腌制入味，撒上生粉抓匀裹粉\n5. 锅中热油，下入猴头菇炸至筋道，捞出控油备用\n\n6. 菠萝、青红椒全部切好块，备用\n\n7. 碗内调勾芡汁：番茄酱+白醋+冰糖+淀粉+清水，搅拌均匀\n\n8. 锅中留底油，先将菠萝、青红椒下锅翻炒一遍\n9. 倒入调好的酸甜芡汁，煮至浓稠\n10. 下入炸好的猴头菇，大火快速翻炒，让食材均匀裹满酱汁即可出锅",
+          "notes": "主菜\n\n改善：猴头菇提前半天泡，换2-3次水\n菠萝小块",
+          "id": "d4_0"
+        },
+        {
+          "name": "照烧豆腐",
+          "ingredients": "老豆腐，海苔，照烧汁",
+          "steps": "1，处理食材：将豆腐切成大小均匀的小块，备用；准备好适量海苔，把每块豆腐的中间位置用海苔紧紧裹住，固定成型。\n2，煎制豆腐：锅中倒入适量食用油，油热后放入裹好海苔的豆腐块，开小火慢慢煎制，煎至豆腐表面微黄、微微定型后，盛出备用。\n3，调制照烧汁：取一个小碗，加入糖、番茄酱、松茸鲜、酱油、适量清水和少许淀粉，充分搅拌均匀，调成质地偏稀的照烧酱汁。\n4，熬煮酱汁：将调好的照烧酱汁倒入锅中，开小火慢慢搅拌熬煮，直至酱汁变得浓稠、顺滑。\n5，翻炒入味：把煎好的海苔豆腐块放入锅中，轻轻翻炒，让每块豆腐都均匀裹满照烧酱汁，翻炒均匀后即可关火出锅。",
+          "notes": "主菜",
+          "id": "d4_1"
+        },
+        {
+          "name": "芦笋炒口蘑",
+          "ingredients": "芦笋，胡萝卜，口蘑",
+          "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+          "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+          "id": "d4_2"
+        },
+        {
+          "name": "冬瓜焖素丸子",
+          "ingredients": "冬瓜\n素丸子\n香菜",
+          "steps": "1，冬瓜切成块状，丸子提前一晚解冻备用\n\n2. 热锅下油，放入冬瓜块翻炒，加盐、松茸鲜调味，加适量水焖软。\n\n3. 倒入素丸子，继续焖 2-3 分钟。\n\n4. 最后撒上香菜即可出锅。",
+          "notes": "主菜",
+          "id": "d4_3"
+        },
+        {
+          "name": "咖喱千叶豆腐",
+          "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+          "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+          "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+          "id": "d4_4"
+        },
+        {
+          "name": "紫苏焖花菇",
+          "ingredients": "紫苏\n花菇\n 青红椒",
+          "steps": "1. 花菇泡发清洗：干花菇提前用清水泡软，泡发后反复清洗4-5遍，彻底去除花菇的苦味，沥干水分备用。\n\n2. 高压焖煮花菇：将处理好的花菇放入高压锅，加入十三香、蚝油、酱油、盐、松茸鲜调味，加适量清水没过花菇，盖上锅盖高压锅焖煮至花菇熟透软烂。\n\n3. 准备配菜：紫苏洗净切段，青红椒洗净切小块/条备用。\n\n4. 翻炒拌匀出锅：焖好的花菇连汤汁一同倒入锅中，加入紫苏、青红椒，开大火快速清炒至配菜断生、所有食材拌匀，即可出锅。",
+          "notes": "主菜\n\n改善：紫苏切碎，花菇切花刀",
+          "id": "d4_5"
+        },
+        {
+          "name": "云南小瓜炒素丸子",
+          "ingredients": "小南瓜\n素丸子",
+          "steps": "1. 小南瓜洗净切好备用\n2. 素丸子切成四瓣小粒\n3. 热锅少油，将素丸子下锅轻轻煎至微黄盛出\n4. 放入切好的小南瓜一同翻炒，炒至断生、口感清脆\n5. 加入盐、油、松茸鲜等调料调味，翻炒均匀即可出锅",
+          "notes": "主菜\n改善：用草帽碟",
+          "id": "d4_6"
+        },
+        {
+          "name": "香蒸老豆腐",
+          "ingredients": "老豆腐\n香菜",
+          "steps": "：\n香蒸老豆腐\n1. 选用老豆腐，彻底吸干表面多余水分。\n2. 锅中热油，放入老豆腐炸制，无需炸透，仅炸至表面金黄即可，炸好后捞出放凉。\n\n3. 放凉后的炸豆腐切成片状，整齐码放在盘中备用。\n4. 调制蒸制底汤：准备清水，加入花椒、八角、酱油、素蚝油，搅拌调和均匀。\n5. 淋汁上锅蒸制：将调好的汤汁均匀淋在码好的豆腐上，蒸锅水开上汽后，大火蒸15分钟。\n6. 析出原汁备用：蒸够15分钟后关火，将盘中蒸出来的汤汁全部倒出留存备用。\n7. 爆香勾芡收汁：起锅放少许油，下入姜片香菜爆香，倒入刚刚留存的原汁，加水淀粉勾芡，熬至汤汁微微浓稠。\n8. 淋汁出锅：将熬好的浓稠酱汁均匀淋在蒸好的豆腐上，最后撒上香菜即可完成。",
+          "notes": "主菜\n搬到新厂，买了新蒸炉可以做",
+          "id": "d4_7"
+        },
+        {
+          "name": "咖喱素丸子",
+          "ingredients": "素丸子，胡萝卜、土豆，咖喱酱",
+          "steps": "1. 素丸子一开四，胡萝卜、土豆切滚刀块备用\n2. 热锅下油，放入素丸子、胡萝卜、土豆一同翻炒炒香\n3. 咖喱酱加水调成糊状倒入锅中\n4. 盖上锅盖焖煮5–7分钟\n5. 加入盐、油及其他调料调味拌匀，即可出锅",
+          "notes": "主菜",
+          "id": "d4_8"
+        },
+        {
+          "name": "上海青菌菇烧豆腐",
+          "ingredients": "豆腐，上青菜",
+          "steps": "一、食材处理\n\n1. 老豆腐切四方小块；上海青切段；平菇、杏鲍菇洗净，全部切成细丝备用。\n\n二、炸制菌菇\n\n锅中倒油，放入平菇丝、杏鲍菇丝炸至酥脆，逼出浓郁菌香，连菌菇油一同盛出备用。\n\n三、煎豆腐\n\n平底锅少油，下入豆腐块，煎至两面微黄，盛出待用。\n\n四、焖煮入味\n\n1. 原锅留底油，放入姜片爆香，倒入煎好的豆腐翻炒几下。\n\n2. 加入素蚝油、酱油、适量清水、少许盐，再放入炸好的菌菇丝，盖上锅盖焖煮15分钟。\n\n五、收尾提鲜\n\n1. 开盖放入上海青，煮至软脆口感。\n\n2. 出锅前淋入适量菌菇油，盖锅再焖1分钟。\n\n3. 最后补盐、加昆布粉调味，拌匀即可出锅。",
+          "notes": "",
+          "id": "d4_9"
+        },
+        {
+          "name": "丝瓜炒海鲜菇",
+          "ingredients": "丝瓜，海鲜菇，虫草花，姜",
+          "steps": "食材预处理\n开水灼海鲜菇\n1.丝瓜斜刀切块；海鲜菇洗净切段；虫草花洗净备用。\n\n烹饪步骤\n1.热锅下入海鲜菇、姜片小火煎制，加少许盐翻炒。\n2.放入虫草花一同翻炒出香味。\n3.倒入丝瓜持续翻炒，炒至食材析出水分。\n4.添加适量盐、松茸鲜、少许黑胡椒调味，翻炒均匀即可出锅",
+          "notes": "",
+          "id": "d4_10"
+        },
+        {
+          "name": "素辣子鸡（杏鲍菇版）",
+          "ingredients": "杏鲍菇，芹菜，豆芽，干辣椒",
+          "steps": "素辣子鸡（杏鲍菇版）\n1. 杏鲍菇切好备用，裹上炸粉，入锅炸至定型，捞出控油备用\n2. 锅中下油，放入芹菜、豆芽等配菜翻炒，加盐、松茸鲜调味\n3. 倒入炸好的杏鲍菇，大火翻炒均匀入味\n4. 将炒好的所有食材盛入盘中\n5. 碗中放入辣椒粉、干辣椒，浇上滚烫热油激香\n6. 把激好的香辣油淋在菜品上，完成出品",
+          "notes": "主菜",
+          "id": "d4_11"
+        }
+      ]
+    }
+  ]
+};
+
+// ========== Menu Module ==========
+const MENU_KEY = 'lixin_kitchen_menu_v5';
+let MENU_DATA = null;
+let menuActiveCat = '全部';
+
+function loadMenu() {
+  const raw = localStorage.getItem(MENU_KEY);
+  if (raw) {
+    try { MENU_DATA = JSON.parse(raw); return; } catch(e) {}
+  }
+  MENU_DATA = JSON.parse(JSON.stringify(DEFAULT_MENU));
+}
+
+function saveMenu() {
+  localStorage.setItem(MENU_KEY, JSON.stringify(MENU_DATA));
+}
+
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function catColor(cat) {
+  const map = { '主菜': '#e94560', '配菜': '#ef9f27', '小菜': '#0f6e56', '10-15分钟快手菜': '#3a7bd5', '接待菜单': '#9b59b6' };
+  return map[cat] || '#e94560';
+}
+
+function findDish(id) {
+  if (!MENU_DATA) return null;
+  for (const cat of MENU_DATA.categories) {
+    const d = cat.dishes.find(x => x.id === id);
+    if (d) return d;
+  }
+  return null;
+}
+
+function getMenuDishes() {
+  let all = [];
+  MENU_DATA.categories.forEach(cat => {
+    cat.dishes.forEach(d => all.push(Object.assign({}, d, { cat: cat.name })));
+  });
+  return all;
+}
+
+function renderMenu() {
+  if (!MENU_DATA) return;
+  const tabsEl = document.getElementById('menuCatTabs');
+  if (!tabsEl) return;
+  const cats = ['全部'].concat(MENU_DATA.categories.map(c => c.name));
+  tabsEl.innerHTML = cats.map(c =>
+    '<div class="menu-cat-tab ' + (c === menuActiveCat ? 'active' : '') + '" data-cat-tab="' + escapeHtml(c) + '">' + escapeHtml(c) + '</div>'
+  ).join('');
+
+  const qEl = document.getElementById('menuSearch');
+  const q = (qEl && qEl.value ? qEl.value : '').trim().toLowerCase();
+
+  let dishes = getMenuDishes();
+  if (menuActiveCat !== '全部') dishes = dishes.filter(d => d.cat === menuActiveCat);
+  if (q) dishes = dishes.filter(d => (d.name || '').toLowerCase().includes(q) || (d.ingredients || '').toLowerCase().includes(q));
+
+  const grid = document.getElementById('menuGrid');
+  const countEl = document.getElementById('menuCount');
+  if (countEl) countEl.textContent = '共 ' + dishes.length + ' 道菜' + (menuActiveCat !== '全部' ? '（' + menuActiveCat + '）' : '');
+
+  if (dishes.length === 0) {
+    grid.innerHTML = '<div class="menu-empty">暂无菜品，点击右上角“+ 添加菜品”创建</div>';
+    return;
+  }
+  grid.innerHTML = dishes.map(dishCardHTML).join('');
+}
+
+function dishCardHTML(d) {
+  const editable = settings.editEnabled;
+  const color = catColor(d.cat);
+  const ce = editable ? ' contenteditable="true"' : '';
+  const delBtn = editable ? '<button class="del-btn" data-delete="' + d.id + '">删除</button>' : '';
+  return '' +
+    '<div class="dish-card" id="dish-' + d.id + '">' +
+      '<div class="dish-card-head" style="border-bottom:3px solid ' + color + '">' +
+        '<div class="dish-card-title"' + ce + ' data-dish="' + d.id + '" data-field="name">' + escapeHtml(d.name) + '</div>' +
+        '<span class="dish-cat-badge" style="background:' + color + '">' + escapeHtml(d.cat) + '</span>' +
+      '</div>' +
+      '<div class="dish-card-body">' +
+        '<div class="dish-field"><div class="dish-field-label">食材</div><div class="dish-field-value"' + ce + ' data-dish="' + d.id + '" data-field="ingredients">' + (escapeHtml(d.ingredients) || '—') + '</div></div>' +
+        '<div class="dish-field"><div class="dish-field-label">制作步骤关键点</div><div class="dish-field-value"' + ce + ' data-dish="' + d.id + '" data-field="steps">' + (escapeHtml(d.steps) || '—') + '</div></div>' +
+        '<div class="dish-field"><div class="dish-field-label">备注 / 建议 / 改善</div><div class="dish-field-value"' + ce + ' data-dish="' + d.id + '" data-field="notes">' + (escapeHtml(d.notes) || '—') + '</div></div>' +
+      '</div>' +
+      '<div class="dish-card-foot">' +
+        '<button class="export-btn" data-export="' + d.id + '">导出图片</button>' +
+        delBtn +
+      '</div>' +
+    '</div>';
+}
+
+function setMenuCat(cat) {
+  menuActiveCat = cat;
+  renderMenu();
+  const sec = document.getElementById('menu');
+  if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateDish(id, field, value) {
+  const d = findDish(id);
+  if (!d) return;
+  d[field] = value;
+  saveMenu();
+  scheduleMenuSave();
+}
+
+let menuSaveTimer = null;
+function scheduleMenuSave() {
+  clearTimeout(menuSaveTimer);
+  menuSaveTimer = setTimeout(saveAll, 1200);
+}
+
+function openDishModal() {
+  const sel = document.getElementById('dishCat');
+  sel.innerHTML = MENU_DATA.categories.map(c => '<option value="' + escapeHtml(c.name) + '">' + escapeHtml(c.name) + '</option>').join('');
+  document.getElementById('dishName').value = '';
+  document.getElementById('dishIngredients').value = '';
+  document.getElementById('dishSteps').value = '';
+  document.getElementById('dishNotes').value = '';
+  document.getElementById('dishModal').classList.add('open');
+  setTimeout(() => document.getElementById('dishName').focus(), 100);
+}
+
+function closeDishModal() {
+  document.getElementById('dishModal').classList.remove('open');
+}
+
+function submitDish() {
+  const cat = document.getElementById('dishCat').value;
+  const name = document.getElementById('dishName').value.trim();
+  if (!name) { showToast('请输入菜名', 'error'); return; }
+  const catObj = MENU_DATA.categories.find(c => c.name === cat);
+  if (!catObj) return;
+  catObj.dishes.push({
+    id: 'd_' + Date.now(),
+    name: name,
+    ingredients: document.getElementById('dishIngredients').value,
+    steps: document.getElementById('dishSteps').value,
+    notes: document.getElementById('dishNotes').value
+  });
+  saveMenu();
+  menuActiveCat = cat;
+  renderMenu();
+  closeDishModal();
+  saveAll();
+  showToast('已添加菜品：' + name, 'success');
+}
+
+function deleteDish(id) {
+  const d = findDish(id);
+  if (!d) return;
+  if (!confirm('确定删除“' + d.name + '”？此操作不可撤销。')) return;
+  for (const cat of MENU_DATA.categories) {
+    const idx = cat.dishes.findIndex(x => x.id === id);
+    if (idx >= 0) { cat.dishes.splice(idx, 1); break; }
+  }
+  saveMenu();
+  renderMenu();
+  saveAll();
+  showToast('已删除', 'success');
+}
+
+async function exportCard(id) {
+  if (typeof html2canvas === 'undefined' || !window.__canvasReady) {
+    showToast('图片导出库加载中，请稍后重试（需联网）', 'error');
+    return;
+  }
+  const card = document.getElementById('dish-' + id);
+  if (!card) return;
+  const foot = card.querySelector('.dish-card-foot');
+  if (foot) foot.style.display = 'none';
+  showIndicator('saving', '生成图片...');
+  try {
+    const canvas = await html2canvas(card, { backgroundColor: '#16213e', scale: 2, logging: false, useCORS: true });
+    if (foot) foot.style.display = '';
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    const d = findDish(id);
+    a.download = (d ? d.name : 'dish') + '.png';
+    a.href = url;
+    a.click();
+    showIndicator('saved', '已导出');
+    showToast('卡片图片已导出', 'success');
+  } catch (e) {
+    if (foot) foot.style.display = '';
+    showIndicator('error', '导出失败');
+    showToast('导出失败: ' + e.message, 'error');
+  }
+}
+
+// Delegated handlers (survive re-render)
+document.addEventListener('click', (e) => {
+  const ex = e.target.closest('[data-export]');
+  if (ex) { exportCard(ex.getAttribute('data-export')); return; }
+  const dl = e.target.closest('[data-delete]');
+  if (dl) { deleteDish(dl.getAttribute('data-delete')); return; }
+  const tab = e.target.closest('[data-cat-tab]');
+  if (tab) { setMenuCat(tab.getAttribute('data-cat-tab')); return; }
+});
+document.addEventListener('input', (e) => {
+  const t = e.target;
+  if (t && t.dataset && t.dataset.dish && t.dataset.field && settings.editEnabled) {
+    updateDish(t.dataset.dish, t.dataset.field, t.innerText);
+  }
+});
 
 // ========== Load Settings ==========
 function loadSettings() {
@@ -1340,6 +2175,7 @@ function applyEditMode(on) {
   } else {
     app.classList.add('edit-disabled');
   }
+  if (typeof renderMenu === 'function') renderMenu();
   updateEditBadge();
 }
 
@@ -1448,6 +2284,7 @@ function changePassword() {
 function collectData() {
   const data = {};
   document.querySelectorAll('.section').forEach(sec => {
+    if (sec.id === 'menu') return;
     data[sec.id] = sec.innerHTML;
   });
   return data;
@@ -1465,6 +2302,7 @@ function saveAll() {
   const data = collectData();
   const payload = {
     content: data,
+    menu: MENU_DATA,
     timestamp: new Date().toISOString()
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -1487,7 +2325,7 @@ function saveAll() {
   setTimeout(() => showIndicator('saved', '已保存'), 300);
   
   // Auto cloud sync (silent, non-blocking)
-  autoCloudSync(data);
+  autoCloudSync(data, MENU_DATA);
 }
 
 function quickSave() {
@@ -1507,6 +2345,7 @@ function loadData() {
       const el = document.getElementById(id);
       if (el) el.innerHTML = data[id];
     });
+    if (payload.menu) { MENU_DATA = payload.menu; renderMenu(); }
     if (payload.timestamp) {
       const dt = new Date(payload.timestamp);
       const ts = pad(dt.getHours()) + ':' + pad(dt.getMinutes());
@@ -1630,13 +2469,13 @@ function saveToken() {
 // ========== Cloud Sync (automatic) ==========
 let syncLock = false;
 
-async function autoCloudSync(contentData) {
+async function autoCloudSync(contentData, menuData) {
   // Silent background sync — no error toasts, just indicator
   if (!settings.ghToken) return; // No token yet, skip silently
   if (syncLock) return; // Prevent overlapping syncs
   syncLock = true;
   try {
-    await syncToCloud(contentData, true);
+    await syncToCloud(contentData, menuData, true);
   } catch(e) {
     // Silent fail for auto-sync
   } finally {
@@ -1655,7 +2494,7 @@ async function manualSync() {
   showToast('正在同步到云端...', '');
   try {
     const contentData = collectData();
-    await syncToCloud(contentData, false);
+    await syncToCloud(contentData, MENU_DATA, false);
   } catch(err) {
     showIndicator('error', '同步失败');
     showToast('同步失败: ' + err.message, 'error');
@@ -1664,16 +2503,17 @@ async function manualSync() {
   }
 }
 
-async function syncToCloud(contentData, silent) {
+async function syncToCloud(contentData, menuData, silent) {
   const token = settings.ghToken;
   const owner = GH_CONFIG.owner;
   const repo = GH_CONFIG.repo;
   const branch = GH_CONFIG.branch;
 
   const jsonContent = JSON.stringify({
-    version: '4.0',
+    version: '5.0',
     syncDate: new Date().toISOString(),
-    content: contentData
+    content: contentData,
+    menu: menuData
   }, null, 2);
 
   const path = 'content.json';
@@ -1755,8 +2595,10 @@ async function autoLoadFromGitHub() {
       });
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         content: data,
+        menu: payload.menu,
         timestamp: payload.syncDate || new Date().toISOString()
       }));
+      if (payload.menu) { MENU_DATA = payload.menu; renderMenu(); }
       showToast('已从云端加载最新内容', 'success');
     }
   } catch(err) {
@@ -1873,8 +2715,10 @@ function showToast(text, type) {
 }
 
 // ========== Init ==========
+loadMenu();
 loadSettings();
 loadData();
+renderMenu();
 setupNavigation();
 
 // Auto-load from GitHub after a short delay
