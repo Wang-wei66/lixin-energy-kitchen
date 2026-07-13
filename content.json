@@ -1,16 +1,549 @@
 {
-  "version": "4.0",
-  "syncDate": "2026-07-12T08:07:40.751Z",
+  "version": "5.0",
+  "syncDate": "2026-07-13T05:21:23.542Z",
   "content": {
-    "overview": "\n  <div class=\"page-title\" contenteditable=\"false\">理信能量厨房 · 八大系统</div>\n  <div class=\"page-sub\" contenteditable=\"false\">企业：理信科技（快速制造业）｜ 价值观：用人性文明引领科技文明，用科技文明驱动世界文明 ｜ 理念：健康、环保、希望、文明 ｜ 餐厅类型：纯净素餐厅</div>\n\n  <h2 contenteditable=\"false\" class=\"editable-h2\">什么是理信能量厨房</h2>\n  <p contenteditable=\"false\">理信能量厨房不只是员工食堂，而是理信科技价值观的<strong>实体表达</strong>。</p>\n  <p contenteditable=\"false\">公司说\"用人性文明引领科技文明\"——厨房就用\"对生命的尊重\"引领\"对效率的追求\"。纯净素本身就是一种人性文明的体现：不因口腹之欲而牺牲动物生命，用植物的滋养满足身体需要。</p>\n  <p contenteditable=\"false\">公司说\"用科技文明驱动世界文明\"——厨房就把这套八大系统做成可复制、可推广的标准化体系，让更多企业看到：一个食堂也可以是文明的载体。</p>\n\n  <div class=\"table-wrap\">\n    <table contenteditable=\"false\">\n      <thead><tr><th>企业理念</th><th>在厨房中的体现</th><th>对应系统</th></tr></thead>\n      <tbody>\n        <tr><td><strong>健康</strong></td><td>纯净素饮食、顺时养生、食材安全</td><td>食安管控、健康理念、菜品出品</td></tr>\n        <tr><td><strong>环保</strong></td><td>减少食材浪费、零厨余目标、绿色采购</td><td>食安管控、规整收纳、空间环境</td></tr>\n        <tr><td><strong>希望</strong></td><td>用一餐饭传递正向能量、滋养身心</td><td>健康理念、生命力传播</td></tr>\n        <tr><td><strong>文明</strong></td><td>厨房秩序、餐桌礼仪、以食修心</td><td>规整收纳、生命力传播、实修成长</td></tr>\n      </tbody>\n    </table>\n  </div>\n\n  <h2 contenteditable=\"false\" class=\"editable-h2\">八大系统三层结构</h2>\n\n  <div class=\"layer-card layer-op\">\n    <h3 contenteditable=\"false\" class=\"editable-h3\">运营层 · 把事情做对</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"false\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>1. 食安管控</strong></td><td>食材从哪来、安不安全、浪不浪费</td><td>安全、成本、可追溯</td></tr>\n        <tr><td><strong>2. 菜品出品</strong></td><td>每天做什么、怎么做、做出标准</td><td>标准化、研发、出品</td></tr>\n        <tr><td><strong>3. 规整收纳</strong></td><td>东西放哪里、用完归不归纳</td><td>5S、定点、归位</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"layer-card layer-culture\">\n    <h3 contenteditable=\"false\" class=\"editable-h3\">文化层 · 让厨房有能量</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"false\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>4. 空间环境</strong></td><td>厨房和用餐区是否让人舒服、有能量</td><td>布置、氛围、清洁</td></tr>\n        <tr><td><strong>5. 健康理念</strong></td><td>为什么这样吃、对身体有什么好处</td><td>顺时、养生、能量</td></tr>\n        <tr><td><strong>6. 生命力传播</strong></td><td>怎么把厨房的理念讲出去</td><td>叙事、文宣、礼仪</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"layer-card layer-growth\">\n    <h3 contenteditable=\"false\" class=\"editable-h3\">成长层 · 让团队一起变好</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"false\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>7. 回馈优化</strong></td><td>做得好不好、怎么知道、怎么改进</td><td>反馈、复盘、数据</td></tr>\n        <tr><td><strong>8. 实修成长</strong></td><td>人在厨房里怎么成长、怎么带人</td><td>自立、利他、带人</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">设计理念</div>\n    <div contenteditable=\"false\">\n      1. <strong>纯净素为本</strong>：所有菜品不含肉蛋奶及动物性调料（如蚝油），不含五辛（葱、蒜、韭菜、薤、兴渠），以植物性食材为核心。<br>\n      2. <strong>以人为本</strong>：系统既要让厨房高效运转，也要让在这里工作的人有成长、有尊严。<br>\n      3. <strong>从\"做事\"到\"传道\"</strong>：理信能量厨房不仅是供餐，更是在传递健康、环保、希望、文明的生活方式。<br>\n      4. <strong>小步快跑</strong>：先纸上标准化，再数字化，最后产品化。<br>\n      5. <strong>可复用可推广</strong>：从第一天起就设计成其他企业也能用的模板。\n    </div>\n  </div>\n",
-    "s1": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c1)\">1</div>\n    <div class=\"sys-title\" contenteditable=\"false\">食安管控</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：厨房的底线系统。管住食材从采购到上桌的每一个环节，确保安全、可控、可追溯、不浪费。环保理念要求我们减少浪费，每一份食材都来自天地的馈赠，值得被认真对待。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">1.1 食材采购</h3>\n  <h4 contenteditable=\"false\">纯净素采购原则</h4>\n  <ul contenteditable=\"false\">\n    <li>所有食材必须为植物性，不含任何动物成分</li>\n    <li>调料采购需核查成分表，杜绝蚝油、鱼露、虾酱、鸡粉等动物性调料</li>\n    <li>不采购五辛类食材（葱、蒜、韭菜、薤、兴渠）</li>\n    <li>优先采购有机、生态种植的食材</li>\n    <li>优先本地采购，减少运输碳排放（环保理念）</li>\n  </ul>\n\n  <div class=\"callout callout-warning\">\n    <div class=\"callout-title\">纯净素调料替代表</div>\n    <div class=\"table-wrap\"><table contenteditable=\"false\">\n      <thead><tr><th>传统调料</th><th>纯净素替代</th><th>说明</th></tr></thead>\n      <tbody>\n        <tr><td>蚝油</td><td>菌菇酱 / 素蚝油（香菇提取）</td><td>提供鲜味</td></tr>\n        <tr><td>鸡精 / 鸡粉</td><td>菌菇粉 / 海带粉</td><td>提供鲜味</td></tr>\n        <tr><td>葱姜蒜</td><td>姜可保留（姜不属于五辛）；以花椒、八角、桂皮、香菜替代去腥提香</td><td>五辛中仅姜可用</td></tr>\n        <tr><td>猪油</td><td>植物油（花生油、橄榄油、山茶油）</td><td>更健康</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <h4 contenteditable=\"false\">核心数据字段</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>字段</th><th>说明</th><th>标准化阶段（纸上）</th></tr></thead>\n    <tbody>\n      <tr><td>采购日期</td><td>哪天采购</td><td>手写日期</td></tr>\n      <tr><td>供应商</td><td>从哪家买</td><td>记录供应商名称</td></tr>\n      <tr><td>食材类别</td><td>蔬菜/豆制品/菌菇/谷物/粮油/调味品</td><td>分类标注</td></tr>\n      <tr><td>食材名称</td><td>具体买什么</td><td>列清单</td></tr>\n      <tr><td>采购数量</td><td>多少斤/袋/瓶</td><td>估算数量</td></tr>\n      <tr><td>预估单价</td><td>大概多少钱</td><td>参考近期价格</td></tr>\n      <tr><td>实际单价</td><td>实际成交价</td><td>付款时记录</td></tr>\n      <tr><td>关联菜单</td><td>这食材给哪几道菜用</td><td>关联周菜单</td></tr>\n      <tr><td>采购人</td><td>谁去买的</td><td>签字确认</td></tr>\n      <tr><td>采购依据</td><td>按什么菜单买的、多少人吃</td><td>避免盲目采购</td></tr>\n      <tr><td>产地信息</td><td>食材产地（环保溯源）</td><td>记录产地</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"false\">标准流程</h4>\n  <ol contenteditable=\"false\">\n    <li>每周日晚上根据下周菜单生成采购需求</li>\n    <li>采购日一早汇总采购清单</li>\n    <li>按供应商分类，分别采购</li>\n    <li>采购回来当天必须完成验收和入库</li>\n    <li>采购时核查调料成分表，确保无动物性成分</li>\n  </ol>\n\n  <div class=\"callout callout-op\">\n    <div class=\"callout-title\">关键判断点</div>\n    <div contenteditable=\"false\">\n      叶菜类采购量 = 周需求量 × 1.15（考虑损耗）｜ 根茎类耐储存可批量采购 ｜ 豆制品需当天或隔天采购 ｜ 菌菇类根据菜品需要采购，鲜菌菇保质期短 ｜ 调味品按月度消耗量采购 ｜ 新调料第一次采购必须核查成分表确认无动物成分\n    </div>\n  </div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">1.2 验收管理</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>品类</th><th>验收要点</th><th>不合格处理</th></tr></thead>\n    <tbody>\n      <tr><td>蔬菜</td><td>新鲜、无黄叶、无腐烂、无农残异味</td><td>退货或挑出，记录损耗</td></tr>\n      <tr><td>豆制品</td><td>颜色正常、无酸味、包装完好</td><td>坚决退货</td></tr>\n      <tr><td>菌菇</td><td>鲜活或外观正常、无异味、无黏液</td><td>退货</td></tr>\n      <tr><td>谷物/杂粮</td><td>颗粒饱满、无虫蛀、无霉变</td><td>拒收</td></tr>\n      <tr><td>粮油</td><td>包装完好、生产日期新鲜</td><td>拒收临期产品</td></tr>\n      <tr><td>调味品</td><td>包装完整、标签齐全、<strong>成分表无动物成分</strong></td><td>退换货</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"false\">验收记录字段</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>验收日期</td><td>哪天验收</td></tr>\n      <tr><td>验收人</td><td>谁验收的</td></tr>\n      <tr><td>供应商</td><td>哪家供应商的货</td></tr>\n      <tr><td>食材名称</td><td>什么食材</td></tr>\n      <tr><td>采购数量</td><td>买了多少</td></tr>\n      <tr><td>合格数量</td><td>实际能用多少</td></tr>\n      <tr><td>不合格数量</td><td>退掉/扔掉多少</td></tr>\n      <tr><td>不合格原因</td><td>为什么不达标</td></tr>\n      <tr><td>处理结果</td><td>退货/换货/折价/废弃</td></tr>\n      <tr><td>照片</td><td>不合格品拍照存档</td></tr>\n      <tr><td>成分确认</td><td>调味品是否确认无动物成分</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">1.3 库存管控</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>字段</th><th>说明</th><th>标准化阶段</th></tr></thead>\n    <tbody>\n      <tr><td>食材名称</td><td>什么食材</td><td>台账列表</td></tr>\n      <tr><td>存放位置</td><td>冷藏库/冷冻库/常温架</td><td>画库位图</td></tr>\n      <tr><td>当前库存</td><td>还剩多少</td><td>每天盘一次</td></tr>\n      <tr><td>单位</td><td>斤/公斤/袋/瓶</td><td>统一单位</td></tr>\n      <tr><td>安全库存</td><td>低于这个数要补货</td><td>设定阈值</td></tr>\n      <tr><td>保质期</td><td>能放多久</td><td>标注清楚</td></tr>\n      <tr><td>入库日期</td><td>什么时候买的</td><td>先进先出</td></tr>\n      <tr><td>最后盘点时间</td><td>上次盘点什么时候</td><td>每天更新</td></tr>\n      <tr><td>经手人</td><td>谁负责的</td><td>责任到人</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"false\">每日库存盘点模板</h4>\n  <div class=\"sop-block\" contenteditable=\"false\">日期：_______  盘点人：_______\n\n| 食材 | 存放位置 | 昨日库存 | 今日入库 | 今日出库 | 今日损耗 | 当前库存 | 备注 |\n|------|----------|----------|----------|----------|----------|----------|------|\n|      |          |          |          |          |          |          |      |</div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">1.4 成本损耗</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>日期</td><td>哪天</td></tr>\n      <tr><td>餐次</td><td>早餐/午餐/晚餐</td></tr>\n      <tr><td>供餐人数</td><td>多少人吃</td></tr>\n      <tr><td>采购金额</td><td>当天采购花了多少钱</td></tr>\n      <tr><td>食材成本</td><td>实际消耗食材的价值</td></tr>\n      <tr><td>损耗金额</td><td>废弃食材的价值</td></tr>\n      <tr><td>人均成本</td><td>总成本 ÷ 供餐人数</td></tr>\n      <tr><td>损耗率</td><td>损耗金额 ÷ 采购金额</td></tr>\n      <tr><td>成本偏差</td><td>实际成本 vs 标准成本</td></tr>\n    </tbody>\n  </table></div>\n\n  <div class=\"callout callout-success\">\n    <div class=\"callout-title\">环保目标</div>\n    <div contenteditable=\"false\">逐步降低损耗率，追求\"零厨余\"——菜根菜叶能利用的尽量利用（如萝卜皮做小菜、豆渣做饼），不能利用的做堆肥处理。损耗率目标：&lt;5%（逐步降到&lt;3%）</div>\n  </div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">1.5 食材安全</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>食材名称</td><td>什么食材</td></tr>\n      <tr><td>供应商资质</td><td>营业执照、有机认证等</td></tr>\n      <tr><td>批次号</td><td>每批货的唯一编号</td></tr>\n      <tr><td>生产日期</td><td>什么时候生产的</td></tr>\n      <tr><td>保质期</td><td>到什么时候过期</td></tr>\n      <tr><td>检测报告</td><td>农残检测报告</td></tr>\n      <tr><td>入库照片</td><td>验收时拍照</td></tr>\n      <tr><td>使用记录</td><td>这批货用在了哪几道菜</td></tr>\n      <tr><td>产地信息</td><td>食材产自哪里（环保溯源）</td></tr>\n    </tbody>\n  </table></div>\n",
-    "s2": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c2)\">2</div>\n    <div class=\"sys-title\" contenteditable=\"false\">菜品出品</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：厨房的核心生产系统。纯净素不代表单调——用菌菇的鲜、豆制品的香、时令蔬菜的甜，做出有能量、有滋味的菜品。每一道菜都是健康理念的载体。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">2.1 选择标准</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>维度</th><th>标准</th><th>权重</th></tr></thead>\n    <tbody>\n      <tr><td>营养均衡</td><td>蛋白质、碳水、蔬菜均衡（纯素蛋白来源：豆制品、菌菇、坚果）</td><td>高</td></tr>\n      <tr><td>时令顺应</td><td>是否选用当季食材</td><td>高</td></tr>\n      <tr><td>出品稳定</td><td>是否容易被新手掌握、出品差异小</td><td>高</td></tr>\n      <tr><td>成本控制</td><td>成本是否在预算范围内</td><td>中</td></tr>\n      <tr><td>受众接受度</td><td>食客是否喜欢吃</td><td>中</td></tr>\n      <tr><td>操作复杂度</td><td>后厨是否能稳定产出</td><td>中</td></tr>\n      <tr><td>文化契合</td><td>是否符合\"健康、环保、希望、文明\"理念</td><td>高</td></tr>\n      <tr><td>纯净素合规</td><td>不含任何动物成分和五辛</td><td>必须</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">2.2 食材搭配</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">纯净素搭配原则</div>\n    <div contenteditable=\"false\">\n      一主菜一配菜一汤 ｜ 五色入餐（红番茄/黄玉米/绿叶菜/白豆腐/黑木耳）｜ 寒热平衡 ｜ 粗细搭配 ｜ <strong>蛋白互补</strong>：豆制品+谷物（如豆腐配米饭，氨基酸互补）｜ 时令优先\n    </div>\n  </div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">2.3 品类管理（纯净素版）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>品类</th><th>作用</th><th>每餐建议</th><th>示例</th></tr></thead>\n    <tbody>\n      <tr><td>主菜</td><td>提供主要蛋白质和口感</td><td>1-2道</td><td>红烧杏鲍菇、麻婆豆腐</td></tr>\n      <tr><td>配菜</td><td>提供蔬菜、维生素</td><td>2-3道</td><td>清炒时蔬、凉拌木耳</td></tr>\n      <tr><td>汤品</td><td>暖胃、补水、搭配</td><td>1道</td><td>菌菇汤、番茄汤</td></tr>\n      <tr><td>点心</td><td>主食补充、丰富口感</td><td>0-1道</td><td>南瓜饼、素包子</td></tr>\n      <tr><td>水果</td><td>餐后补充</td><td>1种</td><td>时令水果</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">2.4 菜品研发流程</h3>\n  <ol contenteditable=\"false\">\n    <li><strong>选择标准</strong>：确定研发方向（如\"夏季清热\"\"冬季温补\"\"高蛋白纯素\"）</li>\n    <li><strong>配方设计</strong>：确定食材搭配和调味比例（确保纯净素）</li>\n    <li><strong>试菜品鉴</strong>：小批量试做，内部试吃</li>\n    <li><strong>出品审核</strong>：确认出品标准、成本、操作难度、理念契合度</li>\n    <li><strong>菜单录入</strong>：审核通过后进入菜谱库</li>\n    <li><strong>上线反馈</strong>：正式上菜单后收集反馈，迭代优化</li>\n  </ol>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">2.5 菜品制作标准模板</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">示例：香菇烧豆腐（200人份）</div>\n  </div>\n  <div class=\"sop-block\" contenteditable=\"false\">菜品：香菇烧豆腐（200人份）\n责任人：_______\n\n【预处理】\n步骤1：香菇处理\n  - 标准：鲜香菇去根，洗净，切十字花刀\n  - 数量：15斤\n  - 关键判断点：花刀不要切太深，约2/3深度即可，太深容易碎，太浅不入味\n\n步骤2：豆腐处理\n  - 标准：老豆腐切成3cm见方的块，淡盐水浸泡10分钟\n  - 数量：30斤\n  - 关键判断点：盐水浸泡去除豆腥味，同时让豆腐更紧实，炒的时候不容易碎\n\n步骤3：配料准备\n  - 标准：姜切末（姜不属于五辛，可用）、香菜切段\n  - 关键判断点：纯净素不用葱蒜，用姜和香菜提香\n\n【烹饪】\n步骤4：煎豆腐\n  - 动作：热锅凉油，油五成热，放入豆腐块，中火煎至两面金黄\n  - 时间：约8-10分钟\n  - 关键判断点：煎到表面金黄硬壳再翻面，频繁翻动会碎；火不能太大，太大外焦内生\n\n步骤5：炒香菇\n  - 动作：锅中留底油，放入香菇，中火翻炒至出汁、边缘微焦\n  - 时间：约5分钟\n  - 关键判断点：香菇出汁、体积缩小约一半，香味浓郁时最好\n\n步骤6：合烧\n  - 动作：豆腐和香菇合锅，加生抽、少许糖、菌菇粉调味，加半碗水，小火焖3分钟，收汁\n  - 时间：约5分钟\n  - 关键判断点：汤汁收至浓稠挂在豆腐和香菇上即可，不要收太干；尝味，咸鲜微甜\n\n步骤7：出锅\n  - 动作：撒上香菜末，翻匀出锅\n  - 关键判断点：香菜最后放，保持翠绿和香气\n\n【出品标准】\n- 颜色：豆腐金黄、香菇油亮、香菜翠绿，三色分明\n- 口感：豆腐外韧内嫩，香菇鲜香有嚼劲\n- 温度：出品时保持60℃以上\n- 份量：每份约150g\n- 理念：豆制品+菌菇的蛋白互补，健康营养</div>\n",
-    "s3": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c3)\">3</div>\n    <div class=\"sys-title\" contenteditable=\"false\">规整收纳</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：厨房的秩序系统。秩序本身就是一种文明——一个井井有条的厨房，传递的是对食材的敬畏、对工作的认真、对共事者的尊重。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">3.1 餐厨具清洗归位</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>物品</th><th>清洗标准</th><th>消毒</th><th>存放位置</th><th>责任人</th></tr></thead>\n    <tbody>\n      <tr><td>炒锅</td><td>无油渍无残渣</td><td>热水烫洗</td><td>灶台右侧挂钩</td><td>使用人</td></tr>\n      <tr><td>切菜板</td><td>无残渣无异味</td><td>消毒液浸泡</td><td>刀具架下方</td><td>切配人</td></tr>\n      <tr><td>刀具</td><td>无残渣、擦干</td><td>消毒液擦拭</td><td>刀具架</td><td>切配人</td></tr>\n      <tr><td>餐盘</td><td>无油渍无水印</td><td>消毒柜</td><td>消毒柜/备餐台</td><td>洗碗工</td></tr>\n      <tr><td>抹布</td><td>无油污、无异味</td><td>每天煮沸</td><td>指定挂钩</td><td>各区域使用人</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">3.2 物品定点收纳</h3>\n  <p contenteditable=\"false\"><strong>收纳原则</strong>：常用物品放顺手处 ｜ 同类集中存放 ｜ 重物放低处 ｜ 所有位置贴标签 ｜ 纯净素专用（动物性调料和五辛类不得进入厨房）</p>\n\n  <h4 contenteditable=\"false\">调料架定点收纳示例</h4>\n  <div class=\"sop-block\" contenteditable=\"false\">调料架（灶台右侧）\n第一层：常用调料\n  - 左1：花生油  - 左2：生抽  - 左3：老抽  - 左4：盐  - 左5：糖\n第二层：常用香料\n  - 左1：花椒  - 左2：八角  - 左3：桂皮  - 左4：干辣椒\n第三层：鲜味调料\n  - 左1：菌菇粉（替代鸡精）\n  - 左2：素蚝油（菌菇提取，替代蚝油）\n  - 左3：料酒  - 左4：醋  - 左5：香油</div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">3.3 操作现场规整标准</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>区域</th><th>标准要求</th></tr></thead>\n    <tbody>\n      <tr><td>切配区</td><td>台面无积水、无残渣；刀具砧板归位；垃圾分类</td></tr>\n      <tr><td>烹饪区</td><td>灶台无油渍；锅具不用时挂好；调料用后即归位</td></tr>\n      <tr><td>洗碗区</td><td>餐具洗后沥干；污水池无堵塞；地面无水渍</td></tr>\n      <tr><td>备餐区</td><td>成品摆放整齐；保温设备正常；台面干净</td></tr>\n      <tr><td>储物区</td><td>食材先进先出；标签清晰；无过期食品</td></tr>\n      <tr><td>地面</td><td>无油渍、无积水、无垃圾</td></tr>\n    </tbody>\n  </table></div>\n",
-    "s4": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c4)\">4</div>\n    <div class=\"sys-title\" contenteditable=\"false\">空间环境</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：空间是文明的容器。一个整洁、温暖、有秩序的用餐环境，本身就是\"文明\"理念的实体表达。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">4.1 环境能量</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>维度</th><th>内容</th><th>落地要点</th></tr></thead>\n    <tbody>\n      <tr><td>布置</td><td>功能分区、动线设计、绿植摆放</td><td>明亮、整洁、有秩序</td></tr>\n      <tr><td>氛围</td><td>光线、音乐、色彩、气味</td><td>温暖、安静、舒适</td></tr>\n      <tr><td>仪式感</td><td>开餐前的准备、供餐时的状态</td><td>心存敬畏、认真对待</td></tr>\n      <tr><td>文化展示</td><td>墙面标语、菜品介绍、节气海报、企业价值观</td><td>传递\"健康、环保、希望、文明\"</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"false\">文化展示建议</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>位置</th><th>展示内容</th></tr></thead>\n    <tbody>\n      <tr><td>入口</td><td>\"理信能量厨房\"标识 + \"健康·环保·希望·文明\"理念墙</td></tr>\n      <tr><td>走廊</td><td>当周菜单 + 节气养生知识</td></tr>\n      <tr><td>用餐区</td><td>企业价值观：\"用人性文明引领科技文明，用科技文明驱动世界文明\"</td></tr>\n      <tr><td>取餐区</td><td>每日菜品善叙述（一句话介绍这道菜的能量）</td></tr>\n      <tr><td>墙面</td><td>纯净素理念、环保倡议、光盘行动倡议</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">4.2 空间清整</h3>\n  <div class=\"sop-block\" contenteditable=\"false\">日常清洁（每天）\n- 开餐前后各一次全面清洁\n- 每餐结束后立即清理灶台、台面\n- 垃圾每餐一清\n- 地面每餐一拖\n\n周清洁（每周一次）\n- 周一：清洁冰箱、冰柜内部\n- 周二：清洗抽油烟机滤网\n- 周三：清理调料架、检查过期调料\n- 周四：深度清洁地面、墙角\n- 周五：清洁备餐台、餐具柜\n- 周六：设备外部清洁\n- 周日：全区域大扫除\n\n月清洁（每月一次）\n- 清洗厨房窗帘、门帘\n- 清洁灯具、天花板\n- 检查灭蝇灯、灭鼠设备\n- 深度清洁厨房设备内部</div>\n",
-    "s5": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c5)\">5</div>\n    <div class=\"sys-title\" contenteditable=\"false\">健康理念</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：理信能量厨房的灵魂系统。纯净素不是\"不吃肉\"的限制，而是一种\"选择更健康、更环保、更有能量的食物\"的主动选择。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">5.1 顺时养生（纯净素版）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>季节</th><th>饮食重点</th><th>推荐食材</th><th>适合菜品类型</th></tr></thead>\n    <tbody>\n      <tr><td>春</td><td>养肝、升发</td><td>菠菜、豆芽、荠菜、春笋</td><td>清炒、凉拌</td></tr>\n      <tr><td>夏</td><td>清热、解暑</td><td>苦瓜、冬瓜、绿豆、莲藕</td><td>汤品、凉拌</td></tr>\n      <tr><td>秋</td><td>润肺、滋阴</td><td>梨、银耳、百合、山药</td><td>炖品、糖水</td></tr>\n      <tr><td>冬</td><td>温补、储能</td><td>萝卜、核桃、板栗、红薯</td><td>炖菜、汤品</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">5.2 食物与能量</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>属性</th><th>特点</th><th>适合人群</th><th>代表食材</th></tr></thead>\n    <tbody>\n      <tr><td>温热</td><td>暖胃、补阳气</td><td>怕冷、体寒</td><td>姜、辣椒、桂圆、核桃</td></tr>\n      <tr><td>寒凉</td><td>清热、降火</td><td>上火、体热</td><td>绿豆、苦瓜、冬瓜、莲藕</td></tr>\n      <tr><td>平和</td><td>不寒不热，适合大多数人</td><td>日常</td><td>大米、山药、胡萝卜、豆腐</td></tr>\n      <tr><td>升发</td><td>春季宜吃，助阳气生发</td><td>春季</td><td>豆芽、荠菜、春笋</td></tr>\n      <tr><td>收藏</td><td>冬季宜吃，助能量收藏</td><td>冬季</td><td>核桃、黑芝麻、红薯</td></tr>\n    </tbody>\n  </table></div>\n\n  <div class=\"callout callout-success\">\n    <div class=\"callout-title\">纯净素营养保障表</div>\n    <div class=\"table-wrap\"><table contenteditable=\"false\">\n      <thead><tr><th>营养素</th><th>植物性来源</th></tr></thead>\n      <tbody>\n        <tr><td>蛋白质</td><td>豆腐、豆干、腐竹、菌菇、坚果、藜麦</td></tr>\n        <tr><td>铁</td><td>黑木耳、菠菜、红豆、红枣</td></tr>\n        <tr><td>钙</td><td>豆腐、芝麻、西兰花、杏仁</td></tr>\n        <tr><td>维生素B12</td><td>营养酵母、强化食品（需注意补充）</td></tr>\n        <tr><td>Omega-3</td><td>亚麻籽、核桃、奇亚籽</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n",
-    "s6": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c6)\">6</div>\n    <div class=\"sys-title\" contenteditable=\"false\">生命力传播</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：把理信能量厨房的理念、文化、菜品故事传递出去，让更多人被影响、被滋养。用每一道菜的故事、每一个节气养生知识、每一次餐桌礼仪，把\"健康、环保、希望、文明\"传播给每一位用餐者。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">6.1 菜品善叙述</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">示例：白萝卜炖菌菇</div>\n    <div class=\"sop-block\" contenteditable=\"false\" style=\"margin:8px 0 0 0\">菜品：白萝卜炖菌菇\n\n故事：这是一道冬季暖身菜。白萝卜清甜，菌菇鲜美，\n      两者搭配，既暖胃又不燥热。萝卜是\"冬令小人参\"，\n      菌菇富含植物蛋白和多种氨基酸，是纯净素饮食中的营养担当。\n\n健康理念：冬季人体阳气内敛，需要适当温补。\n      萝卜助消化，菌菇补蛋白，适合寒冷天气。\n\n能量解读：这道菜传递的是\"温暖\"和\"希望\"的能量——\n      再冷的冬天，一碗热汤也能让人心生暖意。\n\n理念关联：健康（温补养生）、环保（植物性食材，低碳足迹）。\n\n推荐语：\"冬日里的一碗暖汤，暖身暖心，纯净滋养。\"</div>\n  </div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">6.2 厨房理念</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>#</th><th>理念</th><th>阐述</th><th>关联</th></tr></thead>\n    <tbody>\n      <tr><td>1</td><td><strong>敬畏食材</strong></td><td>每一份食材都来自天地，值得认真对待。不浪费一叶一蔬，是对自然的尊重。</td><td>环保</td></tr>\n      <tr><td>2</td><td><strong>顺时而生</strong></td><td>顺应节气，吃当季食物，让身体与自然同频。</td><td>健康</td></tr>\n      <tr><td>3</td><td><strong>洁净即能量</strong></td><td>干净的环境和干净的食材，是能量的基础。</td><td>文明</td></tr>\n      <tr><td>4</td><td><strong>以食养心</strong></td><td>一餐饭不只是填饱肚子，更是养身体、养心神。</td><td>健康</td></tr>\n      <tr><td>5</td><td><strong>纯净即慈悲</strong></td><td>选择纯净素，是不因口腹之欲而牺牲动物生命，是对生命的尊重。</td><td>文明</td></tr>\n      <tr><td>6</td><td><strong>共同成长</strong></td><td>厨房是修行场，每个人在这里都能变得更好。</td><td>希望</td></tr>\n      <tr><td>7</td><td><strong>用人性文明引领科技文明</strong></td><td>在追求效率的同时，不忘对人的关怀、对生命的敬畏。</td><td>文明</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">6.3 企业文宣规划</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>渠道</th><th>内容方向</th><th>频率</th></tr></thead>\n    <tbody>\n      <tr><td>短视频</td><td>一道素菜的故事、节气饮食知识、纯净素营养科普</td><td>每周1-2条</td></tr>\n      <tr><td>公众号</td><td>周菜单解读、健康理念长文、理信价值观与厨房实践</td><td>每周1篇</td></tr>\n      <tr><td>朋友圈</td><td>今日菜品、厨房日常、正能量金句</td><td>每天1-2条</td></tr>\n      <tr><td>海报</td><td>节气菜单、健康小贴士、企业价值观</td><td>每月2-3张</td></tr>\n      <tr><td>用餐区</td><td>菜品善叙述卡、节气养生知识、理念墙</td><td>每周更新</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">6.4 餐桌礼仪</h3>\n  <ol contenteditable=\"false\">\n    <li><strong>餐前感恩</strong>：取餐前双手合十或默念感恩——感恩天地滋养、感恩农人辛劳、感恩厨师用心、感恩食物化能量。</li>\n    <li><strong>安静用餐</strong>：用餐时尽量轻声，专注品尝食物的味道，感受食物带来的能量。</li>\n    <li><strong>光盘行动</strong>：吃多少取多少，不浪费粮食。每一粒米都值得被珍惜。（环保理念）</li>\n    <li><strong>餐后退盘</strong>：用餐后主动把餐具放到指定位置，保持用餐区整洁。（文明理念）</li>\n  </ol>\n",
-    "s7": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c7)\">7</div>\n    <div class=\"sys-title\" contenteditable=\"false\">回馈优化</div>\n    <span class=\"sys-tag\">成长层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：成长的发动机。科技文明的核心是持续迭代——厨房也需要数据驱动，用反馈推动优化。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">7.1 受众回馈收集</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>方式</th><th>适用场景</th><th>优点</th></tr></thead>\n    <tbody>\n      <tr><td>现场意见箱</td><td>日常</td><td>随时可写，匿名</td></tr>\n      <tr><td>问卷星小程序</td><td>周期性</td><td>可统计、可量化</td></tr>\n      <tr><td>面对面访谈</td><td>重点人群</td><td>深度反馈</td></tr>\n      <tr><td>剩菜观察</td><td>日常</td><td>最真实的需求反馈（剩得多=不太受欢迎）</td></tr>\n      <tr><td>微信群投票</td><td>菜品选择</td><td>互动性强</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">7.2 复盘模板（周复盘）</h3>\n  <div class=\"sop-block\" contenteditable=\"false\">理信能量厨房周复盘：第___周（_____至_____）\n参与人：__________\n\n一、数据回顾\n- 本周供餐总人次：_____\n- 本周食材成本：_____ 元\n- 本周损耗率：_____ %\n- 本周满意度评分：_____ / 5\n- 本周收到反馈：_____ 条\n- 本周光盘率：_____ %\n\n二、本周亮点\n1. __________\n2. __________\n\n三、本周问题\n1. __________（根因：_____，改进：_____）\n2. __________（根因：_____，改进：_____）\n\n四、下周重点\n1. __________\n2. __________\n\n五、经验沉淀（可写入知识库）\n1. __________\n2. __________\n\n六、理念践行检查\n- 健康：_____\n- 环保：_____\n- 希望：_____\n- 文明：_____</div>\n",
-    "s8": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c8)\">8</div>\n    <div class=\"sys-title\" contenteditable=\"false\">实修成长</div>\n    <span class=\"sys-tag\">成长层</span>\n  </div>\n  <blockquote contenteditable=\"false\"><p><strong>系统定位</strong>：厨房是一所\"学校\"。公司说\"用人性文明引领科技文明\"——人性文明的核心是人的成长。理信能量厨房不只是做饭的地方，更是人修炼心性、提升自我的道场。</p></blockquote>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">8.1 自立 — 成长路径</h3>\n  <div class=\"sop-block\" contenteditable=\"false\">新人入职\n  ↓\n第1周：熟悉环境，学习基础安全规范，了解纯净素原则\n  ↓\n第2-4周：学习食材预处理和基本刀工\n  ↓\n第1-3个月：学习简单素菜制作，能独立完成2-3道菜\n  ↓\n第3-6个月：学习复杂素菜，掌握火候和调味\n  ↓\n第6-12个月：能独立负责一个餐次的出品\n  ↓\n成为骨干：能带新人、能研发新菜、能传播理念</div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">8.2 利他</h3>\n  <ul contenteditable=\"false\">\n    <li>主动帮同事收尾</li>\n    <li>把自己的做菜经验教给新人</li>\n    <li>发现安全隐患及时提醒</li>\n    <li>在食材紧张时主动想办法替代</li>\n    <li>为身体不适的同事分担工作</li>\n    <li>主动研究新素菜谱，丰富菜单</li>\n  </ul>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">8.3 带人 — 师徒制</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>带教内容</th><th>计划时间</th><th>实际时间</th><th>徒弟掌握情况</th><th>师傅评价</th><th>写入知识库</th></tr></thead>\n    <tbody>\n      <tr><td>香菇烧豆腐</td><td>第1周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>切配基本功</td><td>第2周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>午餐SOP</td><td>第3周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>纯净素原则</td><td>第1周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>节气养生基础</td><td>第4周</td><td></td><td></td><td></td><td></td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"false\">带人流程</h4>\n  <ol contenteditable=\"false\">\n    <li><strong>明确目标</strong>：师傅和徒弟一起确定学习目标</li>\n    <li><strong>我做你看</strong>：师傅示范，徒弟观察</li>\n    <li><strong>我说你听</strong>：师傅讲解关键判断点</li>\n    <li><strong>你做我看</strong>：徒弟实操，师傅指导</li>\n    <li><strong>复盘总结</strong>：指出问题，肯定进步</li>\n    <li><strong>经验沉淀</strong>：把过程中的诀窍写入知识库</li>\n  </ol>\n",
-    "roadmap": "\n  <h2 contenteditable=\"false\" class=\"editable-h2\">落地路线图</h2>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">第一阶段：纸上标准化（第1-8周）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>周次</th><th>重点任务</th><th>产出物</th></tr></thead>\n    <tbody>\n      <tr><td>第1-2周</td><td>1.食安管控：建供应商表、采购模板、验收卡、库存台账</td><td>食安管控四件套</td></tr>\n      <tr><td>第3-4周</td><td>2.菜品出品：梳理素菜清单、填写20道菜谱卡、建研发流程</td><td>菜品库 + 研发流程</td></tr>\n      <tr><td>第5周</td><td>3.规整收纳：画厨房布局图、定点收纳标签、清洁排期表</td><td>规整收纳手册</td></tr>\n      <tr><td>第6周</td><td>4.空间环境：制定环境布置标准和清洁标准、理念墙设计</td><td>空间环境标准</td></tr>\n      <tr><td>第7周</td><td>5.健康理念：梳理四季养生原则、食物能量分类、纯净素营养指南</td><td>健康理念手册</td></tr>\n      <tr><td>第8周</td><td>6.生命力传播：写菜品善叙述、厨房理念、文宣计划</td><td>传播内容库</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">第二阶段：流程跑通（第9-16周）</h3>\n  <ul contenteditable=\"false\">\n    <li>每周按八大系统检查表自查一次</li>\n    <li>每天收集反馈，每周做复盘</li>\n    <li>每月更新一次菜品库、知识库</li>\n    <li>记录模板不好用的地方，持续修改</li>\n  </ul>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">第三阶段：数字化（第17-32周）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"false\">\n    <thead><tr><th>优先级</th><th>模块</th><th>原因</th></tr></thead>\n    <tbody>\n      <tr><td>P0</td><td>菜谱库 + 每日SOP</td><td>运营核心</td></tr>\n      <tr><td>P0</td><td>采购与库存</td><td>每天都要用</td></tr>\n      <tr><td>P1</td><td>成本与损耗</td><td>数据自动汇总</td></tr>\n      <tr><td>P1</td><td>经验知识库</td><td>核心差异化</td></tr>\n      <tr><td>P2</td><td>人员与排班</td><td>可先纸面运行</td></tr>\n      <tr><td>P2</td><td>空间环境 + 规整收纳</td><td>检查表形式</td></tr>\n      <tr><td>P3</td><td>生命力传播 / 健康理念 / 回馈优化 / 实修成长</td><td>内容管理 + 工具</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"false\" class=\"editable-h3\">第四阶段：产品化（第33周+）</h3>\n  <ul contenteditable=\"false\">\n    <li>抽象可配置项：菜单周期、供餐规模、菜系分类（纯净素/蛋奶素/常规）</li>\n    <li>多租户架构：多家企业厨房数据隔离</li>\n    <li>引导式配置：新厨房注册后按步骤录入数据</li>\n    <li>数据对比：同类型厨房之间的成本、损耗、满意度对标</li>\n    <li>内容市场：沉淀的菜品故事、健康理念、节气菜单可共享</li>\n    <li><strong>理念输出</strong>：把\"用人性文明引领科技文明\"的厨房实践，输出为可复制的模式</li>\n  </ul>\n"
+    "overview": "\n  <div class=\"page-title\" contenteditable=\"true\">理信能量厨房 · 八大系统</div>\n  <div class=\"page-sub\" contenteditable=\"true\">企业：理信科技（快速制造业）｜ 价值观：用人性文明引领科技文明，用科技文明驱动世界文明 ｜ 理念：健康、环保、希望、文明&nbsp;<div>123</div></div>\n\n  <h2 contenteditable=\"true\" class=\"editable-h2\">什么是理信能量厨房</h2>\n  <p contenteditable=\"true\">理信能量厨房不只是员工食堂，而是理信科技价值观的<strong>实体表达</strong>。</p>\n  <p contenteditable=\"true\">公司说\"用人性文明引领科技文明\"——厨房就用\"对生命的尊重\"引领\"对效率的追求\"。纯净素本身就是一种人性文明的体现：不因口腹之欲而牺牲动物生命，用植物的滋养满足身体需要。</p>\n  <p contenteditable=\"true\">公司说\"用科技文明驱动世界文明\"——厨房就把这套八大系统做成可复制、可推广的标准化体系，让更多企业看到：一个食堂也可以是文明的载体。</p>\n\n  <div class=\"table-wrap\">\n    <table contenteditable=\"true\">\n      <thead><tr><th>企业理念</th><th>在厨房中的体现</th><th>对应系统</th></tr></thead>\n      <tbody>\n        <tr><td><strong>健康</strong></td><td>纯净素饮食、顺时养生、食材安全</td><td>食安管控、健康理念、菜品出品</td></tr>\n        <tr><td><strong>环保</strong></td><td>减少食材浪费、零厨余目标、绿色采购</td><td>食安管控、规整收纳、空间环境</td></tr>\n        <tr><td><strong>希望</strong></td><td>用一餐饭传递正向能量、滋养身心</td><td>健康理念、生命力传播</td></tr>\n        <tr><td><strong>文明</strong></td><td>厨房秩序、餐桌礼仪、以食修心</td><td>规整收纳、生命力传播、实修成长</td></tr>\n      </tbody>\n    </table>\n  </div>\n\n  <h2 contenteditable=\"true\" class=\"editable-h2\">八大系统三层结构</h2>\n\n  <div class=\"layer-card layer-op\">\n    <h3 contenteditable=\"true\" class=\"editable-h3\">运营层 · 把事情做对</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"true\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>1. 食安管控</strong></td><td>食材从哪来、安不安全、浪不浪费</td><td>安全、成本、可追溯</td></tr>\n        <tr><td><strong>2. 菜品出品</strong></td><td>每天做什么、怎么做、做出标准</td><td>标准化、研发、出品</td></tr>\n        <tr><td><strong>3. 规整收纳</strong></td><td>东西放哪里、用完归不归纳</td><td>5S、定点、归位</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"layer-card layer-culture\">\n    <h3 contenteditable=\"true\" class=\"editable-h3\">文化层 · 让厨房有能量</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"true\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>4. 空间环境</strong></td><td>厨房和用餐区是否让人舒服、有能量</td><td>布置、氛围、清洁</td></tr>\n        <tr><td><strong>5. 健康理念</strong></td><td>为什么这样吃、对身体有什么好处</td><td>顺时、养生、能量</td></tr>\n        <tr><td><strong>6. 生命力传播</strong></td><td>怎么把厨房的理念讲出去</td><td>叙事、文宣、礼仪</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"layer-card layer-growth\">\n    <h3 contenteditable=\"true\" class=\"editable-h3\">成长层 · 让团队一起变好</h3>\n    <div class=\"table-wrap\"><table contenteditable=\"true\">\n      <thead><tr><th>系统</th><th>核心问题</th><th>关键词</th></tr></thead>\n      <tbody>\n        <tr><td><strong>7. 回馈优化</strong></td><td>做得好不好、怎么知道、怎么改进</td><td>反馈、复盘、数据</td></tr>\n        <tr><td><strong>8. 实修成长</strong></td><td>人在厨房里怎么成长、怎么带人</td><td>自立、利他、带人</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">设计理念</div>\n    <div contenteditable=\"true\">\n      1. <strong>纯净素为本</strong>：所有菜品不含肉蛋奶及动物性调料（如蚝油），不含五辛（葱、蒜、韭菜、薤、兴渠），以植物性食材为核心。<br>\n      2. <strong>以人为本</strong>：系统既要让厨房高效运转，也要让在这里工作的人有成长、有尊严。<br>\n      3. <strong>从\"做事\"到\"传道\"</strong>：理信能量厨房不仅是供餐，更是在传递健康、环保、希望、文明的生活方式。<br>\n      4. <strong>小步快跑</strong>：先纸上标准化，再数字化，最后产品化。<br>\n      5. <strong>可复用可推广</strong>：从第一天起就设计成其他企业也能用的模板。\n    </div>\n  </div>\n",
+    "s1": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c1)\">1</div>\n    <div class=\"sys-title\" contenteditable=\"true\">食安管控</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：厨房的底线系统。管住食材从采购到上桌的每一个环节，确保安全、可控、可追溯、不浪费。环保理念要求我们减少浪费，每一份食材都来自天地的馈赠，值得被认真对待。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">1.1 食材采购</h3>\n  <h4 contenteditable=\"true\">纯净素采购原则</h4>\n  <ul contenteditable=\"true\">\n    <li>所有食材必须为植物性，不含任何动物成分</li>\n    <li>调料采购需核查成分表，杜绝蚝油、鱼露、虾酱、鸡粉等动物性调料</li>\n    <li>不采购五辛类食材（葱、蒜、韭菜、薤、兴渠）</li>\n    <li>优先采购有机、生态种植的食材</li>\n    <li>优先本地采购，减少运输碳排放（环保理念）</li>\n  </ul>\n\n  <div class=\"callout callout-warning\">\n    <div class=\"callout-title\">纯净素调料替代表</div>\n    <div class=\"table-wrap\"><table contenteditable=\"true\">\n      <thead><tr><th>传统调料</th><th>纯净素替代</th><th>说明</th></tr></thead>\n      <tbody>\n        <tr><td>蚝油</td><td>菌菇酱 / 素蚝油（香菇提取）</td><td>提供鲜味</td></tr>\n        <tr><td>鸡精 / 鸡粉</td><td>菌菇粉 / 海带粉</td><td>提供鲜味</td></tr>\n        <tr><td>葱姜蒜</td><td>姜可保留（姜不属于五辛）；以花椒、八角、桂皮、香菜替代去腥提香</td><td>五辛中仅姜可用</td></tr>\n        <tr><td>猪油</td><td>植物油（花生油、橄榄油、山茶油）</td><td>更健康</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n\n  <h4 contenteditable=\"true\">核心数据字段</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>字段</th><th>说明</th><th>标准化阶段（纸上）</th></tr></thead>\n    <tbody>\n      <tr><td>采购日期</td><td>哪天采购</td><td>手写日期</td></tr>\n      <tr><td>供应商</td><td>从哪家买</td><td>记录供应商名称</td></tr>\n      <tr><td>食材类别</td><td>蔬菜/豆制品/菌菇/谷物/粮油/调味品</td><td>分类标注</td></tr>\n      <tr><td>食材名称</td><td>具体买什么</td><td>列清单</td></tr>\n      <tr><td>采购数量</td><td>多少斤/袋/瓶</td><td>估算数量</td></tr>\n      <tr><td>预估单价</td><td>大概多少钱</td><td>参考近期价格</td></tr>\n      <tr><td>实际单价</td><td>实际成交价</td><td>付款时记录</td></tr>\n      <tr><td>关联菜单</td><td>这食材给哪几道菜用</td><td>关联周菜单</td></tr>\n      <tr><td>采购人</td><td>谁去买的</td><td>签字确认</td></tr>\n      <tr><td>采购依据</td><td>按什么菜单买的、多少人吃</td><td>避免盲目采购</td></tr>\n      <tr><td>产地信息</td><td>食材产地（环保溯源）</td><td>记录产地</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"true\">标准流程</h4>\n  <ol contenteditable=\"true\">\n    <li>每周日晚上根据下周菜单生成采购需求</li>\n    <li>采购日一早汇总采购清单</li>\n    <li>按供应商分类，分别采购</li>\n    <li>采购回来当天必须完成验收和入库</li>\n    <li>采购时核查调料成分表，确保无动物性成分</li>\n  </ol>\n\n  <div class=\"callout callout-op\">\n    <div class=\"callout-title\">关键判断点</div>\n    <div contenteditable=\"true\">\n      叶菜类采购量 = 周需求量 × 1.15（考虑损耗）｜ 根茎类耐储存可批量采购 ｜ 豆制品需当天或隔天采购 ｜ 菌菇类根据菜品需要采购，鲜菌菇保质期短 ｜ 调味品按月度消耗量采购 ｜ 新调料第一次采购必须核查成分表确认无动物成分\n    </div>\n  </div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">1.2 验收管理</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>品类</th><th>验收要点</th><th>不合格处理</th></tr></thead>\n    <tbody>\n      <tr><td>蔬菜</td><td>新鲜、无黄叶、无腐烂、无农残异味</td><td>退货或挑出，记录损耗</td></tr>\n      <tr><td>豆制品</td><td>颜色正常、无酸味、包装完好</td><td>坚决退货</td></tr>\n      <tr><td>菌菇</td><td>鲜活或外观正常、无异味、无黏液</td><td>退货</td></tr>\n      <tr><td>谷物/杂粮</td><td>颗粒饱满、无虫蛀、无霉变</td><td>拒收</td></tr>\n      <tr><td>粮油</td><td>包装完好、生产日期新鲜</td><td>拒收临期产品</td></tr>\n      <tr><td>调味品</td><td>包装完整、标签齐全、<strong>成分表无动物成分</strong></td><td>退换货</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"true\">验收记录字段</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>验收日期</td><td>哪天验收</td></tr>\n      <tr><td>验收人</td><td>谁验收的</td></tr>\n      <tr><td>供应商</td><td>哪家供应商的货</td></tr>\n      <tr><td>食材名称</td><td>什么食材</td></tr>\n      <tr><td>采购数量</td><td>买了多少</td></tr>\n      <tr><td>合格数量</td><td>实际能用多少</td></tr>\n      <tr><td>不合格数量</td><td>退掉/扔掉多少</td></tr>\n      <tr><td>不合格原因</td><td>为什么不达标</td></tr>\n      <tr><td>处理结果</td><td>退货/换货/折价/废弃</td></tr>\n      <tr><td>照片</td><td>不合格品拍照存档</td></tr>\n      <tr><td>成分确认</td><td>调味品是否确认无动物成分</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">1.3 库存管控</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>字段</th><th>说明</th><th>标准化阶段</th></tr></thead>\n    <tbody>\n      <tr><td>食材名称</td><td>什么食材</td><td>台账列表</td></tr>\n      <tr><td>存放位置</td><td>冷藏库/冷冻库/常温架</td><td>画库位图</td></tr>\n      <tr><td>当前库存</td><td>还剩多少</td><td>每天盘一次</td></tr>\n      <tr><td>单位</td><td>斤/公斤/袋/瓶</td><td>统一单位</td></tr>\n      <tr><td>安全库存</td><td>低于这个数要补货</td><td>设定阈值</td></tr>\n      <tr><td>保质期</td><td>能放多久</td><td>标注清楚</td></tr>\n      <tr><td>入库日期</td><td>什么时候买的</td><td>先进先出</td></tr>\n      <tr><td>最后盘点时间</td><td>上次盘点什么时候</td><td>每天更新</td></tr>\n      <tr><td>经手人</td><td>谁负责的</td><td>责任到人</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"true\">每日库存盘点模板</h4>\n  <div class=\"sop-block\" contenteditable=\"true\">日期：_______  盘点人：_______\n\n| 食材 | 存放位置 | 昨日库存 | 今日入库 | 今日出库 | 今日损耗 | 当前库存 | 备注 |\n|------|----------|----------|----------|----------|----------|----------|------|\n|      |          |          |          |          |          |          |      |</div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">1.4 成本损耗</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>日期</td><td>哪天</td></tr>\n      <tr><td>餐次</td><td>早餐/午餐/晚餐</td></tr>\n      <tr><td>供餐人数</td><td>多少人吃</td></tr>\n      <tr><td>采购金额</td><td>当天采购花了多少钱</td></tr>\n      <tr><td>食材成本</td><td>实际消耗食材的价值</td></tr>\n      <tr><td>损耗金额</td><td>废弃食材的价值</td></tr>\n      <tr><td>人均成本</td><td>总成本 ÷ 供餐人数</td></tr>\n      <tr><td>损耗率</td><td>损耗金额 ÷ 采购金额</td></tr>\n      <tr><td>成本偏差</td><td>实际成本 vs 标准成本</td></tr>\n    </tbody>\n  </table></div>\n\n  <div class=\"callout callout-success\">\n    <div class=\"callout-title\">环保目标</div>\n    <div contenteditable=\"true\">逐步降低损耗率，追求\"零厨余\"——菜根菜叶能利用的尽量利用（如萝卜皮做小菜、豆渣做饼），不能利用的做堆肥处理。损耗率目标：&lt;5%（逐步降到&lt;3%）</div>\n  </div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">1.5 食材安全</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>字段</th><th>说明</th></tr></thead>\n    <tbody>\n      <tr><td>食材名称</td><td>什么食材</td></tr>\n      <tr><td>供应商资质</td><td>营业执照、有机认证等</td></tr>\n      <tr><td>批次号</td><td>每批货的唯一编号</td></tr>\n      <tr><td>生产日期</td><td>什么时候生产的</td></tr>\n      <tr><td>保质期</td><td>到什么时候过期</td></tr>\n      <tr><td>检测报告</td><td>农残检测报告</td></tr>\n      <tr><td>入库照片</td><td>验收时拍照</td></tr>\n      <tr><td>使用记录</td><td>这批货用在了哪几道菜</td></tr>\n      <tr><td>产地信息</td><td>食材产自哪里（环保溯源）</td></tr>\n    </tbody>\n  </table></div>\n",
+    "s2": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c2)\">2</div>\n    <div class=\"sys-title\" contenteditable=\"true\">菜品出品</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：厨房的核心生产系统。纯净素不代表单调——用菌菇的鲜、豆制品的香、时令蔬菜的甜，做出有能量、有滋味的菜品。每一道菜都是健康理念的载体。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">2.1 选择标准</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>维度</th><th>标准</th><th>权重</th></tr></thead>\n    <tbody>\n      <tr><td>营养均衡</td><td>蛋白质、碳水、蔬菜均衡（纯素蛋白来源：豆制品、菌菇、坚果）</td><td>高</td></tr>\n      <tr><td>时令顺应</td><td>是否选用当季食材</td><td>高</td></tr>\n      <tr><td>出品稳定</td><td>是否容易被新手掌握、出品差异小</td><td>高</td></tr>\n      <tr><td>成本控制</td><td>成本是否在预算范围内</td><td>中</td></tr>\n      <tr><td>受众接受度</td><td>食客是否喜欢吃</td><td>中</td></tr>\n      <tr><td>操作复杂度</td><td>后厨是否能稳定产出</td><td>中</td></tr>\n      <tr><td>文化契合</td><td>是否符合\"健康、环保、希望、文明\"理念</td><td>高</td></tr>\n      <tr><td>纯净素合规</td><td>不含任何动物成分和五辛</td><td>必须</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">2.2 食材搭配</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">纯净素搭配原则</div>\n    <div contenteditable=\"true\">\n      一主菜一配菜一汤 ｜ 五色入餐（红番茄/黄玉米/绿叶菜/白豆腐/黑木耳）｜ 寒热平衡 ｜ 粗细搭配 ｜ <strong>蛋白互补</strong>：豆制品+谷物（如豆腐配米饭，氨基酸互补）｜ 时令优先\n    </div>\n  </div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">2.3 品类管理（纯净素版）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>品类</th><th>作用</th><th>每餐建议</th><th>示例</th></tr></thead>\n    <tbody>\n      <tr><td>主菜</td><td>提供主要蛋白质和口感</td><td>1-2道</td><td>红烧杏鲍菇、麻婆豆腐</td></tr>\n      <tr><td>配菜</td><td>提供蔬菜、维生素</td><td>2-3道</td><td>清炒时蔬、凉拌木耳</td></tr>\n      <tr><td>汤品</td><td>暖胃、补水、搭配</td><td>1道</td><td>菌菇汤、番茄汤</td></tr>\n      <tr><td>点心</td><td>主食补充、丰富口感</td><td>0-1道</td><td>南瓜饼、素包子</td></tr>\n      <tr><td>水果</td><td>餐后补充</td><td>1种</td><td>时令水果</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">2.4 菜品研发流程</h3>\n  <ol contenteditable=\"true\">\n    <li><strong>选择标准</strong>：确定研发方向（如\"夏季清热\"\"冬季温补\"\"高蛋白纯素\"）</li>\n    <li><strong>配方设计</strong>：确定食材搭配和调味比例（确保纯净素）</li>\n    <li><strong>试菜品鉴</strong>：小批量试做，内部试吃</li>\n    <li><strong>出品审核</strong>：确认出品标准、成本、操作难度、理念契合度</li>\n    <li><strong>菜单录入</strong>：审核通过后进入菜谱库</li>\n    <li><strong>上线反馈</strong>：正式上菜单后收集反馈，迭代优化</li>\n  </ol>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">2.5 菜品制作标准模板</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">示例：香菇烧豆腐（200人份）</div>\n  </div>\n  <div class=\"sop-block\" contenteditable=\"true\">菜品：香菇烧豆腐（200人份）\n责任人：_______\n\n【预处理】\n步骤1：香菇处理\n  - 标准：鲜香菇去根，洗净，切十字花刀\n  - 数量：15斤\n  - 关键判断点：花刀不要切太深，约2/3深度即可，太深容易碎，太浅不入味\n\n步骤2：豆腐处理\n  - 标准：老豆腐切成3cm见方的块，淡盐水浸泡10分钟\n  - 数量：30斤\n  - 关键判断点：盐水浸泡去除豆腥味，同时让豆腐更紧实，炒的时候不容易碎\n\n步骤3：配料准备\n  - 标准：姜切末（姜不属于五辛，可用）、香菜切段\n  - 关键判断点：纯净素不用葱蒜，用姜和香菜提香\n\n【烹饪】\n步骤4：煎豆腐\n  - 动作：热锅凉油，油五成热，放入豆腐块，中火煎至两面金黄\n  - 时间：约8-10分钟\n  - 关键判断点：煎到表面金黄硬壳再翻面，频繁翻动会碎；火不能太大，太大外焦内生\n\n步骤5：炒香菇\n  - 动作：锅中留底油，放入香菇，中火翻炒至出汁、边缘微焦\n  - 时间：约5分钟\n  - 关键判断点：香菇出汁、体积缩小约一半，香味浓郁时最好\n\n步骤6：合烧\n  - 动作：豆腐和香菇合锅，加生抽、少许糖、菌菇粉调味，加半碗水，小火焖3分钟，收汁\n  - 时间：约5分钟\n  - 关键判断点：汤汁收至浓稠挂在豆腐和香菇上即可，不要收太干；尝味，咸鲜微甜\n\n步骤7：出锅\n  - 动作：撒上香菜末，翻匀出锅\n  - 关键判断点：香菜最后放，保持翠绿和香气\n\n【出品标准】\n- 颜色：豆腐金黄、香菇油亮、香菜翠绿，三色分明\n- 口感：豆腐外韧内嫩，香菇鲜香有嚼劲\n- 温度：出品时保持60℃以上\n- 份量：每份约150g\n- 理念：豆制品+菌菇的蛋白互补，健康营养</div>\n",
+    "s3": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c3)\">3</div>\n    <div class=\"sys-title\" contenteditable=\"true\">规整收纳</div>\n    <span class=\"sys-tag\">运营层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：厨房的秩序系统。秩序本身就是一种文明——一个井井有条的厨房，传递的是对食材的敬畏、对工作的认真、对共事者的尊重。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">3.1 餐厨具清洗归位</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>物品</th><th>清洗标准</th><th>消毒</th><th>存放位置</th><th>责任人</th></tr></thead>\n    <tbody>\n      <tr><td>炒锅</td><td>无油渍无残渣</td><td>热水烫洗</td><td>灶台右侧挂钩</td><td>使用人</td></tr>\n      <tr><td>切菜板</td><td>无残渣无异味</td><td>消毒液浸泡</td><td>刀具架下方</td><td>切配人</td></tr>\n      <tr><td>刀具</td><td>无残渣、擦干</td><td>消毒液擦拭</td><td>刀具架</td><td>切配人</td></tr>\n      <tr><td>餐盘</td><td>无油渍无水印</td><td>消毒柜</td><td>消毒柜/备餐台</td><td>洗碗工</td></tr>\n      <tr><td>抹布</td><td>无油污、无异味</td><td>每天煮沸</td><td>指定挂钩</td><td>各区域使用人</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">3.2 物品定点收纳</h3>\n  <p contenteditable=\"true\"><strong>收纳原则</strong>：常用物品放顺手处 ｜ 同类集中存放 ｜ 重物放低处 ｜ 所有位置贴标签 ｜ 纯净素专用（动物性调料和五辛类不得进入厨房）</p>\n\n  <h4 contenteditable=\"true\">调料架定点收纳示例</h4>\n  <div class=\"sop-block\" contenteditable=\"true\">调料架（灶台右侧）\n第一层：常用调料\n  - 左1：花生油  - 左2：生抽  - 左3：老抽  - 左4：盐  - 左5：糖\n第二层：常用香料\n  - 左1：花椒  - 左2：八角  - 左3：桂皮  - 左4：干辣椒\n第三层：鲜味调料\n  - 左1：菌菇粉（替代鸡精）\n  - 左2：素蚝油（菌菇提取，替代蚝油）\n  - 左3：料酒  - 左4：醋  - 左5：香油</div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">3.3 操作现场规整标准</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>区域</th><th>标准要求</th></tr></thead>\n    <tbody>\n      <tr><td>切配区</td><td>台面无积水、无残渣；刀具砧板归位；垃圾分类</td></tr>\n      <tr><td>烹饪区</td><td>灶台无油渍；锅具不用时挂好；调料用后即归位</td></tr>\n      <tr><td>洗碗区</td><td>餐具洗后沥干；污水池无堵塞；地面无水渍</td></tr>\n      <tr><td>备餐区</td><td>成品摆放整齐；保温设备正常；台面干净</td></tr>\n      <tr><td>储物区</td><td>食材先进先出；标签清晰；无过期食品</td></tr>\n      <tr><td>地面</td><td>无油渍、无积水、无垃圾</td></tr>\n    </tbody>\n  </table></div>\n",
+    "s4": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c4)\">4</div>\n    <div class=\"sys-title\" contenteditable=\"true\">空间环境</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：空间是文明的容器。一个整洁、温暖、有秩序的用餐环境，本身就是\"文明\"理念的实体表达。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">4.1 环境能量</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>维度</th><th>内容</th><th>落地要点</th></tr></thead>\n    <tbody>\n      <tr><td>布置</td><td>功能分区、动线设计、绿植摆放</td><td>明亮、整洁、有秩序</td></tr>\n      <tr><td>氛围</td><td>光线、音乐、色彩、气味</td><td>温暖、安静、舒适</td></tr>\n      <tr><td>仪式感</td><td>开餐前的准备、供餐时的状态</td><td>心存敬畏、认真对待</td></tr>\n      <tr><td>文化展示</td><td>墙面标语、菜品介绍、节气海报、企业价值观</td><td>传递\"健康、环保、希望、文明\"</td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"true\">文化展示建议</h4>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>位置</th><th>展示内容</th></tr></thead>\n    <tbody>\n      <tr><td>入口</td><td>\"理信能量厨房\"标识 + \"健康·环保·希望·文明\"理念墙</td></tr>\n      <tr><td>走廊</td><td>当周菜单 + 节气养生知识</td></tr>\n      <tr><td>用餐区</td><td>企业价值观：\"用人性文明引领科技文明，用科技文明驱动世界文明\"</td></tr>\n      <tr><td>取餐区</td><td>每日菜品善叙述（一句话介绍这道菜的能量）</td></tr>\n      <tr><td>墙面</td><td>纯净素理念、环保倡议、光盘行动倡议</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">4.2 空间清整</h3>\n  <div class=\"sop-block\" contenteditable=\"true\">日常清洁（每天）\n- 开餐前后各一次全面清洁\n- 每餐结束后立即清理灶台、台面\n- 垃圾每餐一清\n- 地面每餐一拖\n\n周清洁（每周一次）\n- 周一：清洁冰箱、冰柜内部\n- 周二：清洗抽油烟机滤网\n- 周三：清理调料架、检查过期调料\n- 周四：深度清洁地面、墙角\n- 周五：清洁备餐台、餐具柜\n- 周六：设备外部清洁\n- 周日：全区域大扫除\n\n月清洁（每月一次）\n- 清洗厨房窗帘、门帘\n- 清洁灯具、天花板\n- 检查灭蝇灯、灭鼠设备\n- 深度清洁厨房设备内部</div>\n",
+    "s5": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c5)\">5</div>\n    <div class=\"sys-title\" contenteditable=\"true\">健康理念</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：理信能量厨房的灵魂系统。纯净素不是\"不吃肉\"的限制，而是一种\"选择更健康、更环保、更有能量的食物\"的主动选择。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">5.1 顺时养生（纯净素版）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>季节</th><th>饮食重点</th><th>推荐食材</th><th>适合菜品类型</th></tr></thead>\n    <tbody>\n      <tr><td>春</td><td>养肝、升发</td><td>菠菜、豆芽、荠菜、春笋</td><td>清炒、凉拌</td></tr>\n      <tr><td>夏</td><td>清热、解暑</td><td>苦瓜、冬瓜、绿豆、莲藕</td><td>汤品、凉拌</td></tr>\n      <tr><td>秋</td><td>润肺、滋阴</td><td>梨、银耳、百合、山药</td><td>炖品、糖水</td></tr>\n      <tr><td>冬</td><td>温补、储能</td><td>萝卜、核桃、板栗、红薯</td><td>炖菜、汤品</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">5.2 食物与能量</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>属性</th><th>特点</th><th>适合人群</th><th>代表食材</th></tr></thead>\n    <tbody>\n      <tr><td>温热</td><td>暖胃、补阳气</td><td>怕冷、体寒</td><td>姜、辣椒、桂圆、核桃</td></tr>\n      <tr><td>寒凉</td><td>清热、降火</td><td>上火、体热</td><td>绿豆、苦瓜、冬瓜、莲藕</td></tr>\n      <tr><td>平和</td><td>不寒不热，适合大多数人</td><td>日常</td><td>大米、山药、胡萝卜、豆腐</td></tr>\n      <tr><td>升发</td><td>春季宜吃，助阳气生发</td><td>春季</td><td>豆芽、荠菜、春笋</td></tr>\n      <tr><td>收藏</td><td>冬季宜吃，助能量收藏</td><td>冬季</td><td>核桃、黑芝麻、红薯</td></tr>\n    </tbody>\n  </table></div>\n\n  <div class=\"callout callout-success\">\n    <div class=\"callout-title\">纯净素营养保障表</div>\n    <div class=\"table-wrap\"><table contenteditable=\"true\">\n      <thead><tr><th>营养素</th><th>植物性来源</th></tr></thead>\n      <tbody>\n        <tr><td>蛋白质</td><td>豆腐、豆干、腐竹、菌菇、坚果、藜麦</td></tr>\n        <tr><td>铁</td><td>黑木耳、菠菜、红豆、红枣</td></tr>\n        <tr><td>钙</td><td>豆腐、芝麻、西兰花、杏仁</td></tr>\n        <tr><td>维生素B12</td><td>营养酵母、强化食品（需注意补充）</td></tr>\n        <tr><td>Omega-3</td><td>亚麻籽、核桃、奇亚籽</td></tr>\n      </tbody>\n    </table></div>\n  </div>\n",
+    "s6": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c6)\">6</div>\n    <div class=\"sys-title\" contenteditable=\"true\">生命力传播</div>\n    <span class=\"sys-tag\">文化层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：把理信能量厨房的理念、文化、菜品故事传递出去，让更多人被影响、被滋养。用每一道菜的故事、每一个节气养生知识、每一次餐桌礼仪，把\"健康、环保、希望、文明\"传播给每一位用餐者。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">6.1 菜品善叙述</h3>\n  <div class=\"callout callout-info\">\n    <div class=\"callout-title\">示例：白萝卜炖菌菇</div>\n    <div class=\"sop-block\" contenteditable=\"true\" style=\"margin:8px 0 0 0\">菜品：白萝卜炖菌菇\n\n故事：这是一道冬季暖身菜。白萝卜清甜，菌菇鲜美，\n      两者搭配，既暖胃又不燥热。萝卜是\"冬令小人参\"，\n      菌菇富含植物蛋白和多种氨基酸，是纯净素饮食中的营养担当。\n\n健康理念：冬季人体阳气内敛，需要适当温补。\n      萝卜助消化，菌菇补蛋白，适合寒冷天气。\n\n能量解读：这道菜传递的是\"温暖\"和\"希望\"的能量——\n      再冷的冬天，一碗热汤也能让人心生暖意。\n\n理念关联：健康（温补养生）、环保（植物性食材，低碳足迹）。\n\n推荐语：\"冬日里的一碗暖汤，暖身暖心，纯净滋养。\"</div>\n  </div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">6.2 厨房理念</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>#</th><th>理念</th><th>阐述</th><th>关联</th></tr></thead>\n    <tbody>\n      <tr><td>1</td><td><strong>敬畏食材</strong></td><td>每一份食材都来自天地，值得认真对待。不浪费一叶一蔬，是对自然的尊重。</td><td>环保</td></tr>\n      <tr><td>2</td><td><strong>顺时而生</strong></td><td>顺应节气，吃当季食物，让身体与自然同频。</td><td>健康</td></tr>\n      <tr><td>3</td><td><strong>洁净即能量</strong></td><td>干净的环境和干净的食材，是能量的基础。</td><td>文明</td></tr>\n      <tr><td>4</td><td><strong>以食养心</strong></td><td>一餐饭不只是填饱肚子，更是养身体、养心神。</td><td>健康</td></tr>\n      <tr><td>5</td><td><strong>纯净即慈悲</strong></td><td>选择纯净素，是不因口腹之欲而牺牲动物生命，是对生命的尊重。</td><td>文明</td></tr>\n      <tr><td>6</td><td><strong>共同成长</strong></td><td>厨房是修行场，每个人在这里都能变得更好。</td><td>希望</td></tr>\n      <tr><td>7</td><td><strong>用人性文明引领科技文明</strong></td><td>在追求效率的同时，不忘对人的关怀、对生命的敬畏。</td><td>文明</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">6.3 企业文宣规划</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>渠道</th><th>内容方向</th><th>频率</th></tr></thead>\n    <tbody>\n      <tr><td>短视频</td><td>一道素菜的故事、节气饮食知识、纯净素营养科普</td><td>每周1-2条</td></tr>\n      <tr><td>公众号</td><td>周菜单解读、健康理念长文、理信价值观与厨房实践</td><td>每周1篇</td></tr>\n      <tr><td>朋友圈</td><td>今日菜品、厨房日常、正能量金句</td><td>每天1-2条</td></tr>\n      <tr><td>海报</td><td>节气菜单、健康小贴士、企业价值观</td><td>每月2-3张</td></tr>\n      <tr><td>用餐区</td><td>菜品善叙述卡、节气养生知识、理念墙</td><td>每周更新</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">6.4 餐桌礼仪</h3>\n  <ol contenteditable=\"true\">\n    <li><strong>餐前感恩</strong>：取餐前双手合十或默念感恩——感恩天地滋养、感恩农人辛劳、感恩厨师用心、感恩食物化能量。</li>\n    <li><strong>安静用餐</strong>：用餐时尽量轻声，专注品尝食物的味道，感受食物带来的能量。</li>\n    <li><strong>光盘行动</strong>：吃多少取多少，不浪费粮食。每一粒米都值得被珍惜。（环保理念）</li>\n    <li><strong>餐后退盘</strong>：用餐后主动把餐具放到指定位置，保持用餐区整洁。（文明理念）</li>\n  </ol>\n",
+    "s7": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c7)\">7</div>\n    <div class=\"sys-title\" contenteditable=\"true\">回馈优化</div>\n    <span class=\"sys-tag\">成长层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：成长的发动机。科技文明的核心是持续迭代——厨房也需要数据驱动，用反馈推动优化。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">7.1 受众回馈收集</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>方式</th><th>适用场景</th><th>优点</th></tr></thead>\n    <tbody>\n      <tr><td>现场意见箱</td><td>日常</td><td>随时可写，匿名</td></tr>\n      <tr><td>问卷星小程序</td><td>周期性</td><td>可统计、可量化</td></tr>\n      <tr><td>面对面访谈</td><td>重点人群</td><td>深度反馈</td></tr>\n      <tr><td>剩菜观察</td><td>日常</td><td>最真实的需求反馈（剩得多=不太受欢迎）</td></tr>\n      <tr><td>微信群投票</td><td>菜品选择</td><td>互动性强</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">7.2 复盘模板（周复盘）</h3>\n  <div class=\"sop-block\" contenteditable=\"true\">理信能量厨房周复盘：第___周（_____至_____）\n参与人：__________\n\n一、数据回顾\n- 本周供餐总人次：_____\n- 本周食材成本：_____ 元\n- 本周损耗率：_____ %\n- 本周满意度评分：_____ / 5\n- 本周收到反馈：_____ 条\n- 本周光盘率：_____ %\n\n二、本周亮点\n1. __________\n2. __________\n\n三、本周问题\n1. __________（根因：_____，改进：_____）\n2. __________（根因：_____，改进：_____）\n\n四、下周重点\n1. __________\n2. __________\n\n五、经验沉淀（可写入知识库）\n1. __________\n2. __________\n\n六、理念践行检查\n- 健康：_____\n- 环保：_____\n- 希望：_____\n- 文明：_____</div>\n",
+    "s8": "\n  <div class=\"sys-header\">\n    <div class=\"sys-badge\" style=\"background:var(--c8)\">8</div>\n    <div class=\"sys-title\" contenteditable=\"true\">实修成长</div>\n    <span class=\"sys-tag\">成长层</span>\n  </div>\n  <blockquote contenteditable=\"true\"><p><strong>系统定位</strong>：厨房是一所\"学校\"。公司说\"用人性文明引领科技文明\"——人性文明的核心是人的成长。理信能量厨房不只是做饭的地方，更是人修炼心性、提升自我的道场。</p></blockquote>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">8.1 自立 — 成长路径</h3>\n  <div class=\"sop-block\" contenteditable=\"true\">新人入职\n  ↓\n第1周：熟悉环境，学习基础安全规范，了解纯净素原则\n  ↓\n第2-4周：学习食材预处理和基本刀工\n  ↓\n第1-3个月：学习简单素菜制作，能独立完成2-3道菜\n  ↓\n第3-6个月：学习复杂素菜，掌握火候和调味\n  ↓\n第6-12个月：能独立负责一个餐次的出品\n  ↓\n成为骨干：能带新人、能研发新菜、能传播理念</div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">8.2 利他</h3>\n  <ul contenteditable=\"true\">\n    <li>主动帮同事收尾</li>\n    <li>把自己的做菜经验教给新人</li>\n    <li>发现安全隐患及时提醒</li>\n    <li>在食材紧张时主动想办法替代</li>\n    <li>为身体不适的同事分担工作</li>\n    <li>主动研究新素菜谱，丰富菜单</li>\n  </ul>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">8.3 带人 — 师徒制</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>带教内容</th><th>计划时间</th><th>实际时间</th><th>徒弟掌握情况</th><th>师傅评价</th><th>写入知识库</th></tr></thead>\n    <tbody>\n      <tr><td>香菇烧豆腐</td><td>第1周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>切配基本功</td><td>第2周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>午餐SOP</td><td>第3周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>纯净素原则</td><td>第1周</td><td></td><td></td><td></td><td></td></tr>\n      <tr><td>节气养生基础</td><td>第4周</td><td></td><td></td><td></td><td></td></tr>\n    </tbody>\n  </table></div>\n\n  <h4 contenteditable=\"true\">带人流程</h4>\n  <ol contenteditable=\"true\">\n    <li><strong>明确目标</strong>：师傅和徒弟一起确定学习目标</li>\n    <li><strong>我做你看</strong>：师傅示范，徒弟观察</li>\n    <li><strong>我说你听</strong>：师傅讲解关键判断点</li>\n    <li><strong>你做我看</strong>：徒弟实操，师傅指导</li>\n    <li><strong>复盘总结</strong>：指出问题，肯定进步</li>\n    <li><strong>经验沉淀</strong>：把过程中的诀窍写入知识库</li>\n  </ol>\n",
+    "roadmap": "\n  <h2 contenteditable=\"true\" class=\"editable-h2\">落地路线图</h2>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">第一阶段：纸上标准化（第1-8周）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>周次</th><th>重点任务</th><th>产出物</th></tr></thead>\n    <tbody>\n      <tr><td>第1-2周</td><td>1.食安管控：建供应商表、采购模板、验收卡、库存台账</td><td>食安管控四件套</td></tr>\n      <tr><td>第3-4周</td><td>2.菜品出品：梳理素菜清单、填写20道菜谱卡、建研发流程</td><td>菜品库 + 研发流程</td></tr>\n      <tr><td>第5周</td><td>3.规整收纳：画厨房布局图、定点收纳标签、清洁排期表</td><td>规整收纳手册</td></tr>\n      <tr><td>第6周</td><td>4.空间环境：制定环境布置标准和清洁标准、理念墙设计</td><td>空间环境标准</td></tr>\n      <tr><td>第7周</td><td>5.健康理念：梳理四季养生原则、食物能量分类、纯净素营养指南</td><td>健康理念手册</td></tr>\n      <tr><td>第8周</td><td>6.生命力传播：写菜品善叙述、厨房理念、文宣计划</td><td>传播内容库</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">第二阶段：流程跑通（第9-16周）</h3>\n  <ul contenteditable=\"true\">\n    <li>每周按八大系统检查表自查一次</li>\n    <li>每天收集反馈，每周做复盘</li>\n    <li>每月更新一次菜品库、知识库</li>\n    <li>记录模板不好用的地方，持续修改</li>\n  </ul>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">第三阶段：数字化（第17-32周）</h3>\n  <div class=\"table-wrap\"><table contenteditable=\"true\">\n    <thead><tr><th>优先级</th><th>模块</th><th>原因</th></tr></thead>\n    <tbody>\n      <tr><td>P0</td><td>菜谱库 + 每日SOP</td><td>运营核心</td></tr>\n      <tr><td>P0</td><td>采购与库存</td><td>每天都要用</td></tr>\n      <tr><td>P1</td><td>成本与损耗</td><td>数据自动汇总</td></tr>\n      <tr><td>P1</td><td>经验知识库</td><td>核心差异化</td></tr>\n      <tr><td>P2</td><td>人员与排班</td><td>可先纸面运行</td></tr>\n      <tr><td>P2</td><td>空间环境 + 规整收纳</td><td>检查表形式</td></tr>\n      <tr><td>P3</td><td>生命力传播 / 健康理念 / 回馈优化 / 实修成长</td><td>内容管理 + 工具</td></tr>\n    </tbody>\n  </table></div>\n\n  <h3 contenteditable=\"true\" class=\"editable-h3\">第四阶段：产品化（第33周+）</h3>\n  <ul contenteditable=\"true\">\n    <li>抽象可配置项：菜单周期、供餐规模、菜系分类（纯净素/蛋奶素/常规）</li>\n    <li>多租户架构：多家企业厨房数据隔离</li>\n    <li>引导式配置：新厨房注册后按步骤录入数据</li>\n    <li>数据对比：同类型厨房之间的成本、损耗、满意度对标</li>\n    <li>内容市场：沉淀的菜品故事、健康理念、节气菜单可共享</li>\n    <li><strong>理念输出</strong>：把\"用人性文明引领科技文明\"的厨房实践，输出为可复制的模式</li>\n  </ul>\n"
+  },
+  "menu": {
+    "categories": [
+      {
+        "name": "主菜",
+        "dishes": [
+          {
+            "name": "酸甜猴头菇",
+            "ingredients": "猴头菇，菠萝，红椒",
+            "steps": "1. 猴头菇提前半天取出泡发\n2. 泡好后反复清洗5-6遍，去除苦味\n3. 洗净后下锅煮一遍，捞出再次清洗干净，挤干水分\n\n4. 猴头菇加盐简单腌制入味，撒上生粉抓匀裹粉\n5. 锅中热油，下入猴头菇炸至筋道，捞出控油备用\n\n6. 菠萝、青红椒全部切好块，备用\n\n7. 碗内调勾芡汁：番茄酱+白醋+冰糖+淀粉+清水，搅拌均匀\n\n8. 锅中留底油，先将菠萝、青红椒下锅翻炒一遍\n9. 倒入调好的酸甜芡汁，煮至浓稠\n10. 下入炸好的猴头菇，大火快速翻炒，让食材均匀裹满酱汁即可出锅",
+            "notes": "主菜\n\n改善：猴头菇提前半天泡，换2-3次水\n菠萝小块",
+            "id": "d0_0"
+          },
+          {
+            "name": "照烧豆腐",
+            "ingredients": "老豆腐，海苔，照烧汁",
+            "steps": "1，处理食材：将豆腐切成大小均匀的小块，备用；准备好适量海苔，把每块豆腐的中间位置用海苔紧紧裹住，固定成型。\n2，煎制豆腐：锅中倒入适量食用油，油热后放入裹好海苔的豆腐块，开小火慢慢煎制，煎至豆腐表面微黄、微微定型后，盛出备用。\n3，调制照烧汁：取一个小碗，加入糖、番茄酱、松茸鲜、酱油、适量清水和少许淀粉，充分搅拌均匀，调成质地偏稀的照烧酱汁。\n4，熬煮酱汁：将调好的照烧酱汁倒入锅中，开小火慢慢搅拌熬煮，直至酱汁变得浓稠、顺滑。\n5，翻炒入味：把煎好的海苔豆腐块放入锅中，轻轻翻炒，让每块豆腐都均匀裹满照烧酱汁，翻炒均匀后即可关火出锅。",
+            "notes": "主菜",
+            "id": "d0_1"
+          },
+          {
+            "name": "芦笋炒口蘑",
+            "ingredients": "芦笋，胡萝卜，口蘑",
+            "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+            "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+            "id": "d0_2"
+          },
+          {
+            "name": "梅菜焖豆腐",
+            "ingredients": "梅干菜\n嫩豆腐\n干辣椒",
+            "steps": "1. 梅菜提前泡软，挤干水分后切碎，放入锅中加少量水焖熟，加生抽、盐、糖调味拌匀\n\n2. 豆腐切成小块，加在梅菜中，小火焖3-5分钟入味，勾薄芡收汁即可。",
+            "notes": "主菜\n\n改善：换成白色碟，加裙带菜，香菜",
+            "id": "d0_3"
+          },
+          {
+            "name": "冬瓜焖素丸子",
+            "ingredients": "冬瓜\n素丸子\n香菜",
+            "steps": "1，冬瓜切成块状，丸子提前一晚解冻备用\n\n2. 热锅下油，放入冬瓜块翻炒，加盐、松茸鲜调味，加适量水焖软。\n\n3. 倒入素丸子，继续焖 2-3 分钟。\n\n4. 最后撒上香菜即可出锅。",
+            "notes": "主菜",
+            "id": "d0_4"
+          },
+          {
+            "name": "咖喱千叶豆腐",
+            "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+            "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+            "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+            "id": "d0_5"
+          },
+          {
+            "name": "虫草花腐竹炒粉丝",
+            "ingredients": "腐竹\n虫草花\n腐竹\n粉丝\n荷兰豆",
+            "steps": "1. 粉丝和腐竹分别用温水泡软，粉丝剪短，腐竹切段；虫草花洗净，荷兰豆去筋\n\n2. 热锅冷油，放姜片炒香，加入腐竹和虫草花翻炒焖6-7分钟。\n\n3. 倒入荷兰豆和粉丝，加少许水，再焖2-3分钟至粉丝熟透。\n\n4. 加生抽、盐、松茸鲜调味，翻炒均匀即可出锅。",
+            "notes": "主菜\n\n改善：粉丝多一点，加黑木耳\n\n用平碟",
+            "id": "d0_6"
+          },
+          {
+            "name": "紫苏焖花菇",
+            "ingredients": "紫苏\n花菇\n 青红椒",
+            "steps": "1. 花菇泡发清洗：干花菇提前用清水泡软，泡发后反复清洗4-5遍，彻底去除花菇的苦味，沥干水分备用。\n\n2. 高压焖煮花菇：将处理好的花菇放入高压锅，加入十三香、蚝油、酱油、盐、松茸鲜调味，加适量清水没过花菇，盖上锅盖高压锅焖煮至花菇熟透软烂。\n\n3. 准备配菜：紫苏洗净切段，青红椒洗净切小块/条备用。\n\n4. 翻炒拌匀出锅：焖好的花菇连汤汁一同倒入锅中，加入紫苏、青红椒，开大火快速清炒至配菜断生、所有食材拌匀，即可出锅。",
+            "notes": "主菜\n\n改善：紫苏切碎，花菇切花刀",
+            "id": "d0_7"
+          },
+          {
+            "name": "素酸菜鱼",
+            "ingredients": "",
+            "steps": "1.  食材预处理：素鱼提前一晚取出，自然解冻后切片备用；酸菜洗净切好，生姜备好；豆芽洗净，沥干水分备用。\n\n2.  煎素鱼：热锅倒油，放入切好的素鱼片，煎至两面微黄，盛出备用。\n\n3.  炒香底料：锅中留少许底油，放入花椒，小米辣，姜片爆香，再加入切好的酸菜，翻炒至香味充分析出\n。\n4.  加入豆芽与清水：往锅中加入洗净的豆芽，翻炒1分钟，再倒入适量清水，大火烧开。\n\n5.  焖煮素鱼：将煎好的素鱼放回锅中，转小火焖煮7-8分钟，让素鱼和豆芽充分吸收汤汁入味。\n\n\n6.  基础调味：加入适量盐、松茸鲜，翻炒均匀调味。加香菜芝麻点缀。",
+            "notes": "主菜\n\n改善：少油，多酸菜",
+            "id": "d0_8"
+          },
+          {
+            "name": "金针菇焖豆腐",
+            "ingredients": "金针菇\n豆腐\n芝麻\n香菜",
+            "steps": "1. 金针菇洗净切段备用\n\n2. 豆腐单独下锅翻炒片刻，盛出备用\n\n3. 另起锅，先将金针菇炒至断生\n\n4. 倒入豆腐，和金针菇混合焖煮入味\n\n5. 加入老抽、盐、蚝油、松茸鲜、白胡椒、十三香调味翻匀\n\n6. 出锅前撒香菜，最后撒上芝麻即可",
+            "notes": "主菜\n\n改善：加胡萝卜丝点缀\n\n用草帽碟",
+            "id": "d0_9"
+          },
+          {
+            "name": "苦瓜炒素扒",
+            "ingredients": "苦瓜\n素扒",
+            "steps": "、\n1. 素扒提前一晚取出解冻\n\n2. 热锅少油，放入素扒煎至两面金黄，盛出切条备用\n\n3. 苦瓜切条，下入锅中翻炒至变软\n\n4. 放入切好的素扒，加入盐、松茸鲜调味\n\n5. 翻炒拌匀后即可出锅",
+            "notes": "主菜\n\n改善：给点红色点缀",
+            "id": "d0_10"
+          },
+          {
+            "name": "云南小瓜炒素丸子",
+            "ingredients": "小南瓜\n素丸子",
+            "steps": "1. 小南瓜洗净切好备用\n2. 素丸子切成四瓣小粒\n3. 热锅少油，将素丸子下锅轻轻煎至微黄盛出\n4. 放入切好的小南瓜一同翻炒，炒至断生、口感清脆\n5. 加入盐、油、松茸鲜等调料调味，翻炒均匀即可出锅",
+            "notes": "主菜\n改善：用草帽碟",
+            "id": "d0_11"
+          },
+          {
+            "name": "香蒸老豆腐",
+            "ingredients": "老豆腐\n香菜",
+            "steps": "：\n香蒸老豆腐\n1. 选用老豆腐，彻底吸干表面多余水分。\n2. 锅中热油，放入老豆腐炸制，无需炸透，仅炸至表面金黄即可，炸好后捞出放凉。\n\n3. 放凉后的炸豆腐切成片状，整齐码放在盘中备用。\n4. 调制蒸制底汤：准备清水，加入花椒、八角、酱油、素蚝油，搅拌调和均匀。\n5. 淋汁上锅蒸制：将调好的汤汁均匀淋在码好的豆腐上，蒸锅水开上汽后，大火蒸15分钟。\n6. 析出原汁备用：蒸够15分钟后关火，将盘中蒸出来的汤汁全部倒出留存备用。\n7. 爆香勾芡收汁：起锅放少许油，下入姜片香菜爆香，倒入刚刚留存的原汁，加水淀粉勾芡，熬至汤汁微微浓稠。\n8. 淋汁出锅：将熬好的浓稠酱汁均匀淋在蒸好的豆腐上，最后撒上香菜即可完成。",
+            "notes": "主菜\n搬到新厂，买了新蒸炉可以做",
+            "id": "d0_12"
+          },
+          {
+            "name": "素辣子鸡（杏鲍菇版）",
+            "ingredients": "杏鲍菇，芹菜，豆芽，干辣椒",
+            "steps": "素辣子鸡（杏鲍菇版）\n1. 杏鲍菇切好备用，裹上炸粉，入锅炸至定型，捞出控油备用\n2. 锅中下油，放入芹菜、豆芽等配菜翻炒，加盐、松茸鲜调味\n3. 倒入炸好的杏鲍菇，大火翻炒均匀入味\n4. 将炒好的所有食材盛入盘中\n5. 碗中放入辣椒粉、干辣椒，浇上滚烫热油激香\n6. 把激好的香辣油淋在菜品上，完成出品",
+            "notes": "主菜",
+            "id": "d0_13"
+          },
+          {
+            "name": "咖喱素丸子",
+            "ingredients": "素丸子，胡萝卜、土豆，咖喱酱",
+            "steps": "1. 素丸子一开四，胡萝卜、土豆切滚刀块备用\n2. 热锅下油，放入素丸子、胡萝卜、土豆一同翻炒炒香\n3. 咖喱酱加水调成糊状倒入锅中\n4. 盖上锅盖焖煮5–7分钟\n5. 加入盐、油及其他调料调味拌匀，即可出锅",
+            "notes": "主菜",
+            "id": "d0_14"
+          },
+          {
+            "name": "甜豆炒干豆腐",
+            "ingredients": "甜豆，干豆腐，青红椒",
+            "steps": "1. 干豆腐切成小块备用\n2. 热锅下油，放入甜豆清炒至断生\n3. 加入青红椒翻炒片刻\n4. 下入干豆腐块拌匀\n5. 加盐等调料调味，翻炒均匀即可出锅",
+            "notes": "主菜，少油",
+            "id": "d0_15"
+          },
+          {
+            "name": "素丸子焖土豆",
+            "ingredients": "土豆、胡萝卜，素丸子，香菜",
+            "steps": "1. 土豆、胡萝卜切滚刀块，素丸子对半切，素肠切粒备用\n2. 所有食材一同下锅翻炒炒香\n3. 加入清水、酱油、素蚝油、盐、松茸鲜调味\n4. 盖盖焖煮5–10分钟至土豆变软\n5. 放入香菜翻匀，即可出锅",
+            "notes": "主菜\n建议：香菜切碎",
+            "id": "d0_16"
+          },
+          {
+            "name": "素炒牛肝菌辣椒",
+            "ingredients": "牛肝菌、青红辣椒、生姜、昆布粉、盐、生抽、素蚝油、淀粉水",
+            "steps": "1. 牛肝菌放入盐水中浸泡，充分洗净泥沙\n\n2. 洗净后切成薄片\n\n3. 锅中烧水，水开加少许盐，放入牛肝菌焯水，捞出沥干备用\n\n4. 辣椒洗净，切菱形块备好\n\n炒制步骤\n\n1. 热锅倒油，油热下入姜片爆香\n\n2. 倒入焯好水的牛肝菌大火爆炒\n\n3. 放入菱形辣椒块一同翻炒至断生\n\n4. 调味：放适量盐、昆布粉、生抽、素蚝油\n\n5. 淋入少许淀粉水薄芡\n\n6. 大火收浓汤汁，翻炒均匀即可出锅",
+            "notes": "主菜",
+            "id": "d0_17"
+          },
+          {
+            "name": "丝瓜燜炒豆耳",
+            "ingredients": "丝瓜，豆耳，胡萝卜",
+            "steps": "豆耳买回来是有点咸的要先泡洗几次再备用\n\n先把瓜去皮切片\n放姜油炒香再放丝瓜一起炒再加适量的盐调味\n豆耳另用油炒香加盐加少许酱油调味\n后两种吃材混一起加调汁炒收汁",
+            "notes": "主菜",
+            "id": "d0_18"
+          },
+          {
+            "name": "土豆拼口蘑",
+            "ingredients": "口蘑，土豆，青红椒，烧烤料",
+            "steps": "1. 口蘑清洗，土豆去皮切块，青红椒切块备用\n\n2. 热锅倒油，分别将土豆块煎至表面金黄，口蘑煎至出水变软，盛出备用。\n\n3. 锅中留少许油，放入青红椒块炒至半熟，加烧烤料和少许盐调味。\n\n4. 倒入口蘑和煎好的土豆块，翻炒均匀即可出锅。",
+            "notes": "主菜",
+            "id": "d0_19"
+          },
+          {
+            "name": "上海青菌菇烧豆腐",
+            "ingredients": "豆腐，上青菜",
+            "steps": "一、食材处理\n\n1. 老豆腐切四方小块；上海青切段；平菇、杏鲍菇洗净，全部切成细丝备用。\n\n二、炸制菌菇\n\n锅中倒油，放入平菇丝、杏鲍菇丝炸至酥脆，逼出浓郁菌香，连菌菇油一同盛出备用。\n\n三、煎豆腐\n\n平底锅少油，下入豆腐块，煎至两面微黄，盛出待用。\n\n四、焖煮入味\n\n1. 原锅留底油，放入姜片爆香，倒入煎好的豆腐翻炒几下。\n\n2. 加入素蚝油、酱油、适量清水、少许盐，再放入炸好的菌菇丝，盖上锅盖焖煮15分钟。\n\n五、收尾提鲜\n\n1. 开盖放入上海青，煮至软脆口感。\n\n2. 出锅前淋入适量菌菇油，盖锅再焖1分钟。\n\n3. 最后补盐、加昆布粉调味，拌匀即可出锅。",
+            "notes": "",
+            "id": "d0_20"
+          },
+          {
+            "name": "苦瓜炒豆干",
+            "ingredients": "苦瓜，豆干",
+            "steps": "苦瓜炒豆干：这款菜要分开做\n.先将豆干煎香后倒入调适量汁煮到收汁，用盆装备用，\n.苦瓜洗干净切薄片，热锅凉油放几片姜炒香倒入苦瓜炒一两分钟后放适量盐和松茸鲜炒七分钟后将备好的豆腐捞一起上盆出餐",
+            "notes": "",
+            "id": "d0_21"
+          },
+          {
+            "name": "九层塔炒菌菇",
+            "ingredients": "九层塔、杏鲍菇、香菇\n适量盐、松茸鲜、酱油，糖，素蚝油",
+            "steps": "杏鲍菇、香菇切丁，加少许盐焯水，备用。\n先香煎杏鲍菇、香菇丁，再加入调料、九层塔翻炒，入味即可",
+            "notes": "",
+            "id": "d0_22"
+          },
+          {
+            "name": "麻婆豆腐",
+            "ingredients": "嫩豆腐\n适量玉米淀粉、盐、松茸鲜、酱油、白糖、素蚝油",
+            "steps": "嫩豆腐切小块，备用\n放油加入适量豆瓣酱、辣椒面、花椒炒香\n再放入豆腐加水，焖熟之后加入调酱汁，收汁放芝麻油、花椒油即可。",
+            "notes": "",
+            "id": "d0_23"
+          },
+          {
+            "name": "梅菜青豆豆干小炒（纯素）",
+            "ingredients": "梅干菜、青黄豆（嫩青豆）、豆干、青红椒、姜片\n调味：酱油、素蚝油、盐、昆布粉",
+            "steps": "预处理步骤\n\n1. 梅干菜提前清水泡软，反复淘洗干净，沥干备用\n\n2. 豆干洗净，切厚薄适中薄片；青黄豆冲洗干净沥干\n\n3. 青红椒洗净，切菱形片备用\n\n分步烹饪\n\n1. 煎豆干：切好的豆干先简单腌一下入味，热锅少油，下入豆干煎至两面微黄，盛出放一旁\n\n2. 焖青豆：锅中不放多余油，下青豆干炒片刻，加少量清水盖盖焖至熟透，盛出备用\n\n3. 爆香炒梅菜：热锅倒油，下姜片爆香，倒入沥干的梅干菜翻炒，再加入青红椒片一同翻炒至八分熟\n\n4. 混合合炒：倒入煎好的豆干、焖熟的青黄豆，加酱油、素蚝油、少许盐、昆布粉，大火快速翻炒均匀\n\n5. 调味出锅：尝味微调咸淡，翻炒入味后直接装盘上桌",
+            "notes": "",
+            "id": "d0_24"
+          }
+        ]
+      },
+      {
+        "name": "配菜",
+        "dishes": [
+          {
+            "name": "芦笋炒口蘑",
+            "ingredients": "芦笋，胡萝卜，口蘑",
+            "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+            "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+            "id": "d1_0"
+          },
+          {
+            "name": "蕃茄嫩豆腐毛豆",
+            "ingredients": "豆泡，番茄，毛豆",
+            "steps": "1，番茄清洗干净切块，备用\n嫩豆腐切小块，备用\n\n2，毛豆剥粒，清洗干净后放入高压锅，水位末过毛豆，加入十三香、少许盐，松茸鲜。（功能选择：煮饭）\n\n3，放油姜，倒入番茄翻炒，加入嫩豆腐，放适量酱油，焖入味即可，最后倒入毛豆，搅拌入味即可。",
+            "notes": "配菜\n\n改善：豆泡可以换成其他可做主菜",
+            "id": "d1_1"
+          },
+          {
+            "name": "口蘑炒苦瓜",
+            "ingredients": "口磨，苦瓜，枸杞",
+            "steps": "1. 口蘑切片，苦瓜切片，枸杞备好备用\n\n2. 热锅少油，下口蘑煎至两面金黄，撒少许黑胡椒调味，盛出备用\n\n3. 锅中留底油，放入苦瓜清炒，加少许水焖至变软\n\n4. 倒入煎好的口蘑，翻炒拌匀，加盐、松茸鲜调味至适口\n\n5. 出锅前撒上枸杞装饰即可",
+            "notes": "配菜\n\n改善：提前用盐腌减少苦味，切薄片用水冲",
+            "id": "d1_2"
+          },
+          {
+            "name": "素肠炒青瓜",
+            "ingredients": "素肠\n青瓜",
+            "steps": "1. 素肠提前一晚取出自然解冻\n\n2. 素肠斜刀切片，青瓜斜刀切片或用狼牙刀切成条\n\n3. 锅中热油，下入素肠翻炒至香味\n\n4. 放入青瓜，大火翻炒3–5分钟，保留青瓜脆感\n\n5. 加入盐、松茸鲜，黑胡椒调味，翻炒均匀后即可出锅",
+            "notes": "配菜",
+            "id": "d1_3"
+          },
+          {
+            "name": "白灵菇炒芦笋",
+            "ingredients": "芦笋，白灵菇，胡萝卜",
+            "steps": "1. 芦笋斜刀切段，白灵菇切花刀后切条，胡萝卜切薄片备用\n\n2. 芦笋放入沸水中焯水10秒，捞出沥干\n\n3. 锅中少油，放入白灵菇煎至两面金黄\n\n4. 下入焯好的芦笋、胡萝卜片一同清炒\n\n5. 加入黑胡椒、松茸鲜、盐调味，翻炒均匀即可出锅",
+            "notes": "配菜",
+            "id": "d1_4"
+          },
+          {
+            "name": "杏鲍菇丝炒芹菜",
+            "ingredients": "杏鲍菇\n芹菜",
+            "steps": "1. 杏鲍菇洗净切条再切丝，西芹处理好备用\n2. 热锅放入杏鲍菇丝，下锅煎至微黄\n3. 加入盐、松茸鲜翻炒入味\n4. 倒入西芹一同翻炒至断生\n5. 再次调味至适口，翻炒均匀即可出锅",
+            "notes": "配菜\n\n改善：加薄荷叶",
+            "id": "d1_5"
+          },
+          {
+            "name": "糖醋面筋",
+            "ingredients": "面筋，菠萝，青红椒",
+            "steps": "面筋的做法；\n1，使用专用面筋粉，加水搅拌均匀\n2，反复清洗面团，洗至没有白色面水为止\n3，把洗净的面筋揉成团\n4，放入冰箱冷藏醒面一晚上\n5，醒好后取出，先切成长条，再改刀切成小块\n6，锅中热油，下入面筋块炸至金黄蓬松即可",
+            "notes": "改善：菠萝不打碎，切小粒",
+            "id": "d1_6"
+          },
+          {
+            "name": "丝瓜煮口蘑",
+            "ingredients": "口蘑，丝瓜",
+            "steps": "1. 口蘑洗净对半切开，丝瓜切好备用\n2. 热锅放入口蘑，小火轻轻煎至出水\n3. 下入丝瓜一同清炒，炒至丝瓜出汁\n4. 加少量清水，盖上锅盖焖2-3分钟\n5. 加入盐、松茸鲜等调料调味拌匀\n6. 出锅前撒上枸杞点缀，即可装盘",
+            "notes": "",
+            "id": "d1_7"
+          },
+          {
+            "name": "腰果炒玉米粒",
+            "ingredients": "腰果，玉米粒，胡萝卜粒，毛豆",
+            "steps": "1. 腰果提前炸好备用\n2. 毛豆提前煮熟备用\n3. 玉米、胡萝卜粒准备好\n4. 热锅下油，放入玉米、胡萝卜粒、毛豆一同翻炒拌匀\n5. 加入盐、油及其他调料，翻炒均匀\n6. 出锅装盘，撒上腰果和芝麻点缀即可",
+            "notes": "",
+            "id": "d1_8"
+          },
+          {
+            "name": "丝瓜炒海鲜菇",
+            "ingredients": "丝瓜，海鲜菇，虫草花，姜",
+            "steps": "食材预处理\n开水灼海鲜菇\n1.丝瓜斜刀切块；海鲜菇洗净切段；虫草花洗净备用。\n\n烹饪步骤\n1.热锅下入海鲜菇、姜片小火煎制，加少许盐翻炒。\n2.放入虫草花一同翻炒出香味。\n3.倒入丝瓜持续翻炒，炒至食材析出水分。\n4.添加适量盐、松茸鲜、少许黑胡椒调味，翻炒均匀即可出锅",
+            "notes": "",
+            "id": "d1_9"
+          },
+          {
+            "name": "素肠杏鲍菇炒芦笋",
+            "ingredients": "素肠，杏鲍菇，芦笋，姜",
+            "steps": "",
+            "notes": "",
+            "id": "d1_10"
+          },
+          {
+            "name": "小米辣香菜汁伴嫩豆腐",
+            "ingredients": "嫩豆腐，小米辣，香菜",
+            "steps": "一、食材预处理\n\n1. 小米辣切圈，香菜切末，混合放入碗中，加酱油拌匀腌制备用。\n\n2. 另起锅烧热油，趁热淋入辣椒香菜碗中激出香味，料汁静置待用。\n\n二、煮制豆腐\n\n1. 锅中加水烧开，放入整块嫩豆腐，加少许盐。\n\n2. 大火煮沸，将豆腐煮透入味后捞出。\n\n三、成品装盘\n\n把煮好的豆腐切成小块摆入盘中，淋上调好的香辣料汁，即可上桌。",
+            "notes": "",
+            "id": "d1_11"
+          },
+          {
+            "name": "红烧土豆红萝卜草菇配香菜",
+            "ingredients": "草菇，土豆，红萝卜",
+            "steps": "1. 土豆、红萝卜去皮切滚刀块；草菇洗净，大个切两半，开水下锅焯1分钟捞出控水（去腥味）；姜切好备用。\n\n2.把草菇煎金黄备用\n\n 3.热锅倒油，下八角3个，干辣椒5个，香叶，红花椒，桂皮，姜各100g爆香，再用布袋装好备用\n4.先放入土豆、红萝卜翻炒2分钟，放一少块冰糖50g把备好的香料包放入锅中加少许十三香\n\n5. 倒入没过食材一半的清水，大火烧开后转中小火，盖盖焖煮。\n\n6. 开盖土豆红萝卜煮熟后转大火调汁加素蚝油，酱油，竹盐，茸鲜鲜，再加入草菇倒入锅中收浓汤汁，翻炒至汤汁裹满食材即可出锅。\n \n小技巧\n \n- 土豆别切太小，避免炖煮时软烂不成形。\n\n- 草菇焯水能去除土腥味，口感爽。。",
+            "notes": "",
+            "id": "d1_12"
+          },
+          {
+            "name": "云南瓜炒香菇",
+            "ingredients": "云南瓜，香菇，青红椒",
+            "steps": "云南瓜炒香菇\n \n1. 云南瓜去皮去瓤，切薄片；香菇洗净，鲜菇切片，姜，青红椒切片备用。\n\n2. 锅中烧水，水开下香菇焯水捞出，去涩备用。\n\n3. 热锅倒油，下姜爆香，放入香菇翻炒出香味。\n\n4. 倒入云南瓜片，大火快速翻炒至瓜片微微变软。\n\n5. 加少许酱油，素蚝油、竹盐、茸鲜鲜，一点点白糖提鲜，加少许玉米粉水调汁，加入青红椒翻炒均匀收汁即可出锅",
+            "notes": "",
+            "id": "d1_13"
+          },
+          {
+            "name": "沙姜腐竹",
+            "ingredients": "沙姜，鲜腐竹",
+            "steps": "沙姜腐竹：先把沙姜洗干净后用搅拌机打碎，再用油炒香备用\n腐竹是买新鲜的，先把腐竹灼水后捞出凉干水后和沙姜一起拌好上盆出餐",
+            "notes": "",
+            "id": "d1_14"
+          },
+          {
+            "name": "酸辣土豆丝（素版）",
+            "ingredients": "土豆、胡萝卜、青椒、姜片\n调料：醋、盐、昆布粉",
+            "steps": "1. 土豆、胡萝卜削皮，全部擦成细丝；土豆丝放入清水浸泡，洗去淀粉防发黑，胡萝卜丝沥干不用泡水。\n\n2. 青椒洗净切细丝，全部食材分开放置备用。\n\n烹饪步骤\n\n1. 热锅倒油，下姜片爆香，放入土豆丝翻炒至断生炒熟，盛出备用。\n\n2. 同一锅下入胡萝卜丝翻炒熟透，盛出和土豆丝放一起。\n\n3. 锅中再下青椒丝炒至断生，把炒好的土豆丝、胡萝卜丝倒回锅里混合翻炒。\n\n4. 沿锅边淋入香醋，加适量盐、昆布粉，大火快速翻拌均匀入味。\n\n5. 尝味调整咸淡，翻炒几秒即可装盘上桌。",
+            "notes": "",
+            "id": "d1_15"
+          },
+          {
+            "name": "西芹马蹄胡萝卜炒腰果",
+            "ingredients": "主料：西芹、马蹄（荸荠）、胡萝卜、熟腰果\n\n调味：盐、少许白糖、松茸鲜、昆布粉、食用油",
+            "steps": "步骤1：食材处理\n\n1. 西芹去筋切小丁；马蹄去皮切方丁；胡萝卜去皮切同等大小小丁，全部切均匀，成熟速度一致。\n\n2. 腰果如果是生的：冷油下锅小火慢炸至浅金黄捞出放凉；现成熟腰果最后放。\n\n3. 全部蔬菜丁冲洗沥干水分。\n\n步骤2：焯水（脆嫩关键）\n\n锅中烧水，加少许盐+几滴油，水沸下入胡萝卜先煮30秒，再加西芹、马蹄烫40秒，全部捞出过凉水沥干，保持脆爽、颜色鲜亮。\n\n步骤3：炒制过程\n\n1. 热锅少油，先倒入红萝卜，再倒入马蹄，西芹，大火快速翻炒1分钟。\n\n2. 调味：放一小勺盐、松茸鲜，适量昆布粉，半勺白糖提鲜。\n\n3. 关火后再放腰果，利用余温翻拌均匀即可装盘。",
+            "notes": "",
+            "id": "d1_16"
+          }
+        ]
+      },
+      {
+        "name": "小菜",
+        "dishes": [
+          {
+            "name": "虎皮尖椒",
+            "ingredients": "尖椒，酱油",
+            "steps": "1.尖椒切段，去除内部辣椒籽。\n 2.热锅下入尖椒，干煎至变软起虎皮，淋少许食用油。\n 3.倒入酱油翻炒入味，即可出锅。",
+            "notes": "",
+            "id": "d2_0"
+          },
+          {
+            "name": "芥末金耳",
+            "ingredients": "芥末，金耳",
+            "steps": "1.金耳切薄片备用。\n2.锅中烧水煮沸，下入金耳焯水10秒后捞出。\n3.放入冰箱冷藏1-2小时，使其口感爽脆。\n4.搭配芥末、酱油拌匀，即可装盘食用。",
+            "notes": "",
+            "id": "d2_1"
+          },
+          {
+            "name": "凉拌海带",
+            "ingredients": "海带丝、小米辣、香菜、食盐、酱油、香油、昆布粉、藤椒油、亚麻籽油、食醋",
+            "steps": "凉拌海带丝制作步骤\n\n\n1. 泡发处理：干海带丝放入水中充分泡发，反复冲洗干净杂质\n\n2. 焯水断生：锅中烧开水，下入海带丝焯水，煮好后捞出沥干，放凉待用\n\n3. 配菜改刀：香菜洗净切成小段；小米辣切碎备用\n\n4. 腌制辣椒：切好的小米辣放入碗中，加少许盐、酱油，搅拌后静置浸泡半小时\n\n5. 混合调味：放凉的海带丝中，倒入腌好的小米辣，加入香菜段\n\n6. 调配拌匀：依次添加食盐、酱油、食醋、香油、昆布粉、藤椒油、亚麻籽油，充分搅拌均匀\n\n7. 装盘即可：拌匀后盛入盘中，完成备餐",
+            "notes": "",
+            "id": "d2_2"
+          },
+          {
+            "name": "凉拌青瓜木耳",
+            "ingredients": "青瓜，干木耳，小米辣",
+            "steps": "食材准备\n\n备好黄瓜、干木耳、小米辣，全部冲洗干净，沥干备用\n处理配料\n\n小米辣切成辣椒圈，放入碗中，加少许盐、醋拌匀，腌制入味，放置一旁待用。\n\n处理木耳\n\n1. 干木耳提前充分泡发，仔细洗净杂质与泥沙。\n\n2. 锅中烧水，水开后放入木耳，煮5分钟，捞出放凉。\n\n处理黄瓜\n\n黄瓜对半切开，用刀拍碎，再切成适口小段（不宜切大块），装入盘中。\n\n混合凉拌\n\n1. 将放凉的木耳倒入黄瓜盘中。\n\n2. 加入腌好的辣椒圈，依次放入香油、盐、藤椒油、亚麻籽油。\n\n3. 充分翻拌均匀，最后装盘即可上桌。",
+            "notes": "加花生米",
+            "id": "d2_3"
+          },
+          {
+            "name": "凉拌海茸丝",
+            "ingredients": "海茸丝，香菜，小米辣",
+            "steps": "凉拌海茸丝\n\n食材处理\n\n1. 海茸丝放入水中浸泡，期间观察软硬度，泡至合适口感后捞出。\n\n2. 锅中烧水，水沸后加少许盐，放入海茸丝焯水2分钟，捞出放凉备用，再将放凉的海茸丝切短。\n\n3. 小米辣洗净切细圈，香菜洗净切成小段。\n\n调拌入味\n\n1. 切好的小米辣加适量醋、盐腌制，激出辣味。\n\n2. 往海茸丝中放入腌好的小米辣、香菜段，依次加入香油、亚麻籽油、藤椒油、醋、盐，根据个人口味调整用量，充分拌匀。\n\n收尾\n\n拌匀后装盘即可上桌。",
+            "notes": "",
+            "id": "d2_4"
+          },
+          {
+            "name": "小米辣凉拌莴笋",
+            "ingredients": "莴笋1根、胡萝卜1根、小米辣适量、苹果醋/白醋、食盐、香油、亚麻籽油、昆布粉",
+            "steps": "二、处理食材\n\n1. 莴笋削去外皮，胡萝卜削皮，全部食材清水洗净沥干\n\n2. 莴笋、胡萝卜用擦丝器擦成细丝；小米辣洗净切圈\n\n三、焯水\n\n锅中烧水，水开后放入少许盐、食用油，下入莴笋丝、胡萝卜丝，焯水3～5分钟，捞出放凉备用\n\n四、腌辣椒底汁\n\n小米辣圈装入碗中，倒入苹果醋或白醋，放少许盐拌匀，腌制入味\n\n五、拌匀调味\n\n晾凉的双丝放入大碗，倒入腌好的小米辣连同料汁，依次添加食盐、昆布粉、香油、亚麻籽油，充分翻拌均匀，尝味微调咸淡\n\n六、收尾\n\n调好味道后装盘，即可上桌食用",
+            "notes": "",
+            "id": "d2_5"
+          },
+          {
+            "name": "凉拌豆皮豆芽胡萝卜",
+            "ingredients": "豆皮，豆芽，胡萝卜",
+            "steps": "一、备菜处理\n\n1. 干豆腐皮切成细丝，备用\n\n2. 黄豆芽摘洗干净，沥干备用\n\n3. 胡萝卜去皮切细丝\n\n4. 香菜洗净切小段；小米辣洗净切碎\n\n二、焯水步骤\n\n1. 锅中烧水煮沸，下入豆皮丝焯水，熟透后捞出摊开晾凉\n\n2. 另起沸水，水里加少许盐、食用油，放入黄豆芽焯水至断生，捞出沥干放凉\n\n三、混合调味\n\n1. 晾凉的豆皮、豆芽放入大碗，加胡萝卜丝、香菜段、小米辣碎\n\n2. 依次调入：盐、昆布粉、生抽酱油、陈醋、香油、藤椒油、亚麻籽油，所有调料按个人口味适量添加\n\n3. 充分翻拌均匀，静置入味后装盘即可上桌",
+            "notes": "",
+            "id": "d2_6"
+          },
+          {
+            "name": "炒萝卜干",
+            "ingredients": "萝卜干、干辣椒粉、干辣椒面、食用油、盐、酱油、素蚝油、昆布粉",
+            "steps": "做法\n\n1. 萝卜干加水泡软，切成小丁，充分沥干水分。\n\n2. 锅中多放些食用油，油热后下入萝卜干丁，中火慢慢煸炒至水分收干。\n\n3. 放入干辣椒粉、干辣椒面，继续翻炒出香辣味。\n\n4. 依次加入盐、酱油、素蚝油，翻炒至调料融合入味。\n\n5. 最后撒入昆布粉拌匀，即可出锅备用。",
+            "notes": "",
+            "id": "d2_7"
+          }
+        ]
+      },
+      {
+        "name": "10-15分钟快手菜",
+        "dishes": [
+          {
+            "name": "梅菜焖豆腐",
+            "ingredients": "梅干菜\n嫩豆腐\n干辣椒",
+            "steps": "1. 梅菜提前泡软，挤干水分后切碎，放入锅中加少量水焖熟，加生抽、盐、糖调味拌匀\n\n2. 豆腐切成小块，加在梅菜中，小火焖3-5分钟入味，勾薄芡收汁即可。",
+            "notes": "主菜\n\n改善：换成白色碟，加裙带菜，香菜",
+            "id": "d3_0"
+          },
+          {
+            "name": "咖喱千叶豆腐",
+            "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+            "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+            "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+            "id": "d3_1"
+          },
+          {
+            "name": "金针菇焖豆腐",
+            "ingredients": "金针菇\n豆腐\n芝麻\n香菜",
+            "steps": "1. 金针菇洗净切段备用\n\n2. 豆腐单独下锅翻炒片刻，盛出备用\n\n3. 另起锅，先将金针菇炒至断生\n\n4. 倒入豆腐，和金针菇混合焖煮入味\n\n5. 加入老抽、盐、蚝油、松茸鲜、白胡椒、十三香调味翻匀\n\n6. 出锅前撒香菜，最后撒上芝麻即可",
+            "notes": "主菜\n\n改善：加胡萝卜丝点缀\n\n用草帽碟",
+            "id": "d3_2"
+          },
+          {
+            "name": "甜豆炒干豆腐",
+            "ingredients": "甜豆，干豆腐，青红椒",
+            "steps": "1. 干豆腐切成小块备用\n2. 热锅下油，放入甜豆清炒至断生\n3. 加入青红椒翻炒片刻\n4. 下入干豆腐块拌匀\n5. 加盐等调料调味，翻炒均匀即可出锅",
+            "notes": "主菜，少油",
+            "id": "d3_3"
+          },
+          {
+            "name": "芥末金耳",
+            "ingredients": "芥末，金耳",
+            "steps": "1.金耳切薄片备用。\n2.锅中烧水煮沸，下入金耳焯水10秒后捞出。\n3.放入冰箱冷藏1-2小时，使其口感爽脆。\n4.搭配芥末、酱油拌匀，即可装盘食用。",
+            "notes": "",
+            "id": "d3_4"
+          },
+          {
+            "name": "凉拌海带",
+            "ingredients": "海带丝、小米辣、香菜、食盐、酱油、香油、昆布粉、藤椒油、亚麻籽油、食醋",
+            "steps": "凉拌海带丝制作步骤\n\n\n1. 泡发处理：干海带丝放入水中充分泡发，反复冲洗干净杂质\n\n2. 焯水断生：锅中烧开水，下入海带丝焯水，煮好后捞出沥干，放凉待用\n\n3. 配菜改刀：香菜洗净切成小段；小米辣切碎备用\n\n4. 腌制辣椒：切好的小米辣放入碗中，加少许盐、酱油，搅拌后静置浸泡半小时\n\n5. 混合调味：放凉的海带丝中，倒入腌好的小米辣，加入香菜段\n\n6. 调配拌匀：依次添加食盐、酱油、食醋、香油、昆布粉、藤椒油、亚麻籽油，充分搅拌均匀\n\n7. 装盘即可：拌匀后盛入盘中，完成备餐",
+            "notes": "",
+            "id": "d3_5"
+          },
+          {
+            "name": "凉拌青瓜木耳",
+            "ingredients": "青瓜，干木耳，小米辣",
+            "steps": "食材准备\n\n备好黄瓜、干木耳、小米辣，全部冲洗干净，沥干备用\n处理配料\n\n小米辣切成辣椒圈，放入碗中，加少许盐、醋拌匀，腌制入味，放置一旁待用。\n\n处理木耳\n\n1. 干木耳提前充分泡发，仔细洗净杂质与泥沙。\n\n2. 锅中烧水，水开后放入木耳，煮5分钟，捞出放凉。\n\n处理黄瓜\n\n黄瓜对半切开，用刀拍碎，再切成适口小段（不宜切大块），装入盘中。\n\n混合凉拌\n\n1. 将放凉的木耳倒入黄瓜盘中。\n\n2. 加入腌好的辣椒圈，依次放入香油、盐、藤椒油、亚麻籽油。\n\n3. 充分翻拌均匀，最后装盘即可上桌。",
+            "notes": "",
+            "id": "d3_6"
+          },
+          {
+            "name": "小米辣凉拌莴笋",
+            "ingredients": "莴笋1根、胡萝卜1根、小米辣适量、苹果醋/白醋、食盐、香油、亚麻籽油、昆布粉",
+            "steps": "二、处理食材\n\n1. 莴笋削去外皮，胡萝卜削皮，全部食材清水洗净沥干\n\n2. 莴笋、胡萝卜用擦丝器擦成细丝；小米辣洗净切圈\n\n三、焯水\n\n锅中烧水，水开后放入少许盐、食用油，下入莴笋丝、胡萝卜丝，焯水3～5分钟，捞出放凉备用\n\n四、腌辣椒底汁\n\n小米辣圈装入碗中，倒入苹果醋或白醋，放少许盐拌匀，腌制入味\n\n五、拌匀调味\n\n晾凉的双丝放入大碗，倒入腌好的小米辣连同料汁，依次添加食盐、昆布粉、香油、亚麻籽油，充分翻拌均匀，尝味微调咸淡\n\n六、收尾\n\n调好味道后装盘，即可上桌食用",
+            "notes": "",
+            "id": "d3_7"
+          },
+          {
+            "name": "炒萝卜干",
+            "ingredients": "萝卜干、干辣椒粉、干辣椒面、食用油、盐、酱油、素蚝油、昆布粉",
+            "steps": "做法\n\n1. 萝卜干加水泡软，切成小丁，充分沥干水分。\n\n2. 锅中多放些食用油，油热后下入萝卜干丁，中火慢慢煸炒至水分收干。\n\n3. 放入干辣椒粉、干辣椒面，继续翻炒出香辣味。\n\n4. 依次加入盐、酱油、素蚝油，翻炒至调料融合入味。\n\n5. 最后撒入昆布粉拌匀，即可出锅备用。",
+            "notes": "",
+            "id": "d3_8"
+          },
+          {
+            "name": "青椒炒萝卜干",
+            "ingredients": "青椒，萝卜干",
+            "steps": "青椒炒萝卜干 完整备菜+炒制流程\n\n一、食材预处理\n\n1. 青椒冲洗干净，切粒备用\n\n2. 萝卜干清水洗净，加水浸泡至发软，捞出沥干后切成小丁，放一旁待用\n\n二、炒制步骤\n\n1. 热锅倒油，下入萝卜干，中小火翻炒，把萝卜干水分彻底炒干\n\n2. 倒入青椒粒，和萝卜干一同翻炒均匀\n\n3. 调味：依次加入酱油、素蚝油、少许盐、昆布粉翻炒入味\n\n4. 出锅前撒入芝麻拌匀，也可装盘后表面撒芝麻点缀",
+            "notes": "",
+            "id": "d3_9"
+          }
+        ]
+      },
+      {
+        "name": "接待菜单",
+        "dishes": [
+          {
+            "name": "酸甜猴头菇",
+            "ingredients": "猴头菇，菠萝，红椒",
+            "steps": "1. 猴头菇提前半天取出泡发\n2. 泡好后反复清洗5-6遍，去除苦味\n3. 洗净后下锅煮一遍，捞出再次清洗干净，挤干水分\n\n4. 猴头菇加盐简单腌制入味，撒上生粉抓匀裹粉\n5. 锅中热油，下入猴头菇炸至筋道，捞出控油备用\n\n6. 菠萝、青红椒全部切好块，备用\n\n7. 碗内调勾芡汁：番茄酱+白醋+冰糖+淀粉+清水，搅拌均匀\n\n8. 锅中留底油，先将菠萝、青红椒下锅翻炒一遍\n9. 倒入调好的酸甜芡汁，煮至浓稠\n10. 下入炸好的猴头菇，大火快速翻炒，让食材均匀裹满酱汁即可出锅",
+            "notes": "主菜\n\n改善：猴头菇提前半天泡，换2-3次水\n菠萝小块",
+            "id": "d4_0"
+          },
+          {
+            "name": "照烧豆腐",
+            "ingredients": "老豆腐，海苔，照烧汁",
+            "steps": "1，处理食材：将豆腐切成大小均匀的小块，备用；准备好适量海苔，把每块豆腐的中间位置用海苔紧紧裹住，固定成型。\n2，煎制豆腐：锅中倒入适量食用油，油热后放入裹好海苔的豆腐块，开小火慢慢煎制，煎至豆腐表面微黄、微微定型后，盛出备用。\n3，调制照烧汁：取一个小碗，加入糖、番茄酱、松茸鲜、酱油、适量清水和少许淀粉，充分搅拌均匀，调成质地偏稀的照烧酱汁。\n4，熬煮酱汁：将调好的照烧酱汁倒入锅中，开小火慢慢搅拌熬煮，直至酱汁变得浓稠、顺滑。\n5，翻炒入味：把煎好的海苔豆腐块放入锅中，轻轻翻炒，让每块豆腐都均匀裹满照烧酱汁，翻炒均匀后即可关火出锅。",
+            "notes": "主菜",
+            "id": "d4_1"
+          },
+          {
+            "name": "芦笋炒口蘑",
+            "ingredients": "芦笋，胡萝卜，口蘑",
+            "steps": "1，口蘑切刀花，芦笋洗净斜切段。\n2，锅中放油，先把口蘑下锅轻轻煎香。\n3，加入盐、松茸鲜、酱油、素蚝油，翻炒均匀。\n4，勾一点点薄芡，下入切好的芦笋。\n5，大火清炒 1～2 分钟，即可出锅。",
+            "notes": "改善：加素排或素丸子就是主菜\n不加是配菜",
+            "id": "d4_2"
+          },
+          {
+            "name": "冬瓜焖素丸子",
+            "ingredients": "冬瓜\n素丸子\n香菜",
+            "steps": "1，冬瓜切成块状，丸子提前一晚解冻备用\n\n2. 热锅下油，放入冬瓜块翻炒，加盐、松茸鲜调味，加适量水焖软。\n\n3. 倒入素丸子，继续焖 2-3 分钟。\n\n4. 最后撒上香菜即可出锅。",
+            "notes": "主菜",
+            "id": "d4_3"
+          },
+          {
+            "name": "咖喱千叶豆腐",
+            "ingredients": "千叶豆腐\n咖喱块\n青红椒",
+            "steps": "1. 千叶豆腐切片，青红椒切块。\n\n2. 热锅倒油，将千叶豆腐片煎至两面微黄，盛出备用。\n\n3. 锅中留少许油，放入咖喱酱加少量水调成糊状。\n\n4. 倒入青红椒块和煎好的千叶豆腐，翻炒均匀即可出锅。",
+            "notes": "主菜\n\n改善：千叶豆腐切三角\n\n青红椒多一点\n\n用草帽碟",
+            "id": "d4_4"
+          },
+          {
+            "name": "紫苏焖花菇",
+            "ingredients": "紫苏\n花菇\n 青红椒",
+            "steps": "1. 花菇泡发清洗：干花菇提前用清水泡软，泡发后反复清洗4-5遍，彻底去除花菇的苦味，沥干水分备用。\n\n2. 高压焖煮花菇：将处理好的花菇放入高压锅，加入十三香、蚝油、酱油、盐、松茸鲜调味，加适量清水没过花菇，盖上锅盖高压锅焖煮至花菇熟透软烂。\n\n3. 准备配菜：紫苏洗净切段，青红椒洗净切小块/条备用。\n\n4. 翻炒拌匀出锅：焖好的花菇连汤汁一同倒入锅中，加入紫苏、青红椒，开大火快速清炒至配菜断生、所有食材拌匀，即可出锅。",
+            "notes": "主菜\n\n改善：紫苏切碎，花菇切花刀",
+            "id": "d4_5"
+          },
+          {
+            "name": "云南小瓜炒素丸子",
+            "ingredients": "小南瓜\n素丸子",
+            "steps": "1. 小南瓜洗净切好备用\n2. 素丸子切成四瓣小粒\n3. 热锅少油，将素丸子下锅轻轻煎至微黄盛出\n4. 放入切好的小南瓜一同翻炒，炒至断生、口感清脆\n5. 加入盐、油、松茸鲜等调料调味，翻炒均匀即可出锅",
+            "notes": "主菜\n改善：用草帽碟",
+            "id": "d4_6"
+          },
+          {
+            "name": "香蒸老豆腐",
+            "ingredients": "老豆腐\n香菜",
+            "steps": "：\n香蒸老豆腐\n1. 选用老豆腐，彻底吸干表面多余水分。\n2. 锅中热油，放入老豆腐炸制，无需炸透，仅炸至表面金黄即可，炸好后捞出放凉。\n\n3. 放凉后的炸豆腐切成片状，整齐码放在盘中备用。\n4. 调制蒸制底汤：准备清水，加入花椒、八角、酱油、素蚝油，搅拌调和均匀。\n5. 淋汁上锅蒸制：将调好的汤汁均匀淋在码好的豆腐上，蒸锅水开上汽后，大火蒸15分钟。\n6. 析出原汁备用：蒸够15分钟后关火，将盘中蒸出来的汤汁全部倒出留存备用。\n7. 爆香勾芡收汁：起锅放少许油，下入姜片香菜爆香，倒入刚刚留存的原汁，加水淀粉勾芡，熬至汤汁微微浓稠。\n8. 淋汁出锅：将熬好的浓稠酱汁均匀淋在蒸好的豆腐上，最后撒上香菜即可完成。",
+            "notes": "主菜\n搬到新厂，买了新蒸炉可以做",
+            "id": "d4_7"
+          },
+          {
+            "name": "咖喱素丸子",
+            "ingredients": "素丸子，胡萝卜、土豆，咖喱酱",
+            "steps": "1. 素丸子一开四，胡萝卜、土豆切滚刀块备用\n2. 热锅下油，放入素丸子、胡萝卜、土豆一同翻炒炒香\n3. 咖喱酱加水调成糊状倒入锅中\n4. 盖上锅盖焖煮5–7分钟\n5. 加入盐、油及其他调料调味拌匀，即可出锅",
+            "notes": "主菜",
+            "id": "d4_8"
+          },
+          {
+            "name": "上海青菌菇烧豆腐",
+            "ingredients": "豆腐，上青菜",
+            "steps": "一、食材处理\n\n1. 老豆腐切四方小块；上海青切段；平菇、杏鲍菇洗净，全部切成细丝备用。\n\n二、炸制菌菇\n\n锅中倒油，放入平菇丝、杏鲍菇丝炸至酥脆，逼出浓郁菌香，连菌菇油一同盛出备用。\n\n三、煎豆腐\n\n平底锅少油，下入豆腐块，煎至两面微黄，盛出待用。\n\n四、焖煮入味\n\n1. 原锅留底油，放入姜片爆香，倒入煎好的豆腐翻炒几下。\n\n2. 加入素蚝油、酱油、适量清水、少许盐，再放入炸好的菌菇丝，盖上锅盖焖煮15分钟。\n\n五、收尾提鲜\n\n1. 开盖放入上海青，煮至软脆口感。\n\n2. 出锅前淋入适量菌菇油，盖锅再焖1分钟。\n\n3. 最后补盐、加昆布粉调味，拌匀即可出锅。",
+            "notes": "",
+            "id": "d4_9"
+          },
+          {
+            "name": "丝瓜炒海鲜菇",
+            "ingredients": "丝瓜，海鲜菇，虫草花，姜",
+            "steps": "食材预处理\n开水灼海鲜菇\n1.丝瓜斜刀切块；海鲜菇洗净切段；虫草花洗净备用。\n\n烹饪步骤\n1.热锅下入海鲜菇、姜片小火煎制，加少许盐翻炒。\n2.放入虫草花一同翻炒出香味。\n3.倒入丝瓜持续翻炒，炒至食材析出水分。\n4.添加适量盐、松茸鲜、少许黑胡椒调味，翻炒均匀即可出锅",
+            "notes": "",
+            "id": "d4_10"
+          },
+          {
+            "name": "素辣子鸡（杏鲍菇版）",
+            "ingredients": "杏鲍菇，芹菜，豆芽，干辣椒",
+            "steps": "素辣子鸡（杏鲍菇版）\n1. 杏鲍菇切好备用，裹上炸粉，入锅炸至定型，捞出控油备用\n2. 锅中下油，放入芹菜、豆芽等配菜翻炒，加盐、松茸鲜调味\n3. 倒入炸好的杏鲍菇，大火翻炒均匀入味\n4. 将炒好的所有食材盛入盘中\n5. 碗中放入辣椒粉、干辣椒，浇上滚烫热油激香\n6. 把激好的香辣油淋在菜品上，完成出品",
+            "notes": "主菜",
+            "id": "d4_11"
+          }
+        ]
+      }
+    ]
   }
 }
