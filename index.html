@@ -306,21 +306,28 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
 .menu-empty{text-align:center;color:var(--text3);padding:50px 20px;font-size:14px}
 
-/* ---- Card view (collapsible) ---- */
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:10px}
-.dish-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;border-left:4px solid var(--c,var(--accent))}
-.dish-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
-.dish-card-head{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(255,255,255,.02)}
-.dish-card-title{font-size:16px;font-weight:600;color:var(--text);line-height:1.35;outline:none;flex:1}
-.dish-card-title[contenteditable=true]{box-shadow:0 0 0 1px var(--accent) inset;border-radius:6px;padding:4px 6px;background:var(--bg)}
+/* ---- Card view (compact tiles) ---- */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px;align-content:start}
+.dish-tile{display:flex;align-items:center;gap:8px;padding:11px 12px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--c,var(--accent));border-radius:10px;cursor:pointer;transition:transform .12s,box-shadow .12s,background .12s;min-height:46px}
+.dish-tile:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.3);background:rgba(255,255,255,.035)}
+.dish-tile:active{transform:scale(.98)}
+.dish-tile-icon{font-size:18px;line-height:1;flex-shrink:0;width:22px;text-align:center}
+.dish-tile-name{font-size:13px;color:var(--text);line-height:1.4;word-break:break-word;font-weight:500}
+@media(max-width:600px){.menu-grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}}
 .dish-cat-badge{font-size:11px;padding:3px 10px;border-radius:10px;color:#fff;white-space:nowrap;flex-shrink:0;font-weight:500}
-.dish-summary{display:flex;align-items:center;gap:14px;padding:10px 16px;cursor:pointer;font-size:12px;color:var(--text3);user-select:none}
-.dish-summary:hover{background:rgba(255,255,255,.03)}
-.dish-summary .s-item b{color:var(--text2);font-weight:600}
-.dish-summary .tchev{margin-left:auto}
-.dish-card-body{padding:4px 16px 14px;flex:1}
-.dish-card-body[hidden]{display:none}
-@media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+.menu-sort-wrap{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--text3)}
+.menu-sort{background:var(--bg);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:6px 10px;font-size:12px;font-family:inherit;cursor:pointer}
+
+/* ---- Dish detail modal ---- */
+.dish-detail-modal{max-width:460px;width:92%;padding:0;overflow:hidden;display:flex;flex-direction:column;max-height:86vh}
+.dish-detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--border)}
+.dish-detail-name{font-size:18px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:8px;word-break:break-word}
+.dish-detail-body{padding:14px 20px;overflow-y:auto}
+.dish-steps{margin:0;padding-left:20px}
+.dish-steps li{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:4px;white-space:pre-wrap}
+.ing-ico{margin-right:4px}
+.modal-close{border:none;background:var(--surface2);color:var(--text2);width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:14px;flex-shrink:0;transition:all .15s}
+.modal-close:hover{background:var(--accent);color:#fff}
 .dish-form-row{margin-bottom:12px}
 .dish-form-row label{display:block;font-size:12px;color:var(--text2);margin-bottom:4px}
 .dish-form-row input,.dish-form-row textarea,.dish-form-row select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;font-size:14px;box-sizing:border-box;font-family:inherit}
@@ -1131,6 +1138,14 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </div>
   <div class="menu-count" id="menuCount"></div>
   <div class="menu-cat-filter" id="menuCatFilter" style="display:none"></div>
+  <div class="menu-sort-wrap" id="menuSortWrap" style="display:none">
+    <span>排序</span>
+    <select class="menu-sort" id="menuSort" onchange="setMenuSort(this.value)">
+      <option value="order">录入顺序</option>
+      <option value="name">按菜名</option>
+      <option value="cat">按分类</option>
+    </select>
+  </div>
   <div class="menu-tree" id="menuTree"></div>
   <div class="menu-ing" id="menuIng" style="display:none"></div>
   <div class="menu-grid" id="menuGrid" style="display:none"></div>
@@ -1402,6 +1417,21 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <button class="btn-cancel" onclick="closeDishModal()">取消</button>
       <button class="btn-confirm" onclick="submitDish()">保存</button>
     </div>
+  </div>
+</div>
+
+<!-- ========== Dish Detail Modal ========== -->
+<div class="modal-overlay" id="dishDetailModal">
+  <div class="modal dish-detail-modal" id="detailCard">
+    <div class="dish-detail-head">
+      <div>
+        <div class="dish-detail-name" id="ddName"></div>
+        <span class="dish-cat-badge" id="ddCat"></span>
+      </div>
+      <button class="modal-close" onclick="closeDishDetail()">✕</button>
+    </div>
+    <div class="dish-detail-body" id="ddBody"></div>
+    <div class="dish-foot" id="ddFoot"></div>
   </div>
 </div>
 
@@ -1976,6 +2006,8 @@ let menuActiveCat = '全部';
 let menuView = 'tree';
 let menuExpanded = new Set();
 let menuFocusIngredient = null;
+let menuSort = 'order';
+let editingDishId = null;
 
 function loadMenu() {
   const raw = localStorage.getItem(MENU_KEY);
@@ -2000,6 +2032,55 @@ function escapeHtml(s) {
 function catColor(cat) {
   const map = { '主菜': '#e94560', '配菜': '#ef9f27', '小菜': '#0f6e56', '10-15分钟快手菜': '#3a7bd5', '接待菜单': '#9b59b6' };
   return map[cat] || '#e94560';
+}
+
+// Map an ingredient phrase to a representative emoji icon (first match wins)
+const ING_ICON_MAP = [
+  [/猴头菇|香菇|蘑菇|杏鲍菇|金针菇|平菇|口蘑|菌菇|木耳|云耳/, '🍄'],
+  [/番茄|西红柿/, '🍅'],
+  [/胡萝卜|红萝卜/, '🥕'],
+  [/白萝卜|萝卜/, '⚪'],
+  [/黄瓜/, '🥒'],
+  [/茄子/, '🍆'],
+  [/玉米/, '🌽'],
+  [/土豆|马铃薯|洋芋/, '🥔'],
+  [/洋葱/, '🧅'],
+  [/大蒜|蒜/, '🧄'],
+  [/姜|生姜/, '🫚'],
+  [/青椒|辣椒|辣|花椒/, '🌶️'],
+  [/彩椒|甜椒|灯笼椒/, '🫑'],
+  [/西兰花|花菜|菜花/, '🥦'],
+  [/白菜|青菜|生菜|菠菜|芥蓝|空心菜|油麦菜|小白菜|娃娃菜|莴笋|芹菜/, '🥬'],
+  [/豆腐|豆干|千张|腐竹|豆浆|豆皮|素鸡|黄豆|豆芽|毛豆|豆角|荷兰豆|四季豆/, '⬜'],
+  [/南瓜|竹笋|芦笋|百合/, '🎋'],
+  [/莲藕/, '🪷'],
+  [/花生|腰果|杏仁|核桃|坚果|芝麻/, '🥜'],
+  [/海带|紫菜|海苔|裙带菜|海藻/, '🌿'],
+  [/米饭|大米|糯米/, '🍚'],
+  [/面|粉|粉丝|米线|面条/, '🍜'],
+  [/鸡蛋|蛋/, '🥚'],
+  [/椰/, '🥥'],
+  [/咖喱/, '🍛'],
+  [/醋|酱油|生抽|老抽|酱|油|盐|糖|料酒/, '🫗'],
+  [/红枣|枸杞|桂圆|龙眼/, '🔴'],
+  [/葱|香菜|芫荽|香草|香叶|八角|桂皮|香料/, '🌿'],
+  [/柠檬|橙|柚/, '🍋']
+];
+function ingIcon(name) {
+  if (!name) return '🥗';
+  for (let i = 0; i < ING_ICON_MAP.length; i++) {
+    if (ING_ICON_MAP[i][0].test(name)) return ING_ICON_MAP[i][1];
+  }
+  return '🥗';
+}
+function dishPrimaryIcon(d) {
+  const ings = parseIngredients(d && d.ingredients);
+  return ingIcon(ings.length ? ings[0] : '');
+}
+function findDishCat(id) {
+  if (!MENU_DATA) return '';
+  for (const c of MENU_DATA.categories) { if (c.dishes.some(x => x.id === id)) return c.name; }
+  return '';
 }
 
 function parseIngredients(str) {
@@ -2082,7 +2163,7 @@ function dishNodeHTML(d, cat) {
   const ce = editable ? ' contenteditable="true"' : '';
   const delBtn = editable ? '<button class="del-btn" data-delete="' + d.id + '">删除</button>' : '';
   const chips = ings.length
-    ? ings.map(i => '<span class="ing-chip" data-ing="' + escapeHtml(i) + '">' + escapeHtml(i) + '</span>').join('')
+    ? ings.map(i => '<span class="ing-chip" data-ing="' + escapeHtml(i) + '"><span class="ing-ico">' + ingIcon(i) + '</span>' + escapeHtml(i) + '</span>').join('')
     : '<span class="dish-field-value">—</span>';
   return '' +
     '<div class="tnode tdish" id="dish-' + d.id + '" style="--c:' + color + '">' +
@@ -2136,7 +2217,7 @@ function renderTree() {
           html += '<div class="tnode ting" style="--c:' + color + '">' +
             '<div class="trow" data-toggle="' + ingKey + '">' +
               '<span class="tchev">' + (ingOpen ? '▾' : '▸') + '</span>' +
-              '<span class="tlabel">🥬 ' + escapeHtml(ing.name) + '</span>' +
+              '<span class="tlabel">' + ingIcon(ing.name) + ' ' + escapeHtml(ing.name) + '</span>' +
               '<span class="tcount">' + ing.dishes.length + ' 道</span>' +
             '</div>';
           if (ingOpen) {
@@ -2181,7 +2262,7 @@ function renderIngredients() {
     html += '<div class="tnode ting-hub" id="ingnode-' + cssId(name) + '" style="--c:var(--accent)">' +
       '<div class="trow" data-toggle="' + key + '">' +
         '<span class="tchev">' + (open ? '▾' : '▸') + '</span>' +
-        '<span class="tlabel">🥬 ' + escapeHtml(name) + '</span>' +
+        '<span class="tlabel">' + ingIcon(name) + ' ' + escapeHtml(name) + '</span>' +
         '<span class="tcount">' + refs.length + ' 道菜 · 跨 ' + catsUsed.length + ' 分类</span>' +
       '</div>';
     if (open) {
@@ -2208,35 +2289,12 @@ function renderIngredients() {
 
 // ---------- View 3: Card (collapsible per dish) ----------
 function dishCardHTML(d) {
-  const editable = settings.editEnabled;
   const color = catColor(d.cat);
-  const ings = parseIngredients(d.ingredients);
-  const stepLines = (d.steps || '').split(/\n+/).map(s => s.trim()).filter(s => s);
-  const stepsCount = stepLines.length || (d.steps ? 1 : 0);
-  const key = 'dish:' + d.id;
-  const open = isOpen(key);
-  const ce = editable ? ' contenteditable="true"' : '';
-  const delBtn = editable ? '<button class="del-btn" data-delete="' + d.id + '">删除</button>' : '';
-  const chips = ings.length
-    ? ings.map(i => '<span class="ing-chip" data-ing="' + escapeHtml(i) + '">' + escapeHtml(i) + '</span>').join('')
-    : '<span class="dish-field-value">—</span>';
+  const icon = dishPrimaryIcon(d);
   return '' +
-    '<div class="dish-card" id="dish-' + d.id + '" style="--c:' + color + '">' +
-      '<div class="dish-card-head">' +
-        '<div class="dish-card-title"' + ce + ' data-dish="' + d.id + '" data-field="name">' + escapeHtml(d.name) + '</div>' +
-        '<span class="dish-cat-badge" style="background:' + color + '">' + escapeHtml(d.cat) + '</span>' +
-      '</div>' +
-      '<div class="dish-summary" data-toggle="' + key + '">' +
-        '<span class="s-item">🥕 <b>' + ings.length + '</b> 种食材</span>' +
-        '<span class="s-item">📋 <b>' + stepsCount + '</b> 步</span>' +
-        '<span class="tchev">' + (open ? '▾' : '▸') + '</span>' +
-      '</div>' +
-      '<div class="dish-card-body"' + (open ? '' : ' hidden') + '>' +
-        '<div class="dish-field"><div class="dish-field-label">食材（点击可查看关联菜品）</div><div class="ing-chips">' + chips + '</div></div>' +
-        '<div class="dish-field"><div class="dish-field-label">制作步骤关键点</div><div class="dish-field-value"' + ce + ' data-dish="' + d.id + '" data-field="steps">' + (escapeHtml(d.steps) || '—') + '</div></div>' +
-        '<div class="dish-field"><div class="dish-field-label">备注 / 建议 / 改善</div><div class="dish-field-value"' + ce + ' data-dish="' + d.id + '" data-field="notes">' + (escapeHtml(d.notes) || '—') + '</div></div>' +
-      '</div>' +
-      '<div class="dish-foot"><button class="export-btn" data-export="' + d.id + '">导出图片</button>' + delBtn + '</div>' +
+    '<div class="dish-tile" id="tile-' + d.id + '" style="--c:' + color + '" data-dish-tile="' + d.id + '" title="' + escapeHtml(d.name) + '">' +
+      '<span class="dish-tile-icon">' + icon + '</span>' +
+      '<span class="dish-tile-name">' + escapeHtml(d.name) + '</span>' +
     '</div>';
 }
 function renderCards() {
@@ -2248,9 +2306,15 @@ function renderCards() {
   let dishes = getMenuDishes();
   if (menuActiveCat !== '全部') dishes = dishes.filter(d => d.cat === menuActiveCat);
   if (q) dishes = dishes.filter(d => dishMatches(d, q));
+  if (menuSort === 'name') {
+    dishes.sort((a, b) => a.name.localeCompare(b.name, 'zh'));
+  } else if (menuSort === 'cat') {
+    const order = MENU_DATA.categories.map(c => c.name);
+    dishes.sort((a, b) => order.indexOf(a.cat) - order.indexOf(b.cat) || a.name.localeCompare(b.name, 'zh'));
+  }
   const grid = document.getElementById('menuGrid');
   const ce = document.getElementById('menuCount');
-  if (ce) ce.textContent = '共 ' + dishes.length + ' 道菜' + (menuActiveCat !== '全部' ? '（' + menuActiveCat + '）' : '');
+  if (ce) ce.textContent = '共 ' + dishes.length + ' 道菜' + (menuActiveCat !== '全部' ? '（' + menuActiveCat + '）' : '') + ' · 点击卡片查看详情';
   if (dishes.length === 0) { grid.innerHTML = '<div class="menu-empty">暂无菜品，点击右上角“+ 添加菜品”创建</div>'; return; }
   grid.innerHTML = dishes.map(dishCardHTML).join('');
 }
@@ -2270,6 +2334,8 @@ function renderMenu() {
   ingEl.style.display = menuView === 'ingredient' ? 'block' : 'none';
   grid.style.display = menuView === 'card' ? 'grid' : 'none';
   cf.style.display = menuView === 'card' ? 'flex' : 'none';
+  const sw = document.getElementById('menuSortWrap');
+  if (sw) sw.style.display = menuView === 'card' ? 'flex' : 'none';
   if (menuView === 'tree') renderTree();
   else if (menuView === 'ingredient') renderIngredients();
   else renderCards();
@@ -2289,13 +2355,28 @@ function scheduleMenuSave() {
   menuSaveTimer = setTimeout(saveAll, 1200);
 }
 
-function openDishModal() {
+function openDishModal(editId) {
   const sel = document.getElementById('dishCat');
   sel.innerHTML = MENU_DATA.categories.map(c => '<option value="' + escapeHtml(c.name) + '">' + escapeHtml(c.name) + '</option>').join('');
-  document.getElementById('dishName').value = '';
-  document.getElementById('dishIngredients').value = '';
-  document.getElementById('dishSteps').value = '';
-  document.getElementById('dishNotes').value = '';
+  const title = document.querySelector('#dishModal h3');
+  if (editId) {
+    const d = findDish(editId);
+    if (d) {
+      const cat = d.cat || findDishCat(editId);
+      if (cat) sel.value = cat;
+      document.getElementById('dishName').value = d.name || '';
+      document.getElementById('dishIngredients').value = d.ingredients || '';
+      document.getElementById('dishSteps').value = d.steps || '';
+      document.getElementById('dishNotes').value = d.notes || '';
+    }
+    if (title) title.textContent = '编辑菜品';
+  } else {
+    document.getElementById('dishName').value = '';
+    document.getElementById('dishIngredients').value = '';
+    document.getElementById('dishSteps').value = '';
+    document.getElementById('dishNotes').value = '';
+    if (title) title.textContent = '添加菜品';
+  }
   document.getElementById('dishModal').classList.add('open');
   setTimeout(() => document.getElementById('dishName').focus(), 100);
 }
@@ -2307,20 +2388,41 @@ function submitDish() {
   if (!name) { showToast('请输入菜名', 'error'); return; }
   const catObj = MENU_DATA.categories.find(c => c.name === cat);
   if (!catObj) return;
-  catObj.dishes.push({
-    id: 'd_' + Date.now(),
-    name: name,
-    ingredients: document.getElementById('dishIngredients').value,
-    steps: document.getElementById('dishSteps').value,
-    notes: document.getElementById('dishNotes').value
-  });
+  let isEdit = false;
+  if (editingDishId) {
+    const d = findDish(editingDishId);
+    if (d) {
+      isEdit = true;
+      const oldCat = findDishCat(editingDishId);
+      d.name = name;
+      d.ingredients = document.getElementById('dishIngredients').value;
+      d.steps = document.getElementById('dishSteps').value;
+      d.notes = document.getElementById('dishNotes').value;
+      d.cat = cat;
+      if (oldCat && oldCat !== cat) {
+        const oc = MENU_DATA.categories.find(c => c.name === oldCat);
+        const idx = oc ? oc.dishes.findIndex(x => x.id === editingDishId) : -1;
+        if (idx >= 0) oc.dishes.splice(idx, 1);
+        catObj.dishes.push(d);
+      }
+    }
+    editingDishId = null;
+  } else {
+    catObj.dishes.push({
+      id: 'd_' + Date.now(),
+      name: name,
+      ingredients: document.getElementById('dishIngredients').value,
+      steps: document.getElementById('dishSteps').value,
+      notes: document.getElementById('dishNotes').value
+    });
+  }
   saveMenu();
   menuActiveCat = cat;
   menuExpanded.add('cat:' + cat);
   renderMenu();
   closeDishModal();
   saveAll();
-  showToast('已添加菜品：' + name, 'success');
+  showToast(isEdit ? ('已更新菜品：' + name) : ('已添加菜品：' + name), 'success');
 }
 
 function deleteDish(id) {
@@ -2342,9 +2444,11 @@ async function exportCard(id) {
     showToast('图片导出库加载中，请稍后重试（需联网）', 'error');
     return;
   }
-  const card = document.getElementById('dish-' + id);
+  const detailModal = document.getElementById('dishDetailModal');
+  const useDetail = detailModal && detailModal.classList.contains('open');
+  const card = useDetail ? document.getElementById('detailCard') : document.getElementById('dish-' + id);
   if (!card) return;
-  const foot = card.querySelector('.dish-foot') || card.querySelector('.dish-card-foot');
+  const foot = card.querySelector('.dish-foot');
   if (foot) foot.style.display = 'none';
   showIndicator('saving', '生成图片...');
   try {
@@ -2365,20 +2469,59 @@ async function exportCard(id) {
   }
 }
 
+// ---------- Dish detail modal (compact card -> full info) ----------
+function openDishDetail(id) {
+  const d = findDish(id);
+  if (!d) return;
+  const cat = d.cat || findDishCat(id);
+  const color = catColor(cat);
+  document.getElementById('ddName').textContent = d.name || '';
+  const badge = document.getElementById('ddCat');
+  badge.textContent = cat;
+  badge.style.background = color;
+  const ings = parseIngredients(d.ingredients);
+  const ingHtml = ings.length
+    ? ings.map(i => '<span class="ing-chip" data-ing="' + escapeHtml(i) + '"><span class="ing-ico">' + ingIcon(i) + '</span>' + escapeHtml(i) + '</span>').join('')
+    : '<span class="dish-field-value">—</span>';
+  const stepLines = (d.steps || '').split(/\n+/).map(s => s.trim()).filter(s => s);
+  const stepsHtml = stepLines.length
+    ? '<ol class="dish-steps">' + stepLines.map(s => '<li>' + escapeHtml(s) + '</li>').join('') + '</ol>'
+    : '<div class="dish-field-value">—</div>';
+  document.getElementById('ddBody').innerHTML =
+    '<div class="dish-field"><div class="dish-field-label">食材（点击可查看关联菜品）</div><div class="ing-chips">' + ingHtml + '</div></div>' +
+    '<div class="dish-field"><div class="dish-field-label">制作步骤关键点</div>' + stepsHtml + '</div>' +
+    '<div class="dish-field"><div class="dish-field-label">备注 / 建议 / 改善</div><div class="dish-field-value">' + escapeHtml(d.notes || '—') + '</div></div>';
+  const foot = document.getElementById('ddFoot');
+  let btns = '<button class="export-btn" data-export="' + id + '">导出图片</button>';
+  if (settings.editEnabled) {
+    btns += '<button data-edit="' + id + '">编辑</button><button class="del-btn" data-delete="' + id + '">删除</button>';
+  }
+  foot.innerHTML = btns;
+  document.getElementById('dishDetailModal').classList.add('open');
+}
+function closeDishDetail() { document.getElementById('dishDetailModal').classList.remove('open'); }
+function editDish(id) { closeDishDetail(); editingDishId = id; openDishModal(id); }
+function setMenuSort(v) { menuSort = v; renderCards(); }
+
 // Delegated handlers (survive re-render)
 document.addEventListener('click', (e) => {
   const ex = e.target.closest('[data-export]');
   if (ex) { exportCard(ex.getAttribute('data-export')); return; }
   const dl = e.target.closest('[data-delete]');
   if (dl) { deleteDish(dl.getAttribute('data-delete')); return; }
+  const ed = e.target.closest('[data-edit]');
+  if (ed) { editDish(ed.getAttribute('data-edit')); return; }
+  const tile = e.target.closest('[data-dish-tile]');
+  if (tile) { openDishDetail(tile.getAttribute('data-dish-tile')); return; }
   const ing = e.target.closest('[data-ing]');
-  if (ing) { showIngredient(ing.getAttribute('data-ing')); return; }
+  if (ing) { closeDishDetail(); showIngredient(ing.getAttribute('data-ing')); return; }
   const vw = e.target.closest('[data-view]');
   if (vw) { setMenuView(vw.getAttribute('data-view')); return; }
   const tab = e.target.closest('[data-cat-tab]');
   if (tab) { setMenuCat(tab.getAttribute('data-cat-tab')); return; }
   const tg = e.target.closest('[data-toggle]');
   if (tg) { toggleNode(tg.getAttribute('data-toggle')); return; }
+  if (e.target.id === 'dishDetailModal') closeDishDetail();
 });
 document.addEventListener('input', (e) => {
   const t = e.target;
