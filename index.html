@@ -205,6 +205,9 @@ html.dark tr:hover td{background:var(--accent-soft)}
 
 /* Drawer top action bar */
 .drawer-actions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.drawer-sync{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;margin-top:2px;padding-top:8px;border-top:1px dashed var(--border)}
+.drawer-sync-status{font-size:12px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.da-btn.small{padding:5px 10px;font-size:12px}
 .da-btn{flex:1 1 auto;min-width:80px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .da-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 .da-btn:active{transform:scale(.97)}
@@ -1474,6 +1477,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <span class="slider"></span>
     </label>
     <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
+    <div class="drawer-sync">
+      <span id="drawerSyncStatus" class="drawer-sync-status">未同步</span>
+      <button class="da-btn small" onclick="manualSync()"><span class="da-ico">&#8635;</span>立即同步</button>
+    </div>
   </div>
   <nav class="nav" id="drawerNav">
     <div class="nav-section">
@@ -1662,8 +1669,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <div class="modal">
     <h3>设置 GitHub Token</h3>
     <p style="font-size:13px;line-height:1.6;color:var(--text-secondary);margin-bottom:12px">
-      首次使用需输入 GitHub Personal Access Token（需 repo 权限）。<br>
-      Token 仅存储在浏览器本地，保存内容时自动同步到云端。
+      填入 GitHub 令牌后即可把修改同步到云端，其他人打开链接就能看到。<br>
+      建议用<strong>精细令牌（Fine-grained）</strong>，权限只勾选本仓库的 <strong>Contents: Read and write</strong>，更安全、可随时吊销。<br>
+      Token 仅存于本机浏览器；也可让管理员把它内置进网页，团队无需各自填写。
     </p>
     <input type="password" id="tokenInput" placeholder="ghp_xxxx" autocomplete="off" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:14px;box-sizing:border-box">
     <p style="font-size:12px;color:var(--text-tertiary);margin-top:8px">
@@ -1740,6 +1748,24 @@ const GH_CONFIG = {
   repo: 'lixin-energy-kitchen',
   branch: 'main'
 };
+
+// 共享写入令牌（可选）：填一个【仅对此仓库有 Contents 读写权限】的精细令牌，
+// 团队成员无需各自填 token 即可共同编辑并同步。留空则使用"设置"里个人填的 token。
+// 注意：放在公开网页里的令牌任何人都能看到，请只用最小权限、可随时吊销的令牌。
+const CLOUD_TOKEN = '';
+
+// 云端轮询间隔（毫秒）：停留页面也会定期拉取，别人改了你这边自动可见
+const CLOUD_POLL_INTERVAL = 15000;
+
+// 本地是否有未保存修改（轮询时避免覆盖正在编辑的内容）
+let dirtySinceSave = false;
+// 最近一次从云端取到的同步时间
+let lastRemoteSync = 0;
+
+function getWriteToken() {
+  const s = (typeof settings !== 'undefined' && settings) ? settings.ghToken : '';
+  return s || CLOUD_TOKEN || '';
+}
 
 let settings = {
   editEnabled: false,
@@ -2840,6 +2866,7 @@ function applySettings() {
   if (pwd) pwd.value = '';
   const syncStatus = document.getElementById('syncStatus');
   if (syncStatus) syncStatus.textContent = settings.lastSync ? '上次同步: ' + settings.lastSync : '未同步';
+  updateSyncUI();
 
   // Apply edit mode
   applyEditMode(settings.editEnabled);
@@ -2882,6 +2909,7 @@ function syncDrawerControls() {
   if (db) db.classList.toggle('active', settings.editEnabled);
   const dn = document.getElementById('drawerDarkMode');
   if (dn) dn.checked = settings.theme === 'dark';
+  updateSyncUI();
 }
 
 function toggleEditFromDrawer() {
@@ -3046,6 +3074,7 @@ function saveAll() {
     timestamp: new Date().toISOString()
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  dirtySinceSave = false; // 已保存，本地不再"脏"
   const now = new Date();
   const ts = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
   const lastSavedEl = document.getElementById('lastSaved');
@@ -3107,6 +3136,7 @@ function loadData() {
 // Debounced auto-save
 document.addEventListener('input', (e) => {
   if (e.target.hasAttribute && e.target.hasAttribute('contenteditable') && settings.editEnabled) {
+    dirtySinceSave = true; // 标记有未保存修改，轮询时不要覆盖
     clearTimeout(saveTimer);
     saveTimer = setTimeout(saveAll, 2000);
   }
@@ -3219,8 +3249,8 @@ function saveToken() {
 let syncLock = false;
 
 async function autoCloudSync(contentData, menuData) {
-  // Silent background sync — no error toasts, just indicator
-  if (!settings.ghToken) return; // No token yet, skip silently
+  // 静默后台同步
+  if (!getWriteToken()) return; // 无 token 则仅本地保存，跳过云端
   if (syncLock) return; // Prevent overlapping syncs
   syncLock = true;
   try {
@@ -3233,7 +3263,7 @@ async function autoCloudSync(contentData, menuData) {
 }
 
 async function manualSync() {
-  if (!settings.ghToken) {
+  if (!getWriteToken()) {
     openTokenModal();
     return;
   }
@@ -3253,14 +3283,14 @@ async function manualSync() {
 }
 
 async function syncToCloud(contentData, menuData, silent) {
-  const token = settings.ghToken;
-  const owner = GH_CONFIG.owner;
-  const repo = GH_CONFIG.repo;
-  const branch = GH_CONFIG.branch;
+  const token = getWriteToken();
+  if (!token) throw new Error('未配置 Token');
+  const { owner, repo, branch } = GH_CONFIG;
 
+  const syncDate = new Date().toISOString();
   const jsonContent = JSON.stringify({
     version: '5.0',
-    syncDate: new Date().toISOString(),
+    syncDate: syncDate,
     content: contentData,
     menu: menuData
   }, null, 2);
@@ -3268,91 +3298,141 @@ async function syncToCloud(contentData, menuData, silent) {
   const path = 'content.json';
   const apiUrl = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path + '?ref=' + branch;
 
-  // Get current file SHA (if exists)
-  let sha = null;
-  try {
-    const resp = await fetch(apiUrl, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+  // 最多重试一次，处理 409 并发冲突（别人刚改过）
+  for (let attempt = 0; attempt < 2; attempt++) {
+    let sha = null;
+    try {
+      const resp = await fetch(apiUrl, {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (resp.ok) sha = (await resp.json()).sha;
+    } catch(e) {}
+
+    const updateResp = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + token,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Update kitchen content - ' + new Date().toLocaleString('zh-CN'),
+        content: btoa(unescape(encodeURIComponent(jsonContent))),
+        sha: sha,
+        branch: branch
+      })
     });
-    if (resp.ok) {
-      const data = await resp.json();
-      sha = data.sha;
-    }
-  } catch(e) {}
 
-  // Update/create file
-  const updateResp = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      'Authorization': 'token ' + token,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      message: 'Update kitchen content - ' + new Date().toLocaleString('zh-CN'),
-      content: btoa(unescape(encodeURIComponent(jsonContent))),
-      sha: sha,
-      branch: branch
-    })
-  });
-
-  if (updateResp.ok) {
-    const now = new Date();
-    const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
-    settings.lastSync = ts;
-    saveSettings();
-    applySettings();
-    if (!silent) {
-      showIndicator('saved', '已同步');
-      showToast('已同步到云端', 'success');
-      if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+    if (updateResp.ok) {
+      const now = new Date();
+      const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+      settings.lastSync = ts;
+      lastRemoteSync = Date.now();
+      dirtySinceSave = false;
+      // 同步本地时间戳，避免轮询时把自己刚上传的版本又拉回来
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const p = JSON.parse(stored);
+          p.timestamp = syncDate;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+        }
+      } catch(e) {}
+      saveSettings();
+      applySettings();
+      updateSyncUI('已同步 ' + ts);
+      if (!silent) {
+        showIndicator('saved', '已同步');
+        showToast('已同步到云端', 'success');
+        if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+      }
+      return;
     }
-  } else {
+    // 409 = 文件已被别人改动，重新取 sha 再试一次
+    if (updateResp.status === 409 && attempt === 0) {
+      if (!silent) showToast('检测到冲突，正在重试...', 'warning');
+      continue;
+    }
     const err = await updateResp.json().catch(() => ({}));
-    throw new Error(err.message || 'Upload failed (HTTP ' + updateResp.status + ')');
+    throw new Error(err.message || '上传失败 (HTTP ' + updateResp.status + ')');
   }
+  throw new Error('同步失败：重试后仍有冲突');
+}
+
+// 拉取云端最新 content.json（带缓存破坏参数，保证拿到最新）
+async function fetchCloudPayload() {
+  const rawUrl = 'https://raw.githubusercontent.com/' + GH_CONFIG.owner + '/' + GH_CONFIG.repo + '/' + GH_CONFIG.branch + '/content.json?t=' + Date.now();
+  const resp = await fetch(rawUrl, { cache: 'no-store' });
+  if (!resp.ok) return null;
+  return await resp.json();
+}
+
+// 应用云端数据；fromPoll=true 时若本地有未保存修改则不覆盖，仅提示
+function applyCloudPayload(payload, fromPoll) {
+  if (!payload) return false;
+  const data = payload.content || payload;
+  const remoteTime = payload.syncDate ? new Date(payload.syncDate).getTime() : Date.now();
+
+  let localTime = 0;
+  const localRaw = localStorage.getItem(STORAGE_KEY);
+  if (localRaw) {
+    try { localTime = new Date(JSON.parse(localRaw).timestamp || 0).getTime(); } catch(e) {}
+  }
+  if (remoteTime <= localTime) return false; // 本地已是最新
+
+  if (fromPoll && dirtySinceSave) {
+    updateSyncUI('云端有更新，保存后可见');
+    return false;
+  }
+
+  Object.keys(data).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = data[id];
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    content: data,
+    menu: payload.menu,
+    timestamp: payload.syncDate || new Date().toISOString()
+  }));
+  if (payload.menu) { MENU_DATA = payload.menu; if (typeof renderMenu === 'function') renderMenu(); }
+  lastRemoteSync = remoteTime;
+  dirtySinceSave = false;
+  updateSyncUI('已更新至最新');
+  if (!fromPoll) showToast('已从云端加载最新内容', 'success');
+  return true;
 }
 
 // ========== Auto-load from GitHub on page load ==========
 async function autoLoadFromGitHub() {
-  // Always try to load from cloud (repo info is hardcoded)
-  if (location.protocol === 'file:') return; // Skip on local file
-
-  const rawUrl = 'https://raw.githubusercontent.com/' + GH_CONFIG.owner + '/' + GH_CONFIG.repo + '/' + GH_CONFIG.branch + '/content.json';
-
+  if (location.protocol === 'file:') return; // 本地文件不拉取
   try {
-    const resp = await fetch(rawUrl, { cache: 'no-store' });
-    if (!resp.ok) return; // No cloud content yet, that's fine
-    const payload = await resp.json();
-    const data = payload.content || payload;
-    
-    // Only load if syncDate is newer than local
-    const localRaw = localStorage.getItem(STORAGE_KEY);
-    let localTime = 0;
-    if (localRaw) {
-      try {
-        const localPayload = JSON.parse(localRaw);
-        localTime = new Date(localPayload.timestamp || 0).getTime();
-      } catch(e) {}
-    }
-    const remoteTime = payload.syncDate ? new Date(payload.syncDate).getTime() : Date.now();
-    
-    if (remoteTime > localTime) {
-      Object.keys(data).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = data[id];
-      });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        content: data,
-        menu: payload.menu,
-        timestamp: payload.syncDate || new Date().toISOString()
-      }));
-      if (payload.menu) { MENU_DATA = payload.menu; renderMenu(); }
-      showToast('已从云端加载最新内容', 'success');
-    }
-  } catch(err) {
-    // Silent fail on auto-load
-  }
+    const payload = await fetchCloudPayload();
+    if (payload) applyCloudPayload(payload, false);
+  } catch(err) { /* 静默 */ }
+}
+
+// 定时轮询：别人改了，停留页面也能自动看到
+async function pollCloudOnce() {
+  if (location.protocol === 'file:') return;
+  if (syncLock) return; // 正在上传时不拉取，避免互相踩
+  if (!navigator.onLine) return;
+  try {
+    const payload = await fetchCloudPayload();
+    if (payload) applyCloudPayload(payload, true);
+  } catch(err) { /* 静默 */ }
+}
+
+function startCloudPolling() {
+  if (location.protocol === 'file:') return;
+  setInterval(pollCloudOnce, CLOUD_POLL_INTERVAL);
+}
+
+// 同步状态展示（目录抽屉 + 设置面板）
+function updateSyncUI(text) {
+  const el = document.getElementById('drawerSyncStatus');
+  if (el) el.textContent = text || (settings.lastSync ? '上次同步: ' + settings.lastSync : '未同步');
+  const s2 = document.getElementById('syncStatus');
+  if (s2) s2.textContent = settings.lastSync ? '上次同步: ' + settings.lastSync : '未同步';
 }
 
 // Section group mapping for bottom nav
@@ -3489,6 +3569,8 @@ setupNavigation();
 
 // Auto-load from GitHub after a short delay
 setTimeout(autoLoadFromGitHub, 500);
+// 启动云端轮询：别人改了，打开/停留页面也能实时看到
+startCloudPolling();
 
 // First visit: prompt for token if not set (only on deployed site)
 if (!settings.ghToken && location.protocol !== 'file:') {
