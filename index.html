@@ -4,23 +4,269 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#1a1a2e">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#E0F2E0">
 <title>理信能量厨房 · 八大系统</title>
 <style>
 /* ========== Reset & Variables ========== */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#1a1a2e;--surface:#16213e;--surface2:#0f3460;--border:#2a2a4a;
-  --text:#e0e0e0;--text2:#a0a0b0;--text3:#606070;
-  --accent:#e94560;--accent2:#0f3460;--success:#0f6e56;--warning:#ef9f27;
-  --c1:#791F1F;--c1l:#F09595;--c2:#633806;--c2l:#EF9F27;
-  --c3:#27500A;--c3l:#97C459;--c4:#085041;--c4l:#5DCAA5;
-  --c5:#0C447C;--c5l:#85B7EB;--c6:#3C3489;--c6l:#AFA9EC;
-  --c7:#72243E;--c7l:#ED93B1;--c8:#712B13;--c8l:#F0997B;
-  --header-h:56px;--bottomnav-h:60px;
+  --bg:#E0F2E0;
+  --surface:#F9F7E8;
+  --surface2:#F0EAD6;
+  --surface3:#E8E4D4;
+  --border:#D4E0C8;
+  --border2:#BDD0BC;
+  --text:#1A1A1A;
+  --text2:#4A5A50;
+  --text3:#7A8A7E;
+  --accent:#4CAF50;
+  --accent-hover:#43A047;
+  --accent2:#2E7D32;
+  --accent-soft:rgba(76,175,80,.12);
+  --accent-medium:rgba(76,175,80,.25);
+  --success:#2E8B57;
+  --warning:#D4A017;
+  --error:#C44536;
+  --info:#4A90A4;
+  --shadow:0 4px 20px rgba(31,45,36,.08);
+  --shadow-lg:0 12px 32px rgba(31,45,36,.12);
+  --c1:#8B5A5A;--c1l:#E8B5B5;
+  --c2:#A87B2E;--c2l:#F5D08A;
+  --c3:#3A8C5D;--c3l:#8FDCAC;
+  --c4:#2D6A4F;--c4l:#7BCFAF;
+  --c5:#3A7A8C;--c5l:#8ECEDD;
+  --c6:#6B5A8C;--c6l:#C5B8E8;
+  --c7:#B85A5A;--c7l:#E8A0A0;
+  --c8:#7A6B5A;--c8l:#D4C4B0;
+  --header-h:56px;--bottomnav-h:64px;
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html.dark{
+  --bg:#0F1F18;
+  --surface:#1A3322;
+  --surface2:#24402B;
+  --surface3:#2D4A35;
+  --border:#2A4A35;
+  --border2:#3A5A45;
+  --text:#F0F4E6;
+  --text2:#A8BCA8;
+  --text3:#6E8070;
+  --accent:#6CCB8C;
+  --accent-hover:#7FD99A;
+  --accent2:#5ABF7F;
+  --accent-soft:rgba(108,203,140,.15);
+  --accent-medium:rgba(108,203,140,.30);
+  --success:#4CAF50;
+  --warning:#E8C547;
+  --error:#E07A5F;
+  --info:#6AB6C9;
+  --shadow:0 4px 20px rgba(0,0,0,.25);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.35);
+  --c1:#B88A8A;--c1l:#E8C5C5;
+  --c2:#D4A86A;--c2l:#F5E0A8;
+  --c3:#6CCB8C;--c3l:#A8E8BF;
+  --c4:#5DCAA5;--c4l:#9EEDD4;
+  --c5:#7EC8C8;--c5l:#B8E8E8;
+  --c6:#B5A9D8;--c6l:#DDD5F0;
+  --c7:#E8A0A0;--c7l:#F5D0D0;
+  --c8:#C9B8A5;--c8l:#E8DDD0;
+}
+/* ========== Theme Overrides: Green & Cream ========== */
+body{background:var(--bg);color:var(--text)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--text3)}
+
+/* Surfaces */
+.sidebar,.mobile-header,.drawer,.settings-page,.settings-header{background:var(--surface);border-color:var(--border)}
+.sidebar-header,.drawer .sidebar-header{border-color:var(--border)}
+.val-tag{background:var(--surface2);color:var(--text2);border-color:var(--border)}
+
+/* Navigation */
+.nav-section-title{color:var(--text3)}
+.nav-item{color:var(--text2)}
+.nav-item:hover,.nav-item.active{background:var(--surface2);color:var(--text)}
+.nav-item.active{border-left-color:var(--accent)}
+
+/* Sidebar footer */
+.sidebar-footer button{background:var(--surface2);color:var(--text2);border-color:var(--border)}
+.sidebar-footer button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.sidebar-footer button.export-btn:hover{background:var(--success);color:#fff;border-color:var(--success)}
+
+/* Mobile header */
+.mh-btn{background:var(--surface2);color:var(--text2)}
+.mh-btn:active{background:var(--accent);color:#fff}
+
+/* Bottom nav */
+.mobile-bottomnav{background:var(--surface);border-color:var(--border);box-shadow:0 -2px 12px rgba(0,0,0,.05)}
+html.dark .mobile-bottomnav{box-shadow:0 -2px 12px rgba(0,0,0,.25)}
+.bn-tab{gap:4px;font-size:11px;font-weight:500;color:var(--text3)}
+.bn-tab.active{color:var(--accent);position:relative}
+.bn-tab.active::before{content:"";position:absolute;top:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--accent);border-radius:50%}
+.bn-tab svg{width:22px;height:22px}
+
+/* Drawer */
+.drawer-overlay{background:rgba(0,0,0,.4)}
+.drawer{background:var(--surface)}
+
+/* Settings */
+.settings-group{background:var(--surface);border-color:var(--border)}
+.settings-group-title{color:var(--text3)}
+.settings-item{border-color:var(--border)}
+.settings-item-label .si-title{color:var(--text)}
+.settings-item-label .si-desc{color:var(--text3)}
+.settings-item input[type="text"],.settings-item input[type="password"]{background:var(--bg);border-color:var(--border);color:var(--text)}
+.settings-item input:focus{border-color:var(--accent)}
+.settings-btn-row button{background:var(--surface2);color:var(--text);border-color:var(--border)}
+.settings-btn-row button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.settings-btn-row button.success{background:var(--success);color:#fff;border-color:var(--success)}
+.settings-btn-row button.danger{background:transparent;color:var(--error);border-color:var(--error)}
+.settings-warning{background:rgba(212,160,23,.08);border-color:rgba(212,160,23,.2);color:var(--warning)}
+
+/* Toggle */
+.toggle-switch .slider{background:var(--border2)}
+.toggle-switch input:checked + .slider{background:var(--accent)}
+.toggle-switch .slider:before{background:#fff}
+
+/* Edit badge */
+.edit-badge.on{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-medium)}
+.edit-badge.off{background:var(--surface2);color:var(--text3);border-color:var(--border)}
+
+/* Editable */
+[contenteditable="true"]:hover{background:var(--accent-soft)}
+[contenteditable="true"]:focus{background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent-medium)}
+.editable-h2:focus,.editable-h3:focus{background:transparent;border-bottom-color:var(--accent)}
+
+/* Typography */
+.page-sub{color:var(--text2);border-color:var(--border)}
+h2,h3{color:var(--text);border-color:var(--border)}
+h4{color:var(--text2)}
+blockquote{border-left-color:var(--accent);background:var(--accent-soft);color:var(--text2)}
+code{background:var(--surface2);color:var(--text2)}
+pre{background:var(--surface);border-color:var(--border)}
+
+/* Tables */
+.table-wrap{border-color:var(--border)}
+th{background:var(--surface2);color:var(--text);border-color:var(--border)}
+td{border-color:var(--border);color:var(--text2)}
+tr:hover td{background:rgba(0,0,0,.02)}
+html.dark tr:hover td{background:rgba(255,255,255,.03)}
+
+/* System header */
+.sys-title{color:var(--text)}
+.sys-tag{background:var(--surface2);border-color:var(--border);color:var(--text3)}
+
+/* Layer cards */
+.layer-card{border-color:var(--border);background:var(--surface)}
+.layer-op{background:rgba(139,90,90,.06);border-color:rgba(139,90,90,.2)}
+.layer-culture{background:rgba(106,90,140,.06);border-color:rgba(106,90,140,.2)}
+.layer-growth{background:rgba(184,90,90,.06);border-color:rgba(184,90,90,.2)}
+
+/* Callouts */
+.callout-op{background:rgba(139,90,90,.08);border-color:rgba(139,90,90,.2);color:var(--c1)}
+.callout-info{background:rgba(58,122,140,.08);border-color:rgba(58,122,140,.2);color:var(--c5)}
+.callout-success{background:rgba(58,140,93,.08);border-color:rgba(58,140,93,.2);color:var(--c3)}
+.callout-warning{background:rgba(168,123,46,.08);border-color:rgba(168,123,46,.2);color:var(--c2)}
+
+/* SOP block */
+.sop-block{background:var(--surface);border-color:var(--border);color:var(--text2)}
+
+/* Save indicator */
+.save-indicator{box-shadow:var(--shadow)}
+
+/* Toast */
+.toast{background:var(--surface);border-color:var(--border);color:var(--text);box-shadow:var(--shadow-lg)}
+.toast.success{border-color:var(--success);color:var(--success)}
+.toast.error{border-color:var(--error);color:var(--error)}
+.toast.warning{border-color:var(--warning);color:var(--warning)}
+
+/* Modal */
+.modal-overlay{background:rgba(0,0,0,.5)}
+.modal{background:var(--surface);border-color:var(--border)}
+.modal input{background:var(--bg);border-color:var(--border);color:var(--text)}
+.modal input:focus{border-color:var(--accent)}
+.modal-btns .btn-cancel{background:var(--surface2);color:var(--text2)}
+.modal-btns .btn-confirm{background:var(--accent);color:#fff}
+
+/* FABs */
+.fab{display:none;position:fixed;right:20px;width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;z-index:90;transition:all .2s;align-items:center;justify-content:center;box-shadow:var(--shadow-lg)}
+.fab-primary{bottom:calc(var(--bottomnav-h) + 20px + var(--safe-bottom));background:var(--accent);color:#fff}
+.fab-secondary{bottom:calc(var(--bottomnav-h) + 84px + var(--safe-bottom));background:var(--surface);color:var(--text2);border:1px solid var(--border);width:48px;height:48px}
+.fab-primary:active,.fab-secondary:active{transform:scale(.92)}
+.fab:hover{transform:translateY(-2px)}
+@media(max-width:768px){.fab{display:flex}}
+
+/* Menu module */
+.menu-view-tabs{background:var(--surface);border-color:var(--border)}
+.menu-view-tab:hover{color:var(--text)}
+.menu-view-tab.active{background:var(--accent);color:#fff}
+.menu-cat-tab{background:var(--surface);border-color:var(--border);color:var(--text2)}
+.menu-cat-tab:hover{color:var(--text)}
+.menu-cat-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.menu-search{background:var(--bg);border-color:var(--border);color:var(--text)}
+.menu-search:focus{border-color:var(--accent)}
+.menu-add-btn{background:var(--success);color:#fff}
+.menu-count{color:var(--text3)}
+.trow:hover{background:var(--accent-soft)}
+.tcat>.trow,.ting>.trow,.tdish>.trow{border-left-color:var(--c,var(--accent))}
+.tdish{background:var(--surface);border-color:var(--border)}
+.dish-detail{border-color:var(--border)}
+.dish-field-label{color:var(--text3)}
+.dish-field-value{color:var(--text2)}
+.dish-field-value[contenteditable=true]{color:var(--text);background:var(--bg);box-shadow:0 0 0 1px var(--accent-medium)}
+.ing-chip{background:var(--surface2);border-color:var(--border);color:var(--text2)}
+.ing-chip:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dish-foot{border-color:var(--border)}
+.dish-foot button{background:var(--surface2);color:var(--text2);border-color:var(--border)}
+.dish-foot .export-btn{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.dish-foot .del-btn{background:transparent;color:var(--error);border-color:var(--error)}
+.menu-empty{color:var(--text3)}
+.dish-tile{background:var(--surface);border-color:var(--border)}
+.dish-tile:hover{background:var(--surface2);box-shadow:var(--shadow)}
+.dish-tile-name{color:var(--text)}
+.menu-sort{background:var(--bg);border-color:var(--border);color:var(--text2)}
+.dish-detail-modal{background:var(--surface);border-color:var(--border)}
+.dish-detail-head,.dish-detail-body{border-color:var(--border)}
+.modal-close{background:var(--surface2);color:var(--text2)}
+.modal-close:hover{background:var(--accent);color:#fff}
+.dish-form-row input,.dish-form-row textarea,.dish-form-row select{background:var(--bg);border-color:var(--border);color:var(--text)}
+
+/* Responsive padding */
+@media(max-width:768px){
+  .main-inner{padding-bottom:calc(var(--bottomnav-h) + 120px + var(--safe-bottom))}
+  .save-indicator{bottom:calc(var(--bottomnav-h) + 120px)}
+}
+
+html.dark{
+  --bg:#0F1F18;
+  --surface:#1A3322;
+  --surface2:#24402B;
+  --surface3:#2D4A35;
+  --border:#2A4A35;
+  --border2:#3A5A45;
+  --text:#F0F4E6;
+  --text2:#A8BCA8;
+  --text3:#6E8070;
+  --accent:#6CCB8C;
+  --accent-hover:#7FD99A;
+  --accent2:#5ABF7F;
+  --accent-soft:rgba(108,203,140,.15);
+  --accent-medium:rgba(108,203,140,.30);
+  --success:#4CAF50;
+  --warning:#E8C547;
+  --error:#E07A5F;
+  --info:#6AB6C9;
+  --shadow:0 4px 20px rgba(0,0,0,.25);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.35);
+  --c1:#B88A8A;--c1l:#E8C5C5;
+  --c2:#D4A86A;--c2l:#F5E0A8;
+  --c3:#6CCB8C;--c3l:#A8E8BF;
+  --c4:#5DCAA5;--c4l:#9EEDD4;
+  --c5:#7EC8C8;--c5l:#B8E8E8;
+  --c6:#B5A9D8;--c6l:#DDD5F0;
+  --c7:#E8A0A0;--c7l:#F5D0D0;
+  --c8:#C9B8A5;--c8l:#E8DDD0;
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overscroll-behavior:none}
@@ -397,6 +643,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </nav>
   <div class="sidebar-footer">
     <button onclick="saveAll()" title="保存">保存</button>
+    <button onclick="quickEntry()" title="录入">录入</button>
     <button class="export-btn" onclick="exportMD()" title="导出Markdown">导出</button>
     <button class="settings-btn" onclick="openSettings()" title="设置">⚙</button>
   </div>
@@ -1160,28 +1407,26 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <button class="mh-btn" onclick="toggleDrawer(true)">&#9776;</button>
   </div>
   <div class="mh-title" id="mobileTitle">理信能量厨房</div>
-  <div class="mh-right">
-    <button class="mh-btn" onclick="openSettings()">&#9881;</button>
-  </div>
+  <div class="mh-right"></div>
 </div>
 
 <!-- ========== Mobile Bottom Nav ========== -->
 <div class="mobile-bottomnav">
-  <div class="bn-tab active" data-target="overview" onclick="bnNav('overview')">
-    <svg viewBox="0 0 24 24"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/></svg>
-    <span>首页</span>
+  <div class="bn-tab active" data-target="s1" data-group="运营" onclick="bnNav('s1')">
+    <svg viewBox="0 0 24 24"><path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-2h2v16h-2z"/></svg>
+    <span>运营</span>
   </div>
-  <div class="bn-tab" onclick="toggleDrawer(true)">
-    <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/></svg>
-    <span>目录</span>
+  <div class="bn-tab" data-target="s4" data-group="文化" onclick="bnNav('s4')">
+    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm-2 17h4v1h-4v-1z"/></svg>
+    <span>文化</span>
   </div>
-  <div class="bn-tab" onclick="quickSave()">
-    <svg viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
-    <span>保存</span>
+  <div class="bn-tab" data-target="s7" data-group="成长" onclick="bnNav('s7')">
+    <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+    <span>成长</span>
   </div>
-  <div class="bn-tab" onclick="openSettings()">
-    <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-    <span>设置</span>
+  <div class="bn-tab" data-target="roadmap" data-group="规划" onclick="bnNav('roadmap')">
+    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+    <span>规划</span>
   </div>
 </div>
 
@@ -1228,9 +1473,12 @@ tr:hover td{background:rgba(255,255,255,.02)}
   </nav>
 </div>
 
-<!-- ========== Floating Action Button (Mobile) ========== -->
-<button class="fab" id="fab" onclick="quickSave()" title="保存">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+<!-- ========== Floating Action Buttons (Mobile) ========== -->
+<button class="fab fab-secondary" id="fabSettings" onclick="openSettings()" title="设置">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+</button>
+<button class="fab fab-primary" id="fabEntry" onclick="quickEntry()" title="录入">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
 </button>
 
 <!-- ========== Settings Page ========== -->
@@ -1263,6 +1511,21 @@ tr:hover td{background:rgba(255,255,255,.02)}
       </div>
       <div class="settings-btn-row">
         <button onclick="changePassword()">修改密码</button>
+      </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="settings-group-title">外观</div>
+    <div class="settings-group">
+      <div class="settings-item">
+        <div class="settings-item-label">
+          <div class="si-title">夜间模式</div>
+          <div class="si-desc">切换深色/浅色主题</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="setDarkMode" onchange="toggleTheme()">
+          <span class="slider"></span>
+        </label>
       </div>
     </div>
 
@@ -1337,7 +1600,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <div class="settings-item">
         <div class="settings-item-label">
           <div class="si-title">理信能量厨房 · 八大系统</div>
-          <div class="si-desc">V5.0 | 纯净素餐厅管理系统 · 自动云同步</div>
+          <div class="si-desc">V6.0 | 纯净素餐厅管理系统 · 自动云同步</div>
         </div>
       </div>
       <div class="settings-item">
@@ -1458,7 +1721,8 @@ let settings = {
   editEnabled: false,
   passwordHash: btoa(DEFAULT_PASSWORD),
   ghToken: '',
-  lastSync: ''
+  lastSync: '',
+  theme: 'light'
 };
 
 let saveTimer = null;
@@ -2560,8 +2824,29 @@ function applySettings() {
   const editToggle = document.getElementById('editToggle');
   if (editToggle) editToggle.checked = settings.editEnabled;
   
+  // Apply theme
+  applyTheme();
+  
   // Update badge
   updateEditBadge();
+}
+
+function applyTheme() {
+  const isDark = settings.theme === 'dark';
+  document.documentElement.classList.toggle('dark', isDark);
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.content = isDark ? '#0F1F18' : '#E0F2E0';
+  const statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+  if (statusBar) statusBar.content = isDark ? 'black' : 'default';
+  const darkToggle = document.getElementById('setDarkMode');
+  if (darkToggle) darkToggle.checked = isDark;
+}
+
+function toggleTheme() {
+  const darkToggle = document.getElementById('setDarkMode');
+  settings.theme = darkToggle.checked ? 'dark' : 'light';
+  saveSettings();
+  applyTheme();
 }
 
 // ========== Edit Mode ==========
@@ -2727,6 +3012,15 @@ function saveAll() {
   
   // Auto cloud sync (silent, non-blocking)
   autoCloudSync(data, MENU_DATA);
+}
+
+function quickEntry() {
+  // Open add-dish modal for data entry; fall back to save if not applicable
+  if (typeof openDishModal === 'function') {
+    openDishModal();
+  } else {
+    showToast('录入功能不可用', 'error');
+  }
 }
 
 function quickSave() {
@@ -3007,6 +3301,14 @@ async function autoLoadFromGitHub() {
   }
 }
 
+// Section group mapping for bottom nav
+const SECTION_GROUPS = {
+  's1': '运营', 's2': '运营', 's3': '运营',
+  's4': '文化', 's5': '文化', 's6': '文化',
+  's7': '成长', 's8': '成长',
+  'roadmap': '规划', 'menu': '规划'
+};
+
 // ========== Navigation ==========
 function setupNavigation() {
   // Desktop sidebar nav
@@ -3043,11 +3345,15 @@ function setupNavigation() {
         document.querySelectorAll('.bn-tab[data-target]').forEach(n => {
           n.classList.toggle('active', n.dataset.target === current);
         });
+        document.querySelectorAll('.bn-tab[data-group]').forEach(n => {
+          const group = SECTION_GROUPS[current];
+          n.classList.toggle('active', n.dataset.group === group);
+        });
         // Update mobile title
         const titleMap = {
           'overview': '系统总览', 's1': '食安管控', 's2': '菜品出品', 's3': '规整收纳',
           's4': '空间环境', 's5': '健康理念', 's6': '生命力传播',
-          's7': '回馈优化', 's8': '实修成长', 'roadmap': '落地路线图'
+          's7': '回馈优化', 's8': '实修成长', 'roadmap': '落地路线图', 'menu': '菜单管理'
         };
         const mobileTitle = document.getElementById('mobileTitle');
         if (mobileTitle && titleMap[current]) mobileTitle.textContent = titleMap[current];
@@ -3076,6 +3382,10 @@ function navTo(targetId) {
   });
   document.querySelectorAll('.bn-tab[data-target]').forEach(n => {
     n.classList.toggle('active', n.dataset.target === targetId);
+  });
+  document.querySelectorAll('.bn-tab[data-group]').forEach(n => {
+    const group = SECTION_GROUPS[targetId];
+    n.classList.toggle('active', n.dataset.group === group);
   });
 }
 
