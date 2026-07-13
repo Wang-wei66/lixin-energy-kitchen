@@ -45,39 +45,45 @@
   --c6:#6B5A8C;--c6l:#C5B8E8;
   --c7:#B85A5A;--c7l:#E8A0A0;
   --c8:#7A6B5A;--c8l:#D4C4B0;
+  --cat-main:#e94560;--cat-side:#ef9f27;--cat-small:#0f6e56;--cat-quick:#3a7bd5;--cat-recep:#9b59b6;
   --header-h:56px;--bottomnav-h:64px;
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
 }
 html.dark{
-  --bg:#0F1F18;
-  --surface:#1A3322;
-  --surface2:#24402B;
-  --surface3:#2D4A35;
-  --border:#2A4A35;
-  --border2:#3A5A45;
-  --text:#F0F4E6;
-  --text2:#A8BCA8;
-  --text3:#6E8070;
-  --accent:#6CCB8C;
-  --accent-hover:#7FD99A;
-  --accent2:#5ABF7F;
-  --accent-soft:rgba(108,203,140,.15);
-  --accent-medium:rgba(108,203,140,.30);
+  --bg:#000000;
+  --surface:#161618;
+  --surface2:#1C1C1E;
+  --surface3:#2C2C2E;
+  --border:#2C2C2E;
+  --border2:#3A3A3C;
+  --text:#F5F5F7;
+  --text2:#C7C7CC;
+  --text3:#8E8E93;
+  --accent:#3A8FB7;
+  --accent-hover:#5AA9C9;
+  --accent2:#4F9FC4;
+  --accent-soft:rgba(58,143,183,.16);
+  --accent-medium:rgba(58,143,183,.30);
   --success:#4CAF50;
   --warning:#E8C547;
   --error:#E07A5F;
-  --info:#6AB6C9;
-  --shadow:0 4px 20px rgba(0,0,0,.25);
-  --shadow-lg:0 12px 32px rgba(0,0,0,.35);
-  --c1:#B88A8A;--c1l:#E8C5C5;
-  --c2:#D4A86A;--c2l:#F5E0A8;
-  --c3:#6CCB8C;--c3l:#A8E8BF;
-  --c4:#5DCAA5;--c4l:#9EEDD4;
-  --c5:#7EC8C8;--c5l:#B8E8E8;
-  --c6:#B5A9D8;--c6l:#DDD5F0;
-  --c7:#E8A0A0;--c7l:#F5D0D0;
-  --c8:#C9B8A5;--c8l:#E8DDD0;
+  --info:#3A8FB7;
+  --shadow:0 4px 20px rgba(0,0,0,.5);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.6);
+  --c1:#DADADD;--c1l:#E4E4E8;
+  --c2:#C8C8CC;--c2l:#D8D8DC;
+  --c3:#B6BABC;--c3l:#CACACC;
+  --c4:#A8A8AC;--c4l:#BEBEBE;
+  --c5:#C0C0C4;--c5l:#D2D2D6;
+  --c6:#D2D2D6;--c6l:#E0E0E4;
+  --c7:#DADADD;--c7l:#E4E4E8;
+  --c8:#B6BABC;--c8l:#CACACC;
+  --cat-main:#DADADD;
+  --cat-side:#C8C8CC;
+  --cat-small:#B6BABC;
+  --cat-quick:#A8A8AC;
+  --cat-recep:#C0C0C4;
 }
 /* ========== Theme Overrides: Green & Cream ========== */
 body{background:var(--bg);color:var(--text)}
@@ -166,6 +172,14 @@ tr:hover td{background:var(--accent-soft)}
 html.dark th{background:var(--accent2);color:#fff}
 html.dark tbody tr:nth-child(even) td{background:var(--surface2)}
 html.dark tr:hover td{background:var(--accent-soft)}
+/* ========== Dark: 黑白灰基调 + 蓝色点缀（去荧光） ========== */
+html.dark .callout-op,html.dark .callout-info,html.dark .callout-success,html.dark .callout-warning{background:var(--surface2);border-color:var(--border2);color:var(--text2)}
+html.dark .layer-op,html.dark .layer-culture,html.dark .layer-growth{background:var(--surface2);border-color:var(--border2)}
+html.dark .edit-badge.on{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-medium)}
+html.dark .settings-warning{background:var(--surface2);border-color:rgba(232,197,71,.35);color:var(--text2)}
+html.dark .toast.success{border-color:var(--accent);color:var(--accent)}
+html.dark .sys-badge{background:var(--surface3);color:var(--text);border:1px solid var(--border2)}
+html.dark th{background:var(--surface3);color:var(--text2);border-color:var(--border2)}
 
 /* System header */
 .sys-title{color:var(--text)}
@@ -219,6 +233,10 @@ html.dark tr:hover td{background:var(--accent-soft)}
 .da-night input:checked{background:var(--accent)}
 .da-night input:checked:before{transform:translateX(16px)}
 .da-night-label{white-space:nowrap}
+.drawer-fontsize{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid var(--border);background:var(--surface);border-radius:10px;font-size:13px;color:var(--text2);cursor:pointer;user-select:none}
+.dfs-label{white-space:nowrap}
+.dfs-select{appearance:none;-webkit-appearance:none;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:6px;padding:3px 6px;font-size:13px;font-family:inherit;cursor:pointer;outline:none}
+.dfs-select:focus{border-color:var(--accent)}
 
 /* Menu module */
 .menu-view-tabs{background:var(--surface);border-color:var(--border)}
@@ -262,41 +280,46 @@ html.dark tr:hover td{background:var(--accent-soft)}
 }
 
 html.dark{
-  --bg:#0F1F18;
-  --surface:#1A3322;
-  --surface2:#24402B;
-  --surface3:#2D4A35;
-  --border:#2A4A35;
-  --border2:#3A5A45;
-  --text:#F0F4E6;
-  --text2:#A8BCA8;
-  --text3:#6E8070;
-  --accent:#6CCB8C;
-  --accent-hover:#7FD99A;
-  --accent2:#5ABF7F;
-  --accent-soft:rgba(108,203,140,.15);
-  --accent-medium:rgba(108,203,140,.30);
+  --bg:#000000;
+  --surface:#161618;
+  --surface2:#1C1C1E;
+  --surface3:#2C2C2E;
+  --border:#2C2C2E;
+  --border2:#3A3A3C;
+  --text:#F5F5F7;
+  --text2:#C7C7CC;
+  --text3:#8E8E93;
+  --accent:#3A8FB7;
+  --accent-hover:#5AA9C9;
+  --accent2:#4F9FC4;
+  --accent-soft:rgba(58,143,183,.16);
+  --accent-medium:rgba(58,143,183,.30);
   --success:#4CAF50;
   --warning:#E8C547;
   --error:#E07A5F;
-  --info:#6AB6C9;
-  --shadow:0 4px 20px rgba(0,0,0,.25);
-  --shadow-lg:0 12px 32px rgba(0,0,0,.35);
-  --c1:#B88A8A;--c1l:#E8C5C5;
-  --c2:#D4A86A;--c2l:#F5E0A8;
-  --c3:#6CCB8C;--c3l:#A8E8BF;
-  --c4:#5DCAA5;--c4l:#9EEDD4;
-  --c5:#7EC8C8;--c5l:#B8E8E8;
-  --c6:#B5A9D8;--c6l:#DDD5F0;
-  --c7:#E8A0A0;--c7l:#F5D0D0;
-  --c8:#C9B8A5;--c8l:#E8DDD0;
+  --info:#3A8FB7;
+  --shadow:0 4px 20px rgba(0,0,0,.5);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.6);
+  --c1:#DADADD;--c1l:#E4E4E8;
+  --c2:#C8C8CC;--c2l:#D8D8DC;
+  --c3:#B6BABC;--c3l:#CACACC;
+  --c4:#A8A8AC;--c4l:#BEBEBE;
+  --c5:#C0C0C4;--c5l:#D2D2D6;
+  --c6:#D2D2D6;--c6l:#E0E0E4;
+  --c7:#DADADD;--c7l:#E4E4E8;
+  --c8:#B6BABC;--c8l:#CACACC;
+  --cat-main:#DADADD;
+  --cat-side:#C8C8CC;
+  --cat-small:#B6BABC;
+  --cat-quick:#A8A8AC;
+  --cat-recep:#C0C0C4;
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overscroll-behavior:none}
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#3a3a5a;border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:#4a4a6a}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text3)}
 
 /* ========== App Layout ========== */
 .app{display:flex;height:100vh;height:100dvh}
@@ -403,9 +426,9 @@ h4{font-size:14px;font-weight:600;margin:20px 0 8px;color:var(--text2)}
 p{margin-bottom:12px}
 ul,ol{margin:8px 0 16px 20px}
 li{margin-bottom:4px}
-blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:12px 0;background:rgba(233,69,96,.05);border-radius:0 6px 6px 0;color:var(--text2);font-size:13px}
+blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:12px 0;background:var(--accent-soft);border-radius:0 6px 6px 0;color:var(--text2);font-size:13px}
 blockquote p{margin:0}
-code{background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px;font-family:"Fira Code",monospace;color:var(--c2l)}
+code{background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:12px;font-family:"Fira Code",monospace;color:var(--accent2)}
 pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:12px 0;font-size:12px;line-height:1.6}
 pre code{background:none;padding:0;color:var(--text2)}
 
@@ -426,17 +449,17 @@ tr:hover td{background:rgba(255,255,255,.02)}
 /* ========== Layer Card ========== */
 .layer-card{border-radius:12px;padding:20px;margin-bottom:20px;border:1px solid var(--border)}
 .layer-card h3{margin-top:0}
-.layer-op{background:rgba(247,193,193,.05);border-color:rgba(240,149,149,.2)}
-.layer-culture{background:rgba(133,183,235,.05);border-color:rgba(133,183,235,.2)}
-.layer-growth{background:rgba(237,147,177,.05);border-color:rgba(237,147,177,.2)}
+.layer-op{background:var(--accent-soft);border-color:var(--accent-medium)}
+.layer-culture{background:rgba(76,175,80,.05);border-color:rgba(76,175,80,.22)}
+.layer-growth{background:rgba(46,125,50,.06);border-color:rgba(46,125,50,.24)}
 
 /* ========== Callout ========== */
 .callout{border-radius:8px;padding:14px 16px;margin:16px 0;font-size:13px}
 .callout-title{font-weight:600;margin-bottom:4px}
-.callout-op{background:rgba(240,149,149,.08);border:1px solid rgba(240,149,149,.2);color:var(--c1l)}
-.callout-info{background:rgba(133,183,235,.08);border:1px solid rgba(133,183,235,.2);color:var(--c5l)}
-.callout-success{background:rgba(151,196,89,.08);border:1px solid rgba(151,196,89,.2);color:var(--c3l)}
-.callout-warning{background:rgba(239,159,39,.08);border:1px solid rgba(239,159,39,.2);color:var(--c2l)}
+.callout-op{background:var(--accent-soft);border:1px solid var(--accent-medium);color:var(--text2)}
+.callout-info{background:rgba(46,125,50,.08);border:1px solid rgba(46,125,50,.25);color:var(--accent2)}
+.callout-success{background:rgba(76,175,80,.08);border:1px solid rgba(76,175,80,.25);color:var(--accent2)}
+.callout-warning{background:rgba(212,160,23,.08);border:1px solid rgba(212,160,23,.25);color:var(--warning)}
 
 /* ========== SOP Block ========== */
 .sop-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:"Fira Code","Courier New",monospace;font-size:12px;line-height:1.8;color:var(--text2);white-space:pre-wrap;word-break:break-all}
@@ -453,15 +476,19 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .save-indicator.error{background:var(--accent);color:#fff}
 
 /* ========== Toggle Bar (Desktop) ========== */
-.toggle-bar{display:flex;gap:8px;align-items:center;margin-bottom:24px;padding:8px 0}
+.toggle-bar{display:flex;gap:8px;align-items:center;margin-bottom:24px;padding:8px 0;padding-right:210px}
 .toggle-bar .toggle-info{font-size:12px;color:var(--text3);margin-left:auto}
 .toggle-bar .lock-icon{font-size:14px;margin-left:4px}
+
+/* ========== Fixed Sync Clock (top-right) ========== */
+.sync-clock{position:fixed;top:10px;right:14px;z-index:200;display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:20px;font-size:12px;line-height:1.4;color:var(--text2);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);pointer-events:none;white-space:nowrap;max-width:60vw;overflow:hidden;text-overflow:ellipsis}
+.sync-clock b{color:var(--accent);font-weight:600}
 
 /* ========== Toast ========== */
 .toast{position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-100px);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:12px 20px;border-radius:8px;font-size:13px;z-index:2000;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.3);max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.success{border-color:var(--success);color:var(--c3l)}
-.toast.error{border-color:var(--accent);color:var(--c1l)}
+.toast.error{border-color:var(--error);color:var(--error)}
 .toast.warning{border-color:var(--warning);color:var(--c2l)}
 
 /* ========== Password Modal ========== */
@@ -1433,6 +1460,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
   <div class="mh-right"></div>
 </div>
 
+<!-- ========== Fixed Sync Clock (top-right) ========== -->
+<div class="sync-clock" id="syncClock">最近同步：—</div>
+
 <!-- ========== Mobile Bottom Nav ========== -->
 <div class="mobile-bottomnav">
   <div class="bn-tab active" data-target="s1" data-group="运营" onclick="bnNav('s1')">
@@ -1476,6 +1506,15 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <input type="checkbox" id="drawerDarkMode" onchange="toggleThemeFromDrawer()">
       <span class="slider"></span>
     </label>
+    <div class="drawer-fontsize">
+      <span class="da-ico">&#127891;</span>
+      <span class="dfs-label">字号</span>
+      <select id="drawerFontSize" class="dfs-select" onchange="setFontSize(this.value)">
+        <option value="small">小</option>
+        <option value="medium">中</option>
+        <option value="large">大</option>
+      </select>
+    </div>
     <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
     <div class="drawer-sync">
       <span id="drawerSyncStatus" class="drawer-sync-status">未同步</span>
@@ -1772,6 +1811,7 @@ let settings = {
   passwordHash: btoa(DEFAULT_PASSWORD),
   ghToken: '',
   lastSync: '',
+  fontSize: 'medium',
   theme: 'light'
 };
 
@@ -2344,8 +2384,8 @@ function escapeHtml(s) {
 }
 
 function catColor(cat) {
-  const map = { '主菜': '#e94560', '配菜': '#ef9f27', '小菜': '#0f6e56', '10-15分钟快手菜': '#3a7bd5', '接待菜单': '#9b59b6' };
-  return map[cat] || '#e94560';
+  const map = { '主菜': 'var(--cat-main)', '配菜': 'var(--cat-side)', '小菜': 'var(--cat-small)', '10-15分钟快手菜': 'var(--cat-quick)', '接待菜单': 'var(--cat-recep)' };
+  return map[cat] || 'var(--cat-main)';
 }
 
 // Map an ingredient phrase to a representative emoji icon (first match wins)
@@ -2496,7 +2536,7 @@ function dishNodeHTML(d, cat) {
     '</div>';
 }
 
-// ---------- View 1: Tree (Category ⊃ Ingredient ⊃ Dish) ----------
+// ---------- View 1: Tree (Category ⊃ Dish ⊃ Ingredient) ----------
 function renderTree() {
   const q = getQuery();
   const treeEl = document.getElementById('menuTree');
@@ -2512,35 +2552,20 @@ function renderTree() {
     const color = catColor(cat.name);
     const catKey = 'cat:' + cat.name;
     const catOpen = q ? true : isOpen(catKey);
-    const ings = catIngredients(catDishes);
+    const ingCount = catIngredients(catDishes).length;
     html += '<div class="tnode tcat" style="--c:' + color + '">' +
       '<div class="trow" data-toggle="' + catKey + '">' +
         '<span class="tchev">' + (catOpen ? '▾' : '▸') + '</span>' +
         '<span class="cat-dot"></span>' +
         '<span class="tlabel">' + escapeHtml(cat.name) + '</span>' +
-        '<span class="tcount">' + catDishes.length + ' 道菜 · ' + ings.length + ' 食材</span>' +
+        '<span class="tcount">' + catDishes.length + ' 道菜 · ' + ingCount + ' 食材</span>' +
       '</div>';
     if (catOpen) {
       html += '<div class="tchildren">';
-      if (ings.length === 0) {
-        html += '<div class="trow" style="cursor:default;color:var(--text3);font-size:12px">暂无匹配食材</div>';
+      if (catDishes.length === 0) {
+        html += '<div class="trow" style="cursor:default;color:var(--text3);font-size:12px">暂无匹配菜品</div>';
       } else {
-        ings.forEach(ing => {
-          const ingKey = 'ing:' + cat.name + '::' + ing.name;
-          const ingOpen = q ? true : isOpen(ingKey);
-          html += '<div class="tnode ting" style="--c:' + color + '">' +
-            '<div class="trow" data-toggle="' + ingKey + '">' +
-              '<span class="tchev">' + (ingOpen ? '▾' : '▸') + '</span>' +
-              '<span class="tlabel">' + ingIcon(ing.name) + ' ' + escapeHtml(ing.name) + '</span>' +
-              '<span class="tcount">' + ing.dishes.length + ' 道</span>' +
-            '</div>';
-          if (ingOpen) {
-            html += '<div class="tchildren">';
-            ing.dishes.forEach(d => { html += dishNodeHTML(d, cat.name); });
-            html += '</div>';
-          }
-          html += '</div>';
-        });
+        catDishes.forEach(d => { html += dishNodeHTML(d, cat.name); });
       }
       html += '</div>';
     }
@@ -2852,6 +2877,7 @@ function loadSettings() {
       settings = Object.assign(settings, saved);
     } catch(e) {}
   }
+  lastRemoteSync = settings.lastSyncTs || 0;
   applySettings();
 }
 
@@ -2877,6 +2903,9 @@ function applySettings() {
   
   // Apply theme
   applyTheme();
+
+  // Apply font size (正文基础字号)
+  applyFontSize();
   
   // Update badge
   updateEditBadge();
@@ -2886,7 +2915,7 @@ function applyTheme() {
   const isDark = settings.theme === 'dark';
   document.documentElement.classList.toggle('dark', isDark);
   const metaTheme = document.querySelector('meta[name="theme-color"]');
-  if (metaTheme) metaTheme.content = isDark ? '#0F1F18' : '#FFFFFF';
+  if (metaTheme) metaTheme.content = isDark ? '#000000' : '#FFFFFF';
   const statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
   if (statusBar) statusBar.content = isDark ? 'black' : 'default';
   const darkToggle = document.getElementById('setDarkMode');
@@ -2928,6 +2957,22 @@ function toggleThemeFromDrawer() {
   settings.theme = dn.checked ? 'dark' : 'light';
   saveSettings();
   applyTheme();
+}
+
+// ========== Font size (正文基础字号) ==========
+const FONT_SIZES = { small: 13, medium: 14, large: 16 };
+function applyFontSize() {
+  const size = FONT_SIZES[settings.fontSize] || FONT_SIZES.medium;
+  document.documentElement.style.setProperty('--base-font', size + 'px');
+  document.body.style.fontSize = size + 'px';
+  const sel = document.getElementById('drawerFontSize');
+  if (sel && sel.value !== settings.fontSize) sel.value = settings.fontSize;
+}
+function setFontSize(v) {
+  if (!FONT_SIZES[v]) return;
+  settings.fontSize = v;
+  saveSettings();
+  applyFontSize();
 }
 
 // ========== Edit Mode ==========
@@ -3328,6 +3373,7 @@ async function syncToCloud(contentData, menuData, silent) {
       const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
       settings.lastSync = ts;
       lastRemoteSync = Date.now();
+      settings.lastSyncTs = lastRemoteSync;
       dirtySinceSave = false;
       // 同步本地时间戳，避免轮询时把自己刚上传的版本又拉回来
       try {
@@ -3396,6 +3442,7 @@ function applyCloudPayload(payload, fromPoll) {
   }));
   if (payload.menu) { MENU_DATA = payload.menu; if (typeof renderMenu === 'function') renderMenu(); }
   lastRemoteSync = remoteTime;
+  settings.lastSyncTs = remoteTime;
   dirtySinceSave = false;
   updateSyncUI('已更新至最新');
   if (!fromPoll) showToast('已从云端加载最新内容', 'success');
@@ -3433,6 +3480,22 @@ function updateSyncUI(text) {
   if (el) el.textContent = text || (settings.lastSync ? '上次同步: ' + settings.lastSync : '未同步');
   const s2 = document.getElementById('syncStatus');
   if (s2) s2.textContent = settings.lastSync ? '上次同步: ' + settings.lastSync : '未同步';
+  updateSyncClock();
+}
+
+// 右上角固定同步时间（年月日时分秒）
+function formatFullDate(ts) {
+  if (!ts) return '—';
+  const d = new Date(ts);
+  if (isNaN(d.getTime())) return '—';
+  return d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 ' +
+         pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+}
+function updateSyncClock() {
+  const el = document.getElementById('syncClock');
+  if (!el) return;
+  const ts = lastRemoteSync || settings.lastSyncTs || 0;
+  el.innerHTML = ts ? '最近同步：<b>' + formatFullDate(ts) + '</b>' : '最近同步：—';
 }
 
 // Section group mapping for bottom nav
