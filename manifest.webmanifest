@@ -1,0 +1,16 @@
+{
+  "name": "理信能量厨房 · 八大系统",
+  "short_name": "理信厨房",
+  "description": "理信科技纯净素餐厅 · 八大系统框架与菜单管理",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2E7D32",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
