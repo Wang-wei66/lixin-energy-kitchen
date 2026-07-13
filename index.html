@@ -5,24 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#E0F2E0">
+<meta name="apple-mobile-web-app-title" content="理信厨房">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-touch-icon" href="icon-192.png">
+<meta name="apple-touch-icon" sizes="512x512" href="icon-512.png">
+<meta name="msapplication-TileColor" content="#2E7D32">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#FFFFFF">
 <title>理信能量厨房 · 八大系统</title>
 <style>
 /* ========== Reset & Variables ========== */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#E0F2E0;
-  --surface:#F9F7E8;
-  --surface2:#F0EAD6;
-  --surface3:#E8E4D4;
-  --border:#D4E0C8;
-  --border2:#BDD0BC;
+  --bg:#FFFFFF;
+  --surface:#F7F9F4;
+  --surface2:#EEF2E8;
+  --surface3:#E6EBDD;
+  --border:#E4E9DE;
+  --border2:#D2DACA;
   --text:#1A1A1A;
-  --text2:#4A5A50;
-  --text3:#7A8A7E;
-  --accent:#4CAF50;
-  --accent-hover:#43A047;
-  --accent2:#2E7D32;
+  --text2:#47564C;
+  --text3:#798878;
+  --accent:#2E7D32;
+  --accent-hover:#266A2A;
+  --accent2:#1B5E20;
   --accent-soft:rgba(76,175,80,.12);
   --accent-medium:rgba(76,175,80,.25);
   --success:#2E8B57;
@@ -139,19 +145,27 @@ html.dark .mobile-bottomnav{box-shadow:0 -2px 12px rgba(0,0,0,.25)}
 .editable-h2:focus,.editable-h3:focus{background:transparent;border-bottom-color:var(--accent)}
 
 /* Typography */
-.page-sub{color:var(--text2);border-color:var(--border)}
-h2,h3{color:var(--text);border-color:var(--border)}
-h4{color:var(--text2)}
-blockquote{border-left-color:var(--accent);background:var(--accent-soft);color:var(--text2)}
-code{background:var(--surface2);color:var(--text2)}
-pre{background:var(--surface);border-color:var(--border)}
+.page-sub{color:var(--text2);border-color:var(--border);font-size:13px;line-height:1.7}
+p{line-height:1.75;margin:8px 0;color:var(--text2)}
+strong,b{color:var(--accent2);font-weight:700}
+h2,h3{color:var(--text)}
+h2{font-size:20px;margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--accent);display:inline-block}
+h3{font-size:16px;margin:18px 0 10px;color:var(--accent2)}
+h4{font-size:14px;margin:14px 0 8px;color:var(--accent)}
+blockquote{border-left:4px solid var(--accent);background:var(--accent-soft);color:var(--text2);padding:12px 16px;border-radius:0 10px 10px 0;line-height:1.7}
+code{background:var(--surface2);color:var(--text2);padding:2px 6px;border-radius:4px}
+pre{background:var(--surface);border-color:var(--border);border-radius:8px;padding:12px}
 
 /* Tables */
-.table-wrap{border-color:var(--border)}
-th{background:var(--surface2);color:var(--text);border-color:var(--border)}
-td{border-color:var(--border);color:var(--text2)}
-tr:hover td{background:rgba(0,0,0,.02)}
-html.dark tr:hover td{background:rgba(255,255,255,.03)}
+.table-wrap{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.55}
+th{background:var(--accent2);color:#fff;border:1px solid var(--accent2);padding:10px 12px;text-align:left;font-weight:600;letter-spacing:.3px}
+td{border:1px solid var(--border);color:var(--text2);padding:9px 12px;vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--surface2)}
+tr:hover td{background:var(--accent-soft)}
+html.dark th{background:var(--accent2);color:#fff}
+html.dark tbody tr:nth-child(even) td{background:var(--surface2)}
+html.dark tr:hover td{background:var(--accent-soft)}
 
 /* System header */
 .sys-title{color:var(--text)}
@@ -189,13 +203,19 @@ html.dark tr:hover td{background:rgba(255,255,255,.03)}
 .modal-btns .btn-cancel{background:var(--surface2);color:var(--text2)}
 .modal-btns .btn-confirm{background:var(--accent);color:#fff}
 
-/* FABs */
-.fab{display:none;position:fixed;right:20px;width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;z-index:90;transition:all .2s;align-items:center;justify-content:center;box-shadow:var(--shadow-lg)}
-.fab-primary{bottom:calc(var(--bottomnav-h) + 20px + var(--safe-bottom));background:var(--accent);color:#fff}
-.fab-secondary{bottom:calc(var(--bottomnav-h) + 84px + var(--safe-bottom));background:var(--surface);color:var(--text2);border:1px solid var(--border);width:48px;height:48px}
-.fab-primary:active,.fab-secondary:active{transform:scale(.92)}
-.fab:hover{transform:translateY(-2px)}
-@media(max-width:768px){.fab{display:flex}}
+/* Drawer top action bar */
+.drawer-actions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.da-btn{flex:1 1 auto;min-width:80px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
+.da-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.da-btn:active{transform:scale(.97)}
+.da-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.da-ico{font-size:14px;line-height:1}
+.da-night{display:inline-flex;align-items:center;gap:6px;padding:9px 12px;border:1px solid var(--border);background:var(--surface);border-radius:10px;font-size:13px;color:var(--text2);cursor:pointer;user-select:none}
+.da-night input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:22px;background:var(--border2);position:relative;cursor:pointer;transition:background .2s;outline:none;flex:0 0 auto;margin:0}
+.da-night input:before{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;top:2px;left:2px;transition:transform .2s;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.da-night input:checked{background:var(--accent)}
+.da-night input:checked:before{transform:translateX(16px)}
+.da-night-label{white-space:nowrap}
 
 /* Menu module */
 .menu-view-tabs{background:var(--surface);border-color:var(--border)}
@@ -1443,6 +1463,18 @@ tr:hover td{background:rgba(255,255,255,.02)}
       <span class="val-tag">文明</span>
     </div>
   </div>
+  <div class="drawer-actions">
+    <button class="da-btn" id="drawerEditBtn" onclick="toggleEditFromDrawer()">
+      <span class="da-ico">&#9998;</span><span id="drawerEditLabel">编辑模式</span>
+    </button>
+    <button class="da-btn" onclick="quickEntry()"><span class="da-ico">&#65291;</span>录入</button>
+    <label class="da-night">
+      <span class="da-night-label">&#127769; 夜间</span>
+      <input type="checkbox" id="drawerDarkMode" onchange="toggleThemeFromDrawer()">
+      <span class="slider"></span>
+    </label>
+    <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
+  </div>
   <nav class="nav" id="drawerNav">
     <div class="nav-section">
       <div class="nav-section-title">总览</div>
@@ -1472,14 +1504,6 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
   </nav>
 </div>
-
-<!-- ========== Floating Action Buttons (Mobile) ========== -->
-<button class="fab fab-secondary" id="fabSettings" onclick="openSettings()" title="设置">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-</button>
-<button class="fab fab-primary" id="fabEntry" onclick="quickEntry()" title="录入">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-</button>
 
 <!-- ========== Settings Page ========== -->
 <div class="settings-page" id="settingsPage">
@@ -2835,16 +2859,45 @@ function applyTheme() {
   const isDark = settings.theme === 'dark';
   document.documentElement.classList.toggle('dark', isDark);
   const metaTheme = document.querySelector('meta[name="theme-color"]');
-  if (metaTheme) metaTheme.content = isDark ? '#0F1F18' : '#E0F2E0';
+  if (metaTheme) metaTheme.content = isDark ? '#0F1F18' : '#FFFFFF';
   const statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
   if (statusBar) statusBar.content = isDark ? 'black' : 'default';
   const darkToggle = document.getElementById('setDarkMode');
   if (darkToggle) darkToggle.checked = isDark;
+  if (typeof syncDrawerControls === 'function') syncDrawerControls();
 }
 
 function toggleTheme() {
   const darkToggle = document.getElementById('setDarkMode');
   settings.theme = darkToggle.checked ? 'dark' : 'light';
+  saveSettings();
+  applyTheme();
+}
+
+// ========== Drawer (目录) controls ==========
+function syncDrawerControls() {
+  const lbl = document.getElementById('drawerEditLabel');
+  const db = document.getElementById('drawerEditBtn');
+  if (lbl) lbl.textContent = settings.editEnabled ? '退出编辑' : '编辑模式';
+  if (db) db.classList.toggle('active', settings.editEnabled);
+  const dn = document.getElementById('drawerDarkMode');
+  if (dn) dn.checked = settings.theme === 'dark';
+}
+
+function toggleEditFromDrawer() {
+  if (settings.editEnabled) {
+    settings.editEnabled = false;
+    saveSettings();
+    applySettings();
+    showToast('编辑已关闭', 'warning');
+  } else {
+    openPasswordModal();
+  }
+}
+
+function toggleThemeFromDrawer() {
+  const dn = document.getElementById('drawerDarkMode');
+  settings.theme = dn.checked ? 'dark' : 'light';
   saveSettings();
   applyTheme();
 }
@@ -2863,6 +2916,7 @@ function applyEditMode(on) {
   }
   if (typeof renderMenu === 'function') renderMenu();
   updateEditBadge();
+  if (typeof syncDrawerControls === 'function') syncDrawerControls();
 }
 
 function updateEditBadge() {
@@ -3400,6 +3454,7 @@ function toggleDrawer(open) {
   if (open) {
     overlay.classList.add('open');
     drawer.classList.add('open');
+    if (typeof syncDrawerControls === 'function') syncDrawerControls();
   } else {
     overlay.classList.remove('open');
     drawer.classList.remove('open');
@@ -3465,6 +3520,13 @@ document.addEventListener('keydown', (e) => {
     closeSettings();
   }
 });
+
+// ========== PWA: Service Worker ==========
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
