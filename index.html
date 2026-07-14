@@ -241,6 +241,19 @@ html.dark th{background:var(--surface3);color:var(--text2);border-color:var(--bo
 .drawer-history .da-btn{flex:1;justify-content:center}
 .drawer-history .da-btn:disabled{opacity:.4;cursor:not-allowed}
 
+/* Floating Undo/Redo toolbar (pops up while editing, not inside drawer) */
+.undo-fab{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(24px);display:flex;align-items:center;gap:2px;padding:6px;border-radius:18px;background:var(--surface2);border:1px solid var(--border);box-shadow:0 10px 28px rgba(0,0,0,.28);z-index:60;opacity:0;pointer-events:none;transition:opacity .22s ease, transform .22s ease}
+.undo-fab.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.uf-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 18px;border:none;background:transparent;color:var(--text);border-radius:13px;cursor:pointer;font-size:14px;font-weight:600;font-family:inherit;letter-spacing:.5px;transition:background .15s,color .15s}
+.uf-btn:hover:not(:disabled){background:var(--accent);color:#fff}
+.uf-btn:active:not(:disabled){transform:scale(.96)}
+.uf-btn:disabled{opacity:.32;cursor:not-allowed}
+.uf-ico{font-size:19px;line-height:1}
+.uf-txt{line-height:1}
+.uf-div{width:1px;height:24px;background:var(--border);flex:0 0 auto}
+html.dark .undo-fab{box-shadow:0 10px 30px rgba(0,0,0,.62)}
+@media (max-width:768px){.undo-fab{bottom:74px}}
+
 /* Menu module */
 .menu-view-tabs{background:var(--surface);border-color:var(--border)}
 .menu-view-tab:hover{color:var(--text)}
@@ -1526,10 +1539,6 @@ tr:hover td{background:rgba(255,255,255,.02)}
         <option value="medium">中</option>
         <option value="large">大</option>
       </select>
-    </div>
-    <div class="drawer-history">
-      <button class="da-btn" id="undoBtn" onclick="undoEdit()" disabled title="后退一步 (Ctrl+Z)"><span class="da-ico">&#8634;</span>后退</button>
-      <button class="da-btn" id="redoBtn" onclick="redoEdit()" disabled title="前进一步 (Ctrl+Y)"><span class="da-ico">&#8635;</span>前进</button>
     </div>
     <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
     <div class="drawer-sync">
@@ -3008,6 +3017,7 @@ function applyEditMode(on) {
   if (typeof renderMenu === 'function') renderMenu();
   updateEditBadge();
   if (typeof syncDrawerControls === 'function') syncDrawerControls();
+  updateUndoButtons(); // 进入/退出编辑时同步浮动前进后退栏
 }
 
 function updateEditBadge() {
@@ -3270,6 +3280,13 @@ function updateUndoButtons() {
   const r = document.getElementById('redoBtn');
   if (u) u.disabled = undoStack.length === 0;
   if (r) r.disabled = redoStack.length === 0;
+  // 浮动工具栏：编辑中 或 存在可撤销/重做历史时浮现
+  const fab = document.getElementById('undoFab');
+  if (fab) {
+    const show = settings.editEnabled || undoStack.length > 0 || redoStack.length > 0;
+    fab.classList.toggle('show', show);
+    fab.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
 }
 
 // Debounced auto-save
@@ -3872,5 +3889,17 @@ if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
   });
 }
 </script>
+
+<!-- ========== Floating Undo/Redo Toolbar (编辑时浮现，不在目录内) ========== -->
+<div class="undo-fab" id="undoFab" aria-hidden="true">
+  <button class="uf-btn" id="undoBtn" onclick="undoEdit()" disabled title="后退一步 (Ctrl+Z)">
+    <span class="uf-ico">&#8634;</span><span class="uf-txt">后退</span>
+  </button>
+  <span class="uf-div"></span>
+  <button class="uf-btn" id="redoBtn" onclick="redoEdit()" disabled title="前进一步 (Ctrl+Y)">
+    <span class="uf-ico">&#8635;</span><span class="uf-txt">前进</span>
+  </button>
+</div>
+
 </body>
 </html>
