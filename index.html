@@ -237,6 +237,9 @@ html.dark th{background:var(--surface3);color:var(--text2);border-color:var(--bo
 .dfs-label{white-space:nowrap}
 .dfs-select{appearance:none;-webkit-appearance:none;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:6px;padding:3px 6px;font-size:13px;font-family:inherit;cursor:pointer;outline:none}
 .dfs-select:focus{border-color:var(--accent)}
+.drawer-history{display:flex;gap:8px;width:100%}
+.drawer-history .da-btn{flex:1;justify-content:center}
+.drawer-history .da-btn:disabled{opacity:.4;cursor:not-allowed}
 
 /* Menu module */
 .menu-view-tabs{background:var(--surface);border-color:var(--border)}
@@ -1524,6 +1527,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
         <option value="large">大</option>
       </select>
     </div>
+    <div class="drawer-history">
+      <button class="da-btn" id="undoBtn" onclick="undoEdit()" disabled title="后退一步 (Ctrl+Z)"><span class="da-ico">&#8634;</span>后退</button>
+      <button class="da-btn" id="redoBtn" onclick="redoEdit()" disabled title="前进一步 (Ctrl+Y)"><span class="da-ico">&#8635;</span>前进</button>
+    </div>
     <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
     <div class="drawer-sync">
       <span id="drawerSyncStatus" class="drawer-sync-status">未同步</span>
@@ -2731,6 +2738,7 @@ function openDishModal(editId) {
 function closeDishModal() { document.getElementById('dishModal').classList.remove('open'); }
 
 function submitDish() {
+  beginDiscreteEdit();
   const cat = document.getElementById('dishCat').value;
   const name = document.getElementById('dishName').value.trim();
   if (!name) { showToast('请输入菜名', 'error'); return; }
@@ -2777,6 +2785,7 @@ function deleteDish(id) {
   const d = findDish(id);
   if (!d) return;
   if (!confirm('确定删除“' + d.name + '”？此操作不可撤销。')) return;
+  beginDiscreteEdit();
   for (const cat of MENU_DATA.categories) {
     const idx = cat.dishes.findIndex(x => x.id === id);
     if (idx >= 0) { cat.dishes.splice(idx, 1); break; }
@@ -3185,6 +3194,82 @@ function loadData() {
       if (lastSavedEl) lastSavedEl.textContent = '上次保存: ' + ts;
     }
   } catch(e) { console.warn('Load failed:', e); }
+  updateUndoButtons();
+}
+
+// ========== Undo / Redo (最多 10 步) ==========
+const UNDO_LIMIT = 10;
+let undoStack = [];
+let redoStack = [];
+let pendingSnapshot = null;   // 连续输入（打字）期间的"编辑前"快照，停顿后并入历史
+let editCommitTimer = null;
+
+function snapshotState() {
+  // 仅序列化可持久化的状态：各 .section 的 innerHTML（不含菜单）+ 菜单数据
+  return JSON.stringify({ sections: collectData(), menu: MENU_DATA });
+}
+function restoreState(snap) {
+  let s;
+  try { s = JSON.parse(snap); } catch(e) { return; }
+  if (s.sections) {
+    Object.keys(s.sections).forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = s.sections[id];
+    });
+  }
+  if (s.menu) { MENU_DATA = JSON.parse(JSON.stringify(s.menu)); }
+  renderMenu();
+  saveAll();
+}
+// 把连续打字产生的 pending 快照并入历史栈（由停顿计时器或离散操作触发）
+function flushPending() {
+  if (pendingSnapshot !== null) {
+    undoStack.push(pendingSnapshot);
+    if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+    pendingSnapshot = null;
+    clearTimeout(editCommitTimer);
+  }
+  updateUndoButtons();
+}
+// 在"一次连续输入"的首个字符前调用，记录编辑前状态；停顿 1.2s 后自动并入历史
+function markEditStart() {
+  if (pendingSnapshot === null) pendingSnapshot = snapshotState();
+  clearTimeout(editCommitTimer);
+  editCommitTimer = setTimeout(flushPending, 1200);
+}
+// 离散操作（增/删/导入菜品等）前调用：先收尾文字编辑，再把"操作前"状态压入历史
+function beginDiscreteEdit() {
+  flushPending();
+  undoStack.push(snapshotState());
+  if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+  redoStack = [];
+  updateUndoButtons();
+}
+function undoEdit() {
+  flushPending();
+  if (undoStack.length === 0) return;
+  redoStack.push(snapshotState());
+  if (redoStack.length > UNDO_LIMIT) redoStack.shift();
+  const prev = undoStack.pop();
+  restoreState(prev);
+  updateUndoButtons();
+  showToast('已后退一步', '');
+}
+function redoEdit() {
+  flushPending();
+  if (redoStack.length === 0) return;
+  undoStack.push(snapshotState());
+  if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+  const next = redoStack.pop();
+  restoreState(next);
+  updateUndoButtons();
+  showToast('已前进一步', '');
+}
+function updateUndoButtons() {
+  const u = document.getElementById('undoBtn');
+  const r = document.getElementById('redoBtn');
+  if (u) u.disabled = undoStack.length === 0;
+  if (r) r.disabled = redoStack.length === 0;
 }
 
 // Debounced auto-save
@@ -3196,11 +3281,30 @@ document.addEventListener('input', (e) => {
   }
 });
 
-// Ctrl+S
+// 在"编辑前"记录快照（beforeinput 早于 DOM 变更，可捕获编辑前状态）
+document.addEventListener('beforeinput', (e) => {
+  const t = e.target;
+  if (!t || !settings.editEnabled) return;
+  const isSection = t.hasAttribute && t.hasAttribute('contenteditable');
+  const isDish = t.dataset && t.dataset.dish && t.dataset.field;
+  if (isSection || isDish) markEditStart();
+});
+
+// Ctrl+S / Ctrl+Z / Ctrl+Y
 document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 's') {
     e.preventDefault();
     saveAll();
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'z' || e.key === 'Z') && !e.shiftKey) {
+    e.preventDefault();
+    undoEdit();
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'y' || e.key === 'Y' || (e.key === 'z' && e.shiftKey))) {
+    e.preventDefault();
+    redoEdit();
   }
 });
 
@@ -3228,6 +3332,7 @@ function importJSON(event) {
   const reader = new FileReader();
   reader.onload = (e) => {
     try {
+      beginDiscreteEdit();
       const payload = JSON.parse(e.target.result);
       const data = payload.content || payload;
       Object.keys(data).forEach(id => {
@@ -3302,16 +3407,54 @@ function saveToken() {
 // ========== Cloud Sync (automatic) ==========
 let syncLock = false;
 
+// 跨标签页同步锁：同一浏览器的多个标签页若同时写 content.json 会互相抢 sha 导致 422。
+// 用 localStorage 租约串行化：同一时刻只允许一个标签页写云端。
+const SYNC_LEASE_KEY = 'lixin_sync_lease';
+const SYNC_LEASE_TTL = 8000; // 租约最长 8s，超时视为失效（防止标签页崩溃后死锁）
+function syncLeaseOwner() {
+  try { const raw = localStorage.getItem(SYNC_LEASE_KEY); return raw ? JSON.parse(raw) : null; } catch(e) { return null; }
+}
+function syncLeaseValid() {
+  const o = syncLeaseOwner();
+  return !!o && (Date.now() - o.t) < SYNC_LEASE_TTL;
+}
+function acquireSyncLease() {
+  const id = 'tab_' + Math.random().toString(36).slice(2) + '_' + Date.now();
+  try { localStorage.setItem(SYNC_LEASE_KEY, JSON.stringify({ t: Date.now(), id: id })); } catch(e) {}
+  return id;
+}
+function releaseSyncLease(id) {
+  try {
+    const raw = localStorage.getItem(SYNC_LEASE_KEY);
+    if (raw) { const j = JSON.parse(raw); if (j.id === id) localStorage.removeItem(SYNC_LEASE_KEY); }
+  } catch(e) {}
+}
+async function waitForSyncLease(ms) {
+  const step = 300, end = Date.now() + ms;
+  while (Date.now() < end) {
+    if (!syncLeaseValid()) return true;
+    await new Promise(r => setTimeout(r, step));
+  }
+  return !syncLeaseValid();
+}
+
 async function autoCloudSync(contentData, menuData) {
   // 静默后台同步
   if (!getWriteToken()) return; // 无 token 则仅本地保存，跳过云端
-  if (syncLock) return; // Prevent overlapping syncs
+  if (syncLock) return; // 同标签页防重入
+  // 等其它标签页释放同步锁（最多 2s，等不到就跳过本次自动同步，不阻塞用户）
+  if (syncLeaseValid()) {
+    const got = await waitForSyncLease(2000);
+    if (!got) return;
+  }
   syncLock = true;
+  const leaseId = acquireSyncLease();
   try {
     await syncToCloud(contentData, menuData, true);
   } catch(e) {
     // Silent fail for auto-sync
   } finally {
+    releaseSyncLease(leaseId);
     syncLock = false;
   }
 }
@@ -3333,6 +3476,9 @@ async function manualSync() {
   setSyncBusy(true);
   showIndicator('saving', '同步中...');
   showToast('正在同步到云端...', '');
+  // 等其它标签页释放同步锁（最多 6s），避免多标签页互相抢 sha
+  if (syncLeaseValid()) await waitForSyncLease(6000);
+  const leaseId = acquireSyncLease();
   try {
     const contentData = collectData();
     await syncToCloud(contentData, MENU_DATA, false);
@@ -3340,6 +3486,7 @@ async function manualSync() {
     showIndicator('error', '同步失败');
     showToast('同步失败: ' + err.message, 'error');
   } finally {
+    releaseSyncLease(leaseId);
     syncLock = false;
     setSyncBusy(false);
   }
@@ -3379,7 +3526,7 @@ async function syncToCloud(contentData, menuData, silent) {
           return { sha: j.sha };
         }
         if (resp.status === 404) return { exists: false };
-        if (resp.status === 401 || resp.status === 403) return { error: 'Token 无权限（需对该仓库 Contents 有读写权限）' };
+        if (resp.status === 401 || resp.status === 403) return { error: 'Token 无权限：请在 GitHub 给该令牌授予此仓库 Contents 的读写权限，或重新生成有写权限的令牌' };
         await new Promise(r => setTimeout(r, 400 * (i + 1)));
       } catch (e) {
         await new Promise(r => setTimeout(r, 400 * (i + 1)));
@@ -3391,7 +3538,7 @@ async function syncToCloud(contentData, menuData, silent) {
   // 最多尝试 3 次：每次都先取最新 sha，再 PUT。遇到 409 并发冲突时
   // 重新拉取最新 sha 后重试，避免把无效 sha:null 发给已存在的文件。
   let lastErr = '';
-  for (let attempt = 0; attempt < 3; attempt++) {
+  for (let attempt = 0; attempt < 4; attempt++) {
     const meta = await fetchSha();
     if (meta.error) { lastErr = meta.error; break; }
 
@@ -3444,8 +3591,8 @@ async function syncToCloud(contentData, menuData, silent) {
     // 409/422 都表示当前 sha 已过期（文件被改动或 GitHub 内部一致性），重新取最新 sha 再试
     if (updateResp.status === 409 || updateResp.status === 422) {
       const isShaMismatch = typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match');
-      if (!silent && attempt < 2) showToast(isShaMismatch ? '云端文件已更新，正在重试...' : '检测到冲突，正在重试...', 'warning');
-      await new Promise(r => setTimeout(r, 500 * (attempt + 1)));
+      if (!silent && attempt < 3) showToast(isShaMismatch ? '云端文件已更新，正在重试...' : '检测到冲突，正在重试...', 'warning');
+      await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
       continue;
     }
     // 其它错误（401/403 等）直接抛出，不再重试
