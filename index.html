@@ -1828,8 +1828,10 @@ let lastRemoteSync = 0;
 let lastSyncedSnapshot = null;
 
 function getWriteToken() {
+  // 团队共享令牌优先（开箱即用，无需每人填 token）；个人设置的令牌作为后备
+  if (CLOUD_TOKEN) return CLOUD_TOKEN;
   const s = (typeof settings !== 'undefined' && settings) ? settings.ghToken : '';
-  return s || CLOUD_TOKEN || '';
+  return s || '';
 }
 
 let settings = {
@@ -3546,15 +3548,30 @@ function setSyncBusy(on) {
 function forceRefresh() {
   showToast('正在刷新，获取最新版本...', 'info');
   if (navigator.vibrate) navigator.vibrate(20);
+  // 清掉旧的服务worker与缓存，确保拿到最新页面（否则浏览器/缓存会一直返回旧 HTML）
+  try {
+    if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        regs.forEach(function(r) { r.unregister(); });
+      });
+    }
+    if (window.caches) {
+      caches.keys().then(function(keys) {
+        keys.forEach(function(k) { caches.delete(k); });
+      });
+    }
+  } catch (e) {}
   setTimeout(function() {
     const u = new URL(window.location.href);
     u.searchParams.set('_r', Date.now().toString());
+    u.searchParams.set('_sw', 'cleared');
     window.location.href = u.href;
-  }, 200);
+  }, 250);
 }
 
 async function manualSync() {
   if (!getWriteToken()) {
+    showToast('请先在「设置」中填写有写权限的 GitHub Token 再同步', 'error');
     openTokenModal();
     return;
   }
@@ -3679,6 +3696,8 @@ async function resolveSyncConflict(localContent, localMenu, silent) {
       if (putResp.ok) { pushOk = true; break; }
       const errJson = await putResp.json().catch(() => ({}));
       lastErr = errJson.message || ('HTTP ' + putResp.status);
+      // 合并后内容与云端一致（422 identical）视为成功
+      if (putResp.status === 422 && /identical|same/i.test(lastErr)) { pushOk = true; break; }
       if (putResp.status === 409 || putResp.status === 422) {
         await new Promise(r => setTimeout(r, 300 * (p + 1)));
         continue;
@@ -3815,6 +3834,28 @@ async function syncToCloud(contentData, menuData, silent) {
 
     const errJson = await updateResp.json().catch(() => ({}));
     lastErr = errJson.message || ('上传失败 (HTTP ' + updateResp.status + ')');
+
+    // 内容没有变化（GitHub 返回 422: "content identical"）不算错误，
+    // 视为"已是最新"，直接成功，避免无谓的冲突重试与报错。
+    if (updateResp.status === 422 && /identical|same/i.test(lastErr)) {
+      const now = new Date();
+      const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+      settings.lastSync = ts;
+      lastRemoteSync = Date.now();
+      settings.lastSyncTs = lastRemoteSync;
+      dirtySinceSave = false;
+      saveLastSyncedSnapshot(contentData, menuData, syncDate);
+      saveSettings();
+      applySettings();
+      updateSyncUI('已同步 ' + ts);
+      if (!silent) {
+        showIndicator('saved', '已是最新');
+        showToast('已是最新，无需同步', 'success');
+        if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+      }
+      return;
+    }
+
     // 409/422 都表示当前 sha 已过期（文件被改动或 GitHub 内部一致性），重新取最新 sha 再试
     if (updateResp.status === 409 || updateResp.status === 422) {
       const isShaMismatch = typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match');
@@ -4097,10 +4138,27 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========== PWA: Service Worker ==========
-if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  });
+// 旧版 service worker 可能是"缓存优先"，会导致页面一直显示旧内容。
+// 首次加载时清掉所有已注册 worker 与缓存，再注册一个"导航始终走网络"的 worker，
+// 这样点击刷新 → 总能拿到最新网页。
+if (navigator.serviceWorker && location.protocol.indexOf('http') === 0) {
+  (function() {
+    var swCleared = localStorage.getItem('lixin_sw_cleared');
+    if (!swCleared) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        regs.forEach(function(r) { r.unregister(); });
+      });
+      if (window.caches) {
+        caches.keys().then(function(keys) {
+          keys.forEach(function(k) { caches.delete(k); });
+        });
+      }
+      localStorage.setItem('lixin_sw_cleared', '1');
+    }
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').catch(function() {});
+    });
+  })();
 }
 </script>
 
