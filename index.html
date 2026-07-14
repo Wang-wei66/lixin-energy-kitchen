@@ -3441,14 +3441,18 @@ async function syncToCloud(contentData, menuData, silent) {
 
     const errJson = await updateResp.json().catch(() => ({}));
     lastErr = errJson.message || ('上传失败 (HTTP ' + updateResp.status + ')');
-    // 409 = 文件已被别人改动（或并发写入），重新取最新 sha 再试一次
-    if (updateResp.status === 409) {
-      if (!silent && attempt < 2) showToast('检测到冲突，正在重试...', 'warning');
-      await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
+    // 409/422 都表示当前 sha 已过期（文件被改动或 GitHub 内部一致性），重新取最新 sha 再试
+    if (updateResp.status === 409 || updateResp.status === 422) {
+      const isShaMismatch = typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match');
+      if (!silent && attempt < 2) showToast(isShaMismatch ? '云端文件已更新，正在重试...' : '检测到冲突，正在重试...', 'warning');
+      await new Promise(r => setTimeout(r, 500 * (attempt + 1)));
       continue;
     }
-    // 其它错误（401/403/422 等）直接抛出，不再重试
+    // 其它错误（401/403 等）直接抛出，不再重试
     break;
+  }
+  if (typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match')) {
+    throw new Error('同步冲突：云端文件已被其他设备更新，请刷新页面后重试');
   }
   throw new Error(lastErr || '同步失败');
 }
