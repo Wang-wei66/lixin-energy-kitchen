@@ -481,7 +481,13 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .toggle-bar .lock-icon{font-size:14px;margin-left:4px}
 
 /* ========== Fixed Sync Clock (top-right) ========== */
-.sync-clock{position:fixed;top:10px;right:14px;z-index:200;display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:20px;font-size:12px;line-height:1.4;color:var(--text2);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);pointer-events:none;white-space:nowrap;max-width:60vw;overflow:hidden;text-overflow:ellipsis}
+.sync-clock{position:fixed;top:10px;right:14px;z-index:200;display:inline-flex;align-items:center;gap:6px;padding:5px 8px 5px 13px;border-radius:20px;font-size:12px;line-height:1.4;color:var(--text2);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);pointer-events:none;white-space:nowrap;max-width:70vw;overflow:hidden}
+.sc-text{pointer-events:none;overflow:hidden;text-overflow:ellipsis}
+.sc-sync{pointer-events:auto;flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-left:2px;border-radius:50%;border:1px solid var(--border2);background:var(--accent-soft);color:var(--accent);cursor:pointer;font-size:15px;line-height:1;transition:transform .2s,background .2s,box-shadow .2s}
+.sc-sync:hover{background:var(--accent-medium);box-shadow:0 0 0 3px var(--accent-soft)}
+.sc-sync:active{transform:scale(.92)}
+.sc-sync.busy{animation:scspin .8s linear infinite;pointer-events:none;opacity:.7}
+@keyframes scspin{to{transform:rotate(360deg)}}
 .sync-clock b{color:var(--accent);font-weight:600}
 
 /* ========== Toast ========== */
@@ -1461,7 +1467,10 @@ tr:hover td{background:rgba(255,255,255,.02)}
 </div>
 
 <!-- ========== Fixed Sync Clock (top-right) ========== -->
-<div class="sync-clock" id="syncClock">最近同步：—</div>
+<div class="sync-clock" id="syncClock">
+  <span class="sc-text" id="syncClockText">最近同步：—</span>
+  <button class="sc-sync" id="topSyncBtn" title="立即同步到云端" onclick="manualSync()" aria-label="立即同步"><span class="sc-ico">&#8635;</span></button>
+</div>
 
 <!-- ========== Mobile Bottom Nav ========== -->
 <div class="mobile-bottomnav">
@@ -1518,7 +1527,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     <button class="da-btn" onclick="openSettings()"><span class="da-ico">&#9881;</span>设置</button>
     <div class="drawer-sync">
       <span id="drawerSyncStatus" class="drawer-sync-status">未同步</span>
-      <button class="da-btn small" onclick="manualSync()"><span class="da-ico">&#8635;</span>立即同步</button>
+      <button class="da-btn small" id="drawerSyncBtn" onclick="manualSync()"><span class="da-ico">&#8635;</span>立即同步</button>
     </div>
   </div>
   <nav class="nav" id="drawerNav">
@@ -3307,6 +3316,13 @@ async function autoCloudSync(contentData, menuData) {
   }
 }
 
+function setSyncBusy(on) {
+  ['topSyncBtn', 'drawerSyncBtn'].forEach(function(id) {
+    const b = document.getElementById(id);
+    if (b) b.classList.toggle('busy', !!on);
+  });
+}
+
 async function manualSync() {
   if (!getWriteToken()) {
     openTokenModal();
@@ -3314,6 +3330,7 @@ async function manualSync() {
   }
   if (syncLock) return;
   syncLock = true;
+  setSyncBusy(true);
   showIndicator('saving', '同步中...');
   showToast('正在同步到云端...', '');
   try {
@@ -3324,6 +3341,7 @@ async function manualSync() {
     showToast('同步失败: ' + err.message, 'error');
   } finally {
     syncLock = false;
+    setSyncBusy(false);
   }
 }
 
@@ -3339,34 +3357,60 @@ async function syncToCloud(contentData, menuData, silent) {
     content: contentData,
     menu: menuData
   }, null, 2);
+  const contentB64 = btoa(unescape(encodeURIComponent(jsonContent)));
 
   const path = 'content.json';
   const apiUrl = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path + '?ref=' + branch;
+  const getHeaders = { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' };
+  const putHeaders = {
+    'Authorization': 'Bearer ' + token,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
 
-  // 最多重试一次，处理 409 并发冲突（别人刚改过）
-  for (let attempt = 0; attempt < 2; attempt++) {
-    let sha = null;
+  // 拉取当前文件 sha：成功返回 {sha}；文件不存在(404)返回 {exists:false}；
+  // 权限不足(401/403)或无网络返回 {error}。内部最多重试 3 次规避瞬时抖动。
+  async function fetchSha() {
+    for (let i = 0; i < 3; i++) {
+      try {
+        const resp = await fetch(apiUrl, { headers: getHeaders });
+        if (resp.status === 200) {
+          const j = await resp.json();
+          return { sha: j.sha };
+        }
+        if (resp.status === 404) return { exists: false };
+        if (resp.status === 401 || resp.status === 403) return { error: 'Token 无权限（需对该仓库 Contents 有读写权限）' };
+        await new Promise(r => setTimeout(r, 400 * (i + 1)));
+      } catch (e) {
+        await new Promise(r => setTimeout(r, 400 * (i + 1)));
+      }
+    }
+    return { error: '无法连接 GitHub，请检查网络' };
+  }
+
+  // 最多尝试 3 次：每次都先取最新 sha，再 PUT。遇到 409 并发冲突时
+  // 重新拉取最新 sha 后重试，避免把无效 sha:null 发给已存在的文件。
+  let lastErr = '';
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const meta = await fetchSha();
+    if (meta.error) { lastErr = meta.error; break; }
+
+    const body = {
+      message: 'Update kitchen content - ' + new Date().toLocaleString('zh-CN'),
+      content: contentB64,
+      branch: branch
+    };
+    // 已存在则带 sha（更新）；文件不存在(404)则不带 sha（新建）。绝不发送 null。
+    if (meta.sha) body.sha = meta.sha;
+
+    let updateResp;
     try {
-      const resp = await fetch(apiUrl, {
-        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }
-      });
-      if (resp.ok) sha = (await resp.json()).sha;
-    } catch(e) {}
-
-    const updateResp = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: 'Update kitchen content - ' + new Date().toLocaleString('zh-CN'),
-        content: btoa(unescape(encodeURIComponent(jsonContent))),
-        sha: sha,
-        branch: branch
-      })
-    });
+      updateResp = await fetch(apiUrl, { method: 'PUT', headers: putHeaders, body: JSON.stringify(body) });
+    } catch (e) {
+      lastErr = '网络错误：' + e.message;
+      await new Promise(r => setTimeout(r, 400));
+      continue;
+    }
 
     if (updateResp.ok) {
       const now = new Date();
@@ -3394,15 +3438,19 @@ async function syncToCloud(contentData, menuData, silent) {
       }
       return;
     }
-    // 409 = 文件已被别人改动，重新取 sha 再试一次
-    if (updateResp.status === 409 && attempt === 0) {
-      if (!silent) showToast('检测到冲突，正在重试...', 'warning');
+
+    const errJson = await updateResp.json().catch(() => ({}));
+    lastErr = errJson.message || ('上传失败 (HTTP ' + updateResp.status + ')');
+    // 409 = 文件已被别人改动（或并发写入），重新取最新 sha 再试一次
+    if (updateResp.status === 409) {
+      if (!silent && attempt < 2) showToast('检测到冲突，正在重试...', 'warning');
+      await new Promise(r => setTimeout(r, 300 * (attempt + 1)));
       continue;
     }
-    const err = await updateResp.json().catch(() => ({}));
-    throw new Error(err.message || '上传失败 (HTTP ' + updateResp.status + ')');
+    // 其它错误（401/403/422 等）直接抛出，不再重试
+    break;
   }
-  throw new Error('同步失败：重试后仍有冲突');
+  throw new Error(lastErr || '同步失败');
 }
 
 // 拉取云端最新 content.json（带缓存破坏参数，保证拿到最新）
@@ -3492,7 +3540,7 @@ function formatFullDate(ts) {
          pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
 }
 function updateSyncClock() {
-  const el = document.getElementById('syncClock');
+  const el = document.getElementById('syncClockText');
   if (!el) return;
   const ts = lastRemoteSync || settings.lastSyncTs || 0;
   el.innerHTML = ts ? '最近同步：<b>' + formatFullDate(ts) + '</b>' : '最近同步：—';
