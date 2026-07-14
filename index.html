@@ -1800,6 +1800,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
 // ========== State ==========
 const STORAGE_KEY = 'lixin_kitchen_v4';
 const SETTINGS_KEY = 'lixin_kitchen_settings_v4';
+const LAST_SYNCED_KEY = 'lixin_kitchen_last_synced_v4';
+const REMOTE_BACKUP_KEY = 'lixin_remote_backup_v4';
 const DEFAULT_PASSWORD = '12345678';
 
 // Hardcoded GitHub repo info — no user configuration needed
@@ -1821,6 +1823,8 @@ const CLOUD_POLL_INTERVAL = 15000;
 let dirtySinceSave = false;
 // 最近一次从云端取到的同步时间
 let lastRemoteSync = 0;
+// 上次成功同步时的快照，用于冲突时做三向合并
+let lastSyncedSnapshot = null;
 
 function getWriteToken() {
   const s = (typeof settings !== 'undefined' && settings) ? settings.ghToken : '';
@@ -3451,6 +3455,65 @@ async function waitForSyncLease(ms) {
   return !syncLeaseValid();
 }
 
+// ========== Sync snapshot & 3-way merge helpers ==========
+function deepCopy(obj) { try { return JSON.parse(JSON.stringify(obj)); } catch(e) { return obj; } }
+function saveLastSyncedSnapshot(contentData, menuData, syncDate) {
+  try {
+    lastSyncedSnapshot = { content: deepCopy(contentData), menu: deepCopy(menuData), syncDate: syncDate };
+    localStorage.setItem(LAST_SYNCED_KEY, JSON.stringify(lastSyncedSnapshot));
+  } catch(e) {}
+}
+function loadLastSyncedSnapshot() {
+  try {
+    const raw = localStorage.getItem(LAST_SYNCED_KEY);
+    if (raw) lastSyncedSnapshot = JSON.parse(raw);
+  } catch(e) { lastSyncedSnapshot = null; }
+}
+function mergeContent(local, remote, base) {
+  const merged = {};
+  const conflicts = [];
+  const allIds = new Set([
+    ...(base ? Object.keys(base) : []),
+    ...Object.keys(local || {}),
+    ...Object.keys(remote || {})
+  ]);
+  allIds.forEach(id => {
+    const l = (local || {})[id];
+    const r = (remote || {})[id];
+    const b = base ? base[id] : undefined;
+    if (l === r) { merged[id] = l; return; }
+    if (base) {
+      if (l === b) { merged[id] = r; return; } // 只有云端改了
+      if (r === b) { merged[id] = l; return; } // 只有本地改了
+    }
+    // 双方同时改：保留本地，记录冲突
+    merged[id] = l;
+    conflicts.push(id);
+  });
+  return { merged, conflicts };
+}
+function mergeSnapshot(local, remote, base) {
+  const cMerge = mergeContent(local.content, remote.content, base ? base.content : null);
+  let mMerge = { merged: local.menu, conflicts: [] };
+  if (base && base.menu) {
+    const lb = JSON.stringify(local.menu);
+    const rb = JSON.stringify(remote.menu);
+    const bb = JSON.stringify(base.menu);
+    if (lb === rb) mMerge = { merged: local.menu, conflicts: [] };
+    else if (lb === bb) mMerge = { merged: remote.menu, conflicts: [] };
+    else if (rb === bb) mMerge = { merged: local.menu, conflicts: [] };
+    else mMerge = { merged: local.menu, conflicts: ['menu'] }; // 菜单同时改，保留本地
+  }
+  return {
+    merged: { content: cMerge.merged, menu: mMerge.merged },
+    conflicts: [...cMerge.conflicts, ...mMerge.conflicts]
+  };
+}
+
+// expose for unit tests
+window.mergeContent = mergeContent;
+window.mergeSnapshot = mergeSnapshot;
+
 async function autoCloudSync(contentData, menuData) {
   // 静默后台同步
   if (!getWriteToken()) return; // 无 token 则仅本地保存，跳过云端
@@ -3502,6 +3565,107 @@ async function manualSync() {
     releaseSyncLease(leaseId);
     syncLock = false;
     setSyncBusy(false);
+  }
+}
+
+async function resolveSyncConflict(localContent, localMenu, silent) {
+  const token = getWriteToken();
+  const { owner, repo, branch } = GH_CONFIG;
+  const path = 'content.json';
+  const apiUrl = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path + '?ref=' + branch;
+  const getHeaders = { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' };
+
+  // 1. 拉取云端当前版本
+  const resp = await fetch(apiUrl, { headers: getHeaders });
+  if (!resp.ok) {
+    if (resp.status === 401 || resp.status === 403) throw new Error('Token 无权限：无法读取云端版本');
+    throw new Error('无法获取云端版本以合并（HTTP ' + resp.status + '）');
+  }
+  const remoteMeta = await resp.json();
+  let remotePayload;
+  try {
+    const json = decodeURIComponent(escape(atob(remoteMeta.content)));
+    remotePayload = JSON.parse(json);
+  } catch(e) {
+    throw new Error('云端文件格式异常，无法合并');
+  }
+
+  // 2. 备份云端版本到本地
+  try {
+    localStorage.setItem(REMOTE_BACKUP_KEY, JSON.stringify({
+      content: remotePayload.content,
+      menu: remotePayload.menu,
+      syncDate: remotePayload.syncDate,
+      savedAt: new Date().toISOString()
+    }));
+  } catch(e) {}
+
+  // 3. 三向合并（无上次同步快照时退化为"本地优先"）
+  const merged = mergeSnapshot(
+    { content: localContent, menu: localMenu },
+    { content: remotePayload.content || {}, menu: remotePayload.menu },
+    lastSyncedSnapshot
+  );
+
+  // 4. 应用合并结果到本地
+  applyCloudPayload({ content: merged.merged.content, menu: merged.merged.menu, syncDate: new Date().toISOString() }, false);
+  saveAll();
+  if (!silent) {
+    const msg = merged.conflicts.length
+      ? '检测到云端同时更新，已自动合并；冲突部分保留本地编辑，云端原版本已备份'
+      : '检测到云端更新，已自动合并并即将重新推送';
+    showToast(msg, 'warning');
+  }
+
+  // 5. 重新推送到云端
+  const mergedJson = JSON.stringify({
+    version: '5.0',
+    syncDate: new Date().toISOString(),
+    content: merged.merged.content,
+    menu: merged.merged.menu
+  }, null, 2);
+  const mergedB64 = btoa(unescape(encodeURIComponent(mergedJson)));
+
+  const shaResp = await fetch(apiUrl, { headers: getHeaders });
+  let freshSha = null;
+  if (shaResp.ok) {
+    const shaJson = await shaResp.json();
+    freshSha = shaJson.sha;
+  }
+  const putResp = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: 'Merge kitchen content - ' + new Date().toLocaleString('zh-CN'),
+      content: mergedB64,
+      branch: branch,
+      ...(freshSha ? { sha: freshSha } : {})
+    })
+  });
+
+  if (!putResp.ok) {
+    const errJson = await putResp.json().catch(() => ({}));
+    throw new Error('合并后推送失败：' + (errJson.message || ('HTTP ' + putResp.status)));
+  }
+
+  // 6. 成功：更新最后同步快照与 UI
+  const now = new Date();
+  const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+  settings.lastSync = ts;
+  lastRemoteSync = Date.now();
+  settings.lastSyncTs = lastRemoteSync;
+  dirtySinceSave = false;
+  saveLastSyncedSnapshot(merged.merged.content, merged.merged.menu, new Date().toISOString());
+  saveSettings();
+  applySettings();
+  updateSyncUI('已同步 ' + ts);
+  if (!silent) {
+    showIndicator('saved', '已同步');
+    showToast('已自动合并并同步到云端', 'success');
   }
 }
 
@@ -3579,6 +3743,8 @@ async function syncToCloud(contentData, menuData, silent) {
       lastRemoteSync = Date.now();
       settings.lastSyncTs = lastRemoteSync;
       dirtySinceSave = false;
+      // 记录本次成功同步的快照，供后续冲突时三向合并
+      saveLastSyncedSnapshot(contentData, menuData, syncDate);
       // 同步本地时间戳，避免轮询时把自己刚上传的版本又拉回来
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
@@ -3611,8 +3777,11 @@ async function syncToCloud(contentData, menuData, silent) {
     // 其它错误（401/403 等）直接抛出，不再重试
     break;
   }
+  // 多次重试后仍冲突：自动拉取云端做三向合并，再推送合并结果，避免让用户刷新页面
   if (typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match')) {
-    throw new Error('同步冲突：云端文件已被其他设备更新，请刷新页面后重试');
+    if (!silent) showToast('云端文件已被更新，正在自动合并...', 'warning');
+    await resolveSyncConflict(contentData, menuData, silent);
+    return;
   }
   throw new Error(lastErr || '同步失败');
 }
@@ -3839,6 +4008,7 @@ function showToast(text, type) {
 loadMenu();
 loadSettings();
 loadData();
+loadLastSyncedSnapshot();
 renderMenu();
 setupNavigation();
 
