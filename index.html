@@ -1482,6 +1482,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 <div class="sync-clock" id="syncClock">
   <span class="sc-text" id="syncClockText">最近同步：—</span>
   <button class="sc-sync" id="topSyncBtn" title="立即同步到云端" onclick="manualSync()" aria-label="立即同步"><span class="sc-ico">&#8635;</span></button>
+  <button class="sc-sync" id="refreshBtn" title="刷新页面以获取最新版本" onclick="forceRefresh()" aria-label="刷新页面"><span class="sc-ico">&#x21bb;</span></button>
 </div>
 
 <!-- ========== Mobile Bottom Nav ========== -->
@@ -3542,6 +3543,16 @@ function setSyncBusy(on) {
   });
 }
 
+function forceRefresh() {
+  showToast('正在刷新，获取最新版本...', 'info');
+  if (navigator.vibrate) navigator.vibrate(20);
+  setTimeout(function() {
+    const u = new URL(window.location.href);
+    u.searchParams.set('_r', Date.now().toString());
+    window.location.href = u.href;
+  }, 200);
+}
+
 async function manualSync() {
   if (!getWriteToken()) {
     openTokenModal();
@@ -3574,99 +3585,136 @@ async function resolveSyncConflict(localContent, localMenu, silent) {
   const path = 'content.json';
   const apiUrl = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path + '?ref=' + branch;
   const getHeaders = { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' };
+  const putHeaders = {
+    'Authorization': 'Bearer ' + token,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
 
-  // 1. 拉取云端当前版本
-  const resp = await fetch(apiUrl, { headers: getHeaders });
-  if (!resp.ok) {
-    if (resp.status === 401 || resp.status === 403) throw new Error('Token 无权限：无法读取云端版本');
-    throw new Error('无法获取云端版本以合并（HTTP ' + resp.status + '）');
+  let lastErr = '';
+  // 外层循环：最多重新拉取/合并 4 次，处理云端持续被其它设备更新
+  for (let attempt = 0; attempt < 4; attempt++) {
+    // 1. 拉取云端当前版本
+    let resp;
+    try {
+      resp = await fetch(apiUrl, { headers: getHeaders });
+    } catch(e) {
+      throw new Error('无法连接 GitHub，请检查网络');
+    }
+    if (!resp.ok) {
+      if (resp.status === 401 || resp.status === 403) throw new Error('Token 无权限：无法读取云端版本');
+      throw new Error('无法获取云端版本以合并（HTTP ' + resp.status + '）');
+    }
+    const remoteMeta = await resp.json();
+    let remotePayload;
+    try {
+      const json = decodeURIComponent(escape(atob(remoteMeta.content)));
+      remotePayload = JSON.parse(json);
+    } catch(e) {
+      throw new Error('云端文件格式异常，无法合并');
+    }
+
+    // 2. 备份云端版本到本地（仅首次）
+    if (attempt === 0) {
+      try {
+        localStorage.setItem(REMOTE_BACKUP_KEY, JSON.stringify({
+          content: remotePayload.content,
+          menu: remotePayload.menu,
+          syncDate: remotePayload.syncDate,
+          savedAt: new Date().toISOString()
+        }));
+      } catch(e) {}
+    }
+
+    // 3. 三向合并（无上次同步快照时退化为"本地优先"）
+    const merged = mergeSnapshot(
+      { content: localContent, menu: localMenu },
+      { content: remotePayload.content || {}, menu: remotePayload.menu },
+      lastSyncedSnapshot
+    );
+
+    // 4. 应用合并结果到本地
+    applyCloudPayload({ content: merged.merged.content, menu: merged.merged.menu, syncDate: new Date().toISOString() }, false);
+    saveAll();
+    if (!silent) {
+      const msg = merged.conflicts.length
+        ? '检测到云端同时更新，已自动合并；冲突部分保留本地编辑'
+        : '检测到云端更新，已自动合并并即将重新推送';
+      showToast(msg, 'warning');
+    }
+    // 用合并后的结果作为后续重试的本地版本
+    localContent = merged.merged.content;
+    localMenu = merged.merged.menu;
+
+    // 5. 重新推送到云端（内层重试，处理拉取 sha 后到 PUT 之间又被改动）
+    const mergedJson = JSON.stringify({
+      version: '5.0',
+      syncDate: new Date().toISOString(),
+      content: merged.merged.content,
+      menu: merged.merged.menu
+    }, null, 2);
+    const mergedB64 = btoa(unescape(encodeURIComponent(mergedJson)));
+
+    let pushOk = false;
+    for (let p = 0; p < 3; p++) {
+      let shaResp;
+      try {
+        shaResp = await fetch(apiUrl, { headers: getHeaders });
+      } catch(e) { break; }
+      let freshSha = null;
+      if (shaResp.ok) {
+        const shaJson = await shaResp.json();
+        freshSha = shaJson.sha;
+      }
+      const putResp = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: putHeaders,
+        body: JSON.stringify({
+          message: 'Merge kitchen content - ' + new Date().toLocaleString('zh-CN'),
+          content: mergedB64,
+          branch: branch,
+          ...(freshSha ? { sha: freshSha } : {})
+        })
+      });
+      if (putResp.ok) { pushOk = true; break; }
+      const errJson = await putResp.json().catch(() => ({}));
+      lastErr = errJson.message || ('HTTP ' + putResp.status);
+      if (putResp.status === 409 || putResp.status === 422) {
+        await new Promise(r => setTimeout(r, 300 * (p + 1)));
+        continue;
+      }
+      break;
+    }
+
+    if (pushOk) {
+      // 6. 成功：更新最后同步快照与 UI
+      const now = new Date();
+      const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
+      settings.lastSync = ts;
+      lastRemoteSync = Date.now();
+      settings.lastSyncTs = lastRemoteSync;
+      dirtySinceSave = false;
+      saveLastSyncedSnapshot(merged.merged.content, merged.merged.menu, new Date().toISOString());
+      saveSettings();
+      applySettings();
+      updateSyncUI('已同步 ' + ts);
+      if (!silent) {
+        showIndicator('saved', '已同步');
+        showToast('已自动合并并同步到云端', 'success');
+      }
+      return;
+    }
+
+    // 推送仍因 sha 不匹配失败，说明云端又变了，继续外层循环重新合并
+    if (typeof lastErr === 'string' && lastErr.toLowerCase().includes('does not match')) {
+      if (!silent) showToast('云端持续更新，正在再次合并...', 'warning');
+      await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
+      continue;
+    }
+    throw new Error('合并后推送失败：' + lastErr);
   }
-  const remoteMeta = await resp.json();
-  let remotePayload;
-  try {
-    const json = decodeURIComponent(escape(atob(remoteMeta.content)));
-    remotePayload = JSON.parse(json);
-  } catch(e) {
-    throw new Error('云端文件格式异常，无法合并');
-  }
 
-  // 2. 备份云端版本到本地
-  try {
-    localStorage.setItem(REMOTE_BACKUP_KEY, JSON.stringify({
-      content: remotePayload.content,
-      menu: remotePayload.menu,
-      syncDate: remotePayload.syncDate,
-      savedAt: new Date().toISOString()
-    }));
-  } catch(e) {}
-
-  // 3. 三向合并（无上次同步快照时退化为"本地优先"）
-  const merged = mergeSnapshot(
-    { content: localContent, menu: localMenu },
-    { content: remotePayload.content || {}, menu: remotePayload.menu },
-    lastSyncedSnapshot
-  );
-
-  // 4. 应用合并结果到本地
-  applyCloudPayload({ content: merged.merged.content, menu: merged.merged.menu, syncDate: new Date().toISOString() }, false);
-  saveAll();
-  if (!silent) {
-    const msg = merged.conflicts.length
-      ? '检测到云端同时更新，已自动合并；冲突部分保留本地编辑，云端原版本已备份'
-      : '检测到云端更新，已自动合并并即将重新推送';
-    showToast(msg, 'warning');
-  }
-
-  // 5. 重新推送到云端
-  const mergedJson = JSON.stringify({
-    version: '5.0',
-    syncDate: new Date().toISOString(),
-    content: merged.merged.content,
-    menu: merged.merged.menu
-  }, null, 2);
-  const mergedB64 = btoa(unescape(encodeURIComponent(mergedJson)));
-
-  const shaResp = await fetch(apiUrl, { headers: getHeaders });
-  let freshSha = null;
-  if (shaResp.ok) {
-    const shaJson = await shaResp.json();
-    freshSha = shaJson.sha;
-  }
-  const putResp = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      message: 'Merge kitchen content - ' + new Date().toLocaleString('zh-CN'),
-      content: mergedB64,
-      branch: branch,
-      ...(freshSha ? { sha: freshSha } : {})
-    })
-  });
-
-  if (!putResp.ok) {
-    const errJson = await putResp.json().catch(() => ({}));
-    throw new Error('合并后推送失败：' + (errJson.message || ('HTTP ' + putResp.status)));
-  }
-
-  // 6. 成功：更新最后同步快照与 UI
-  const now = new Date();
-  const ts = pad(now.getMonth()+1) + '/' + pad(now.getDate()) + ' ' + pad(now.getHours()) + ':' + pad(now.getMinutes());
-  settings.lastSync = ts;
-  lastRemoteSync = Date.now();
-  settings.lastSyncTs = lastRemoteSync;
-  dirtySinceSave = false;
-  saveLastSyncedSnapshot(merged.merged.content, merged.merged.menu, new Date().toISOString());
-  saveSettings();
-  applySettings();
-  updateSyncUI('已同步 ' + ts);
-  if (!silent) {
-    showIndicator('saved', '已同步');
-    showToast('已自动合并并同步到云端', 'success');
-  }
+  throw new Error('多次尝试后仍有同步冲突，请稍后刷新重试');
 }
 
 async function syncToCloud(contentData, menuData, silent) {
